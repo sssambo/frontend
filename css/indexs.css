@@ -1,0 +1,27 @@
+/* Style the navigation bar */
+#bottom-nav {
+    background-color: #333; /* Set the background color */
+    display: flex; /* Use flexbox to align items horizontally */
+    justify-content: space-between; /* Distribute space evenly between items */
+    padding: 10px; /* Add some padding for spacing */
+    position: fixed; /* Fix the position */
+    bottom: 0; /* Stick it to the bottom of the viewport */
+    width: 100%; /* Make it span the entire width of the viewport */
+    z-index: 100; /* Ensure it's above other elements */
+}
+
+/* Style the navigation bar links (icons) */
+#bottom-nav a {
+    text-decoration: none; /* Remove underlines from links */
+    color: #fff; /* Set the text color */
+    padding: 10px; /* Add some padding to the icons */
+    display: flexbox; /* Display icons as blocks */
+    flex-direction: row;
+    text-align: center; /* Center-align the icons */
+    content: icon;
+}
+/* Style the navigation bar icons */
+#bottom-nav img {
+    width: 24px; /* Set the width of the icons */
+    height: 24px; /* Set the height of the icons */
+}
