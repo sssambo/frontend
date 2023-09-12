@@ -6,14 +6,14 @@
  *     A feature style function, a single style, or an array of styles.
  * @return {import("./style/Style.js").StyleFunction} A style function.
  */
-export function createStyleFunction(obj: import("./style/Style.js").StyleFunction | Array<import("./style/Style.js").default> | import("./style/Style.js").default): import("./style/Style.js").StyleFunction;
+export function createStyleFunction(obj: import("ol/style/Style.js").StyleFunction | Array<import("ol/style/Style.js").default> | import("ol/style/Style.js").default): import("ol/style/Style.js").StyleFunction;
 export default Feature;
-export type FeatureClass = typeof Feature | typeof import("./render/Feature.js").default;
-export type FeatureLike = Feature | import("./render/Feature.js").default;
+export type FeatureClass = typeof Feature | typeof import("ol/render/Feature.js").default;
+export type FeatureLike = Feature | import("ol/render/Feature.js").default;
 /**
  * *
  */
-export type FeatureOnSignature<Return> = import("./Observable").OnSignature<import("./Observable").EventTypes, import("./events/Event.js").default, Return> & import("./Observable").OnSignature<import("./ObjectEventType").Types | 'change:geometry', import("./Object").ObjectEvent, Return> & import("./Observable").CombinedOnSignature<import("./Observable").EventTypes | import("./ObjectEventType").Types | 'change:geometry', Return>;
+export type FeatureOnSignature<Return> = import("ol/Observable").OnSignature<import("ol/Observable").EventTypes, import("ol/events/Event.js").default, Return> & import("ol/Observable").OnSignature<import("ol/ObjectEventType").Types | 'change:geometry', import("ol/Object").ObjectEvent, Return> & import("ol/Observable").CombinedOnSignature<import("ol/Observable").EventTypes | import("ol/ObjectEventType").Types | 'change:geometry', Return>;
 /**
  * *
  */
@@ -84,7 +84,7 @@ export type ObjectWithGeometry<Geometry> = {
  * @api
  * @template {import("./geom/Geometry.js").default} [Geometry=import("./geom/Geometry.js").default]
  */
-declare class Feature<Geometry extends import("./geom/Geometry.js").default = import("./geom/Geometry.js").default> extends BaseObject {
+declare class Feature<Geometry extends import("ol/geom/Geometry.js").default = import("ol/geom/Geometry.js").default> extends BaseObject {
     /**
      * @param {Geometry|ObjectWithGeometry<Geometry>} [geometryOrProperties]
      *     You may pass a Geometry object directly, or an object literal containing
@@ -95,11 +95,11 @@ declare class Feature<Geometry extends import("./geom/Geometry.js").default = im
     /***
      * @type {FeatureOnSignature<import("./events").EventsKey>}
      */
-    on: FeatureOnSignature<import("./events").EventsKey>;
+    on: FeatureOnSignature<import("ol/events").EventsKey>;
     /***
      * @type {FeatureOnSignature<import("./events").EventsKey>}
      */
-    once: FeatureOnSignature<import("./events").EventsKey>;
+    once: FeatureOnSignature<import("ol/events").EventsKey>;
     /***
      * @type {FeatureOnSignature<void>}
      */
@@ -168,14 +168,14 @@ declare class Feature<Geometry extends import("./geom/Geometry.js").default = im
      * @return {import("./style/Style.js").StyleLike|undefined} The feature style.
      * @api
      */
-    getStyle(): import("./style/Style.js").StyleLike | undefined;
+    getStyle(): import("ol/style/Style.js").StyleLike | undefined;
     /**
      * Get the feature's style function.
      * @return {import("./style/Style.js").StyleFunction|undefined} Return a function
      * representing the current style of this feature.
      * @api
      */
-    getStyleFunction(): import("./style/Style.js").StyleFunction | undefined;
+    getStyleFunction(): import("ol/style/Style.js").StyleFunction | undefined;
     /**
      * @private
      */
@@ -201,7 +201,7 @@ declare class Feature<Geometry extends import("./geom/Geometry.js").default = im
      * @api
      * @fires module:ol/events/Event~BaseEvent#event:change
      */
-    setStyle(style?: import("./style/Style.js").StyleLike | undefined): void;
+    setStyle(style?: import("ol/style/Style.js").StyleLike | undefined): void;
     /**
      * Set the feature id.  The feature id is considered stable and may be used when
      * requesting features or comparing identifiers returned from a remote source.
@@ -221,5 +221,5 @@ declare class Feature<Geometry extends import("./geom/Geometry.js").default = im
      */
     setGeometryName(name: string): void;
 }
-import BaseObject from './Object.js';
+import BaseObject from 'ol/Object.js';
 //# sourceMappingURL=Feature.d.ts.map

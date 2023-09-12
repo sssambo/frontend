@@ -25,7 +25,7 @@ export type EventType = 'addlayer' | 'removelayer';
 /**
  * *
  */
-export type GroupOnSignature<Return> = import("../Observable").OnSignature<import("../Observable").EventTypes, import("../events/Event.js").default, Return> & import("../Observable").OnSignature<import("./Base").BaseLayerObjectEventTypes | 'change:layers', import("../Object").ObjectEvent, Return> & import("../Observable").CombinedOnSignature<import("../Observable").EventTypes | import("./Base").BaseLayerObjectEventTypes | 'change:layers', Return>;
+export type GroupOnSignature<Return> = import("ol/Observable").OnSignature<import("ol/Observable").EventTypes, import("ol/events/Event.js").default, Return> & import("ol/Observable").OnSignature<import("ol/layer/Base").BaseLayerObjectEventTypes | 'change:layers', import("ol/Object").ObjectEvent, Return> & import("ol/Observable").CombinedOnSignature<import("ol/Observable").EventTypes | import("ol/layer/Base").BaseLayerObjectEventTypes | 'change:layers', Return>;
 export type Options = {
     /**
      * Opacity (0, 1).
@@ -39,7 +39,7 @@ export type Options = {
      * The bounding extent for layer rendering.  The layer will not be
      * rendered outside of this extent.
      */
-    extent?: import("../extent.js").Extent | undefined;
+    extent?: import("ol/extent.js").Extent | undefined;
     /**
      * The z-index for layer rendering.  At rendering time, the layers
      * will be ordered, first by Z-index and then by position. When `undefined`, a `zIndex` of 0 is assumed
@@ -78,9 +78,9 @@ export type Options = {
         [x: string]: any;
     } | undefined;
 };
-import Event from '../events/Event.js';
-import BaseLayer from './Base.js';
-import EventType from '../events/EventType.js';
+import Event from 'ol/events/Event.js';
+import BaseLayer from 'ol/layer/Base.js';
+import EventType from 'ol/events/EventType.js';
 /**
  * @classdesc
  * A {@link module:ol/Collection~Collection} of layers that are handled together.
@@ -97,11 +97,11 @@ declare class LayerGroup extends BaseLayer {
     /***
      * @type {GroupOnSignature<import("../events").EventsKey>}
      */
-    on: GroupOnSignature<import("../events").EventsKey>;
+    on: GroupOnSignature<import("ol/events").EventsKey>;
     /***
      * @type {GroupOnSignature<import("../events").EventsKey>}
      */
-    once: GroupOnSignature<import("../events").EventsKey>;
+    once: GroupOnSignature<import("ol/events").EventsKey>;
     /***
      * @type {GroupOnSignature<void>}
      */
@@ -154,7 +154,7 @@ declare class LayerGroup extends BaseLayer {
      * @observable
      * @api
      */
-    getLayers(): Collection<import("./Base.js").default>;
+    getLayers(): Collection<import("ol/layer/Base.js").default>;
     /**
      * Set the {@link module:ol/Collection~Collection collection} of {@link module:ol/layer/Layer~Layer layers}
      * in this group.
@@ -163,7 +163,7 @@ declare class LayerGroup extends BaseLayer {
      * @observable
      * @api
      */
-    setLayers(layers: Collection<import("./Base.js").default>): void;
+    setLayers(layers: Collection<import("ol/layer/Base.js").default>): void;
 }
-import Collection from '../Collection.js';
+import Collection from 'ol/Collection.js';
 //# sourceMappingURL=Group.d.ts.map

@@ -18,7 +18,7 @@ declare class CanvasImmediateRenderer extends VectorContext {
      * @param {number} [squaredTolerance] Optional squared tolerance for simplification.
      * @param {import("../../proj.js").TransformFunction} [userTransform] Transform from user to view projection.
      */
-    constructor(context: CanvasRenderingContext2D, pixelRatio: number, extent: import("../../extent.js").Extent, transform: import("../../transform.js").Transform, viewRotation: number, squaredTolerance?: number | undefined, userTransform?: import("../../proj.js").TransformFunction | undefined);
+    constructor(context: CanvasRenderingContext2D, pixelRatio: number, extent: import("ol/extent.js").Extent, transform: import("ol/transform.js").Transform, viewRotation: number, squaredTolerance?: number | undefined, userTransform?: import("ol/proj.js").TransformFunction | undefined);
     /**
      * @private
      * @type {CanvasRenderingContext2D}
@@ -236,11 +236,11 @@ declare class CanvasImmediateRenderer extends VectorContext {
      * @param {import("../../geom/Circle.js").default} geometry Circle geometry.
      * @api
      */
-    drawCircle(geometry: import("../../geom/Circle.js").default): void;
+    drawCircle(geometry: import("ol/geom/Circle.js").default): void;
     /**
      * @param {import("../../transform.js").Transform} transform Transform.
      */
-    setTransform(transform: import("../../transform.js").Transform): void;
+    setTransform(transform: import("ol/transform.js").Transform): void;
     /**
      * Render a geometry into the canvas.  Call
      * {@link module:ol/render/canvas/Immediate~CanvasImmediateRenderer#setStyle renderer.setStyle()} first to set the rendering style.
@@ -248,55 +248,55 @@ declare class CanvasImmediateRenderer extends VectorContext {
      * @param {import("../../geom/Geometry.js").default|import("../Feature.js").default} geometry The geometry to render.
      * @api
      */
-    drawGeometry(geometry: import("../../geom/Geometry.js").default | import("../Feature.js").default): void;
+    drawGeometry(geometry: import("ol/geom/Geometry.js").default | import("ol/render/Feature.js").default): void;
     /**
      * Render a GeometryCollection to the canvas.  Rendering is immediate and
      * uses the current styles appropriate for each geometry in the collection.
      *
      * @param {import("../../geom/GeometryCollection.js").default} geometry Geometry collection.
      */
-    drawGeometryCollection(geometry: import("../../geom/GeometryCollection.js").default): void;
+    drawGeometryCollection(geometry: import("ol/geom/GeometryCollection.js").default): void;
     /**
      * Render a Point geometry into the canvas.  Rendering is immediate and uses
      * the current style.
      *
      * @param {import("../../geom/Point.js").default|import("../Feature.js").default} geometry Point geometry.
      */
-    drawPoint(geometry: import("../../geom/Point.js").default | import("../Feature.js").default): void;
+    drawPoint(geometry: import("ol/geom/Point.js").default | import("ol/render/Feature.js").default): void;
     /**
      * Render a MultiPoint geometry  into the canvas.  Rendering is immediate and
      * uses the current style.
      *
      * @param {import("../../geom/MultiPoint.js").default|import("../Feature.js").default} geometry MultiPoint geometry.
      */
-    drawMultiPoint(geometry: import("../../geom/MultiPoint.js").default | import("../Feature.js").default): void;
+    drawMultiPoint(geometry: import("ol/geom/MultiPoint.js").default | import("ol/render/Feature.js").default): void;
     /**
      * Render a LineString into the canvas.  Rendering is immediate and uses
      * the current style.
      *
      * @param {import("../../geom/LineString.js").default|import("../Feature.js").default} geometry LineString geometry.
      */
-    drawLineString(geometry: import("../../geom/LineString.js").default | import("../Feature.js").default): void;
+    drawLineString(geometry: import("ol/geom/LineString.js").default | import("ol/render/Feature.js").default): void;
     /**
      * Render a MultiLineString geometry into the canvas.  Rendering is immediate
      * and uses the current style.
      *
      * @param {import("../../geom/MultiLineString.js").default|import("../Feature.js").default} geometry MultiLineString geometry.
      */
-    drawMultiLineString(geometry: import("../../geom/MultiLineString.js").default | import("../Feature.js").default): void;
+    drawMultiLineString(geometry: import("ol/geom/MultiLineString.js").default | import("ol/render/Feature.js").default): void;
     /**
      * Render a Polygon geometry into the canvas.  Rendering is immediate and uses
      * the current style.
      *
      * @param {import("../../geom/Polygon.js").default|import("../Feature.js").default} geometry Polygon geometry.
      */
-    drawPolygon(geometry: import("../../geom/Polygon.js").default | import("../Feature.js").default): void;
+    drawPolygon(geometry: import("ol/geom/Polygon.js").default | import("ol/render/Feature.js").default): void;
     /**
      * Render MultiPolygon geometry into the canvas.  Rendering is immediate and
      * uses the current style.
      * @param {import("../../geom/MultiPolygon.js").default} geometry MultiPolygon geometry.
      */
-    drawMultiPolygon(geometry: import("../../geom/MultiPolygon.js").default): void;
+    drawMultiPolygon(geometry: import("ol/geom/MultiPolygon.js").default): void;
     /**
      * @param {import("../canvas.js").FillState} fillState Fill state.
      * @private
@@ -318,14 +318,14 @@ declare class CanvasImmediateRenderer extends VectorContext {
      *
      * @param {import("../../style/Image.js").default} imageStyle Image style.
      */
-    setImageStyle(imageStyle: import("../../style/Image.js").default): void;
+    setImageStyle(imageStyle: import("ol/style/Image.js").default): void;
     /**
      * Set the text style for subsequent draw operations.  Pass null to
      * remove the text style.
      *
      * @param {import("../../style/Text.js").default} textStyle Text style.
      */
-    setTextStyle(textStyle: import("../../style/Text.js").default): void;
+    setTextStyle(textStyle: import("ol/style/Text.js").default): void;
 }
-import VectorContext from '../VectorContext.js';
+import VectorContext from 'ol/render/VectorContext.js';
 //# sourceMappingURL=Immediate.d.ts.map

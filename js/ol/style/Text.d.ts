@@ -43,7 +43,7 @@ export type Options = {
     /**
      * Scale.
      */
-    scale?: number | import("../size.js").Size | undefined;
+    scale?: number | import("ol/size.js").Size | undefined;
     /**
      * Whether to rotate the text with the view.
      */
@@ -85,7 +85,7 @@ export type Options = {
     /**
      * Stroke style.
      */
-    stroke?: import("./Stroke.js").default | undefined;
+    stroke?: import("ol/style/Stroke.js").default | undefined;
     /**
      * Fill style for the text background when `placement` is
      * `'point'`. Default is no fill.
@@ -95,7 +95,7 @@ export type Options = {
      * Stroke style for the text background  when `placement`
      * is `'point'`. Default is no stroke.
      */
-    backgroundStroke?: import("./Stroke.js").default | undefined;
+    backgroundStroke?: import("ol/style/Stroke.js").default | undefined;
     /**
      * Padding in pixels around the text for decluttering and background. The order of
      * values in the array is `[top, right, bottom, left]`.
@@ -304,7 +304,7 @@ declare class Text {
      * @return {import("./Fill.js").default} Fill style.
      * @api
      */
-    getFill(): import("./Fill.js").default;
+    getFill(): import("ol/style/Fill.js").default;
     /**
      * Determine whether the text rotates with the map.
      * @return {boolean|undefined} Rotate with map.
@@ -322,18 +322,18 @@ declare class Text {
      * @return {number|import("../size.js").Size|undefined} Scale.
      * @api
      */
-    getScale(): number | import("../size.js").Size | undefined;
+    getScale(): number | import("ol/size.js").Size | undefined;
     /**
      * Get the symbolizer scale array.
      * @return {import("../size.js").Size} Scale array.
      */
-    getScaleArray(): import("../size.js").Size;
+    getScaleArray(): import("ol/size.js").Size;
     /**
      * Get the stroke style for the text.
      * @return {import("./Stroke.js").default} Stroke style.
      * @api
      */
-    getStroke(): import("./Stroke.js").default;
+    getStroke(): import("ol/style/Stroke.js").default;
     /**
      * Get the text to be rendered.
      * @return {string|Array<string>|undefined} Text.
@@ -363,13 +363,13 @@ declare class Text {
      * @return {import("./Fill.js").default} Fill style.
      * @api
      */
-    getBackgroundFill(): import("./Fill.js").default;
+    getBackgroundFill(): import("ol/style/Fill.js").default;
     /**
      * Get the background stroke style for the text.
      * @return {import("./Stroke.js").default} Stroke style.
      * @api
      */
-    getBackgroundStroke(): import("./Stroke.js").default;
+    getBackgroundStroke(): import("ol/style/Stroke.js").default;
     /**
      * Get the padding for the text.
      * @return {Array<number>|null} Padding.
@@ -437,7 +437,7 @@ declare class Text {
      * @param {import("./Fill.js").default} fill Fill style.
      * @api
      */
-    setFill(fill: import("./Fill.js").default): void;
+    setFill(fill: import("ol/style/Fill.js").default): void;
     /**
      * Set the rotation.
      *
@@ -451,14 +451,14 @@ declare class Text {
      * @param {number|import("../size.js").Size|undefined} scale Scale.
      * @api
      */
-    setScale(scale: number | import("../size.js").Size | undefined): void;
+    setScale(scale: number | import("ol/size.js").Size | undefined): void;
     /**
      * Set the stroke.
      *
      * @param {import("./Stroke.js").default} stroke Stroke style.
      * @api
      */
-    setStroke(stroke: import("./Stroke.js").default): void;
+    setStroke(stroke: import("ol/style/Stroke.js").default): void;
     /**
      * Set the text.
      *
@@ -493,14 +493,14 @@ declare class Text {
      * @param {import("./Fill.js").default} fill Fill style.
      * @api
      */
-    setBackgroundFill(fill: import("./Fill.js").default): void;
+    setBackgroundFill(fill: import("ol/style/Fill.js").default): void;
     /**
      * Set the background stroke.
      *
      * @param {import("./Stroke.js").default} stroke Stroke style.
      * @api
      */
-    setBackgroundStroke(stroke: import("./Stroke.js").default): void;
+    setBackgroundStroke(stroke: import("ol/style/Stroke.js").default): void;
     /**
      * Set the padding (`[top, right, bottom, left]`).
      *
@@ -509,5 +509,5 @@ declare class Text {
      */
     setPadding(padding: Array<number> | null): void;
 }
-import Fill from './Fill.js';
+import Fill from 'ol/style/Fill.js';
 //# sourceMappingURL=Text.d.ts.map

@@ -15,7 +15,7 @@ export type Options = {
     /**
      * Scale.
      */
-    scale: number | import("../size.js").Size;
+    scale: number | import("ol/size.js").Size;
     /**
      * Displacement.
      */
@@ -110,12 +110,12 @@ declare class ImageStyle {
      * @return {number|import("../size.js").Size} Scale.
      * @api
      */
-    getScale(): number | import("../size.js").Size;
+    getScale(): number | import("ol/size.js").Size;
     /**
      * Get the symbolizer scale array.
      * @return {import("../size.js").Size} Scale array.
      */
-    getScaleArray(): import("../size.js").Size;
+    getScaleArray(): import("ol/size.js").Size;
     /**
      * Get the displacement of the shape
      * @return {Array<number>} Shape's center displacement
@@ -141,12 +141,12 @@ declare class ImageStyle {
      * @param {number} pixelRatio Pixel ratio.
      * @return {import('../DataTile.js').ImageLike} Image element.
      */
-    getImage(pixelRatio: number): import('../DataTile.js').ImageLike;
+    getImage(pixelRatio: number): import('ol/DataTile.js').ImageLike;
     /**
      * @abstract
      * @return {import('../DataTile.js').ImageLike} Image element.
      */
-    getHitDetectionImage(): import('../DataTile.js').ImageLike;
+    getHitDetectionImage(): import('ol/DataTile.js').ImageLike;
     /**
      * Get the image pixel ratio.
      * @param {number} pixelRatio Pixel ratio.
@@ -162,7 +162,7 @@ declare class ImageStyle {
      * @abstract
      * @return {import("../size.js").Size} Image size.
      */
-    getImageSize(): import("../size.js").Size;
+    getImageSize(): import("ol/size.js").Size;
     /**
      * Get the origin of the symbolizer.
      * @abstract
@@ -174,7 +174,7 @@ declare class ImageStyle {
      * @abstract
      * @return {import("../size.js").Size} Size.
      */
-    getSize(): import("../size.js").Size;
+    getSize(): import("ol/size.js").Size;
     /**
      * Set the displacement.
      *
@@ -209,12 +209,12 @@ declare class ImageStyle {
      * @param {number|import("../size.js").Size} scale Scale.
      * @api
      */
-    setScale(scale: number | import("../size.js").Size): void;
+    setScale(scale: number | import("ol/size.js").Size): void;
     /**
      * @abstract
      * @param {function(import("../events/Event.js").default): void} listener Listener function.
      */
-    listenImageChange(listener: (arg0: import("../events/Event.js").default) => void): void;
+    listenImageChange(listener: (arg0: import("ol/events/Event.js").default) => void): void;
     /**
      * Load not yet loaded URI.
      * @abstract
@@ -224,6 +224,6 @@ declare class ImageStyle {
      * @abstract
      * @param {function(import("../events/Event.js").default): void} listener Listener function.
      */
-    unlistenImageChange(listener: (arg0: import("../events/Event.js").default) => void): void;
+    unlistenImageChange(listener: (arg0: import("ol/events/Event.js").default) => void): void;
 }
 //# sourceMappingURL=Image.d.ts.map

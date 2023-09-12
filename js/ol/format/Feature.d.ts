@@ -4,13 +4,13 @@
  * @param {WriteOptions|ReadOptions} [options] Options.
  * @return {import("../geom/Geometry.js").default} Transformed geometry.
  */
-export function transformGeometryWithOptions(geometry: import("../geom/Geometry.js").default, write: boolean, options?: ReadOptions | WriteOptions | undefined): import("../geom/Geometry.js").default;
+export function transformGeometryWithOptions(geometry: import("ol/geom/Geometry.js").default, write: boolean, options?: ReadOptions | WriteOptions | undefined): import("ol/geom/Geometry.js").default;
 /**
  * @param {import("../extent.js").Extent} extent Extent.
  * @param {ReadOptions} [options] Read options.
  * @return {import("../extent.js").Extent} Transformed extent.
  */
-export function transformExtentWithOptions(extent: import("../extent.js").Extent, options?: ReadOptions | undefined): import("../extent.js").Extent;
+export function transformExtentWithOptions(extent: import("ol/extent.js").Extent, options?: ReadOptions | undefined): import("ol/extent.js").Extent;
 export default FeatureFormat;
 export type ReadOptions = {
     /**
@@ -20,20 +20,20 @@ export type ReadOptions = {
      * can not be derived from the data and if no `dataProjection` is set for a format,
      * the features will not be reprojected.
      */
-    dataProjection?: import("../proj.js").ProjectionLike;
+    dataProjection?: import("ol/proj.js").ProjectionLike;
     /**
      * Tile extent in map units of the tile being read.
      * This is only required when reading data with tile pixels as geometry units. When configured,
      * a `dataProjection` with `TILE_PIXELS` as `units` and the tile's pixel extent as `extent` needs to be
      * provided.
      */
-    extent?: import("../extent.js").Extent | undefined;
+    extent?: import("ol/extent.js").Extent | undefined;
     /**
      * Projection of the feature geometries
      * created by the format reader. If not provided, features will be returned in the
      * `dataProjection`.
      */
-    featureProjection?: import("../proj.js").ProjectionLike;
+    featureProjection?: import("ol/proj.js").ProjectionLike;
 };
 export type WriteOptions = {
     /**
@@ -42,13 +42,13 @@ export type WriteOptions = {
      * If no `dataProjection` is set for a format, the features will be returned
      * in the `featureProjection`.
      */
-    dataProjection?: import("../proj.js").ProjectionLike;
+    dataProjection?: import("ol/proj.js").ProjectionLike;
     /**
      * Projection of the feature geometries
      * that will be serialized by the format writer. If not provided, geometries are assumed
      * to be in the `dataProjection` if that is set; in other words, they are not transformed.
      */
-    featureProjection?: import("../proj.js").ProjectionLike;
+    featureProjection?: import("ol/proj.js").ProjectionLike;
     /**
      * When writing geometries, follow the right-hand
      * rule for linear ring orientation.  This means that polygons will have counter-clockwise
@@ -130,12 +130,12 @@ declare class FeatureFormat {
      * @protected
      * @type {import("../proj/Projection.js").default|undefined}
      */
-    protected dataProjection: import("../proj/Projection.js").default | undefined;
+    protected dataProjection: import("ol/proj/Projection.js").default | undefined;
     /**
      * @protected
      * @type {import("../proj/Projection.js").default|undefined}
      */
-    protected defaultFeatureProjection: import("../proj/Projection.js").default | undefined;
+    protected defaultFeatureProjection: import("ol/proj/Projection.js").default | undefined;
     /**
      * A list media types supported by the format in descending order of preference.
      * @type {Array<string>}
@@ -172,7 +172,7 @@ declare class FeatureFormat {
      * @param {ReadOptions} [options] Read options.
      * @return {import("../Feature.js").FeatureLike} Feature.
      */
-    readFeature(source: Document | Element | any | string, options?: ReadOptions | undefined): import("../Feature.js").FeatureLike;
+    readFeature(source: Document | Element | any | string, options?: ReadOptions | undefined): import("ol/Feature.js").FeatureLike;
     /**
      * Read all features from a source.
      *
@@ -181,7 +181,7 @@ declare class FeatureFormat {
      * @param {ReadOptions} [options] Read options.
      * @return {Array<import("../Feature.js").FeatureLike>} Features.
      */
-    readFeatures(source: Document | Element | ArrayBuffer | any | string, options?: ReadOptions | undefined): Array<import("../Feature.js").FeatureLike>;
+    readFeatures(source: Document | Element | ArrayBuffer | any | string, options?: ReadOptions | undefined): Array<import("ol/Feature.js").FeatureLike>;
     /**
      * Read a single geometry from a source.
      *
@@ -190,7 +190,7 @@ declare class FeatureFormat {
      * @param {ReadOptions} [options] Read options.
      * @return {import("../geom/Geometry.js").default} Geometry.
      */
-    readGeometry(source: Document | Element | any | string, options?: ReadOptions | undefined): import("../geom/Geometry.js").default;
+    readGeometry(source: Document | Element | any | string, options?: ReadOptions | undefined): import("ol/geom/Geometry.js").default;
     /**
      * Read the projection from a source.
      *
@@ -198,7 +198,7 @@ declare class FeatureFormat {
      * @param {Document|Element|Object|string} source Source.
      * @return {import("../proj/Projection.js").default|undefined} Projection.
      */
-    readProjection(source: Document | Element | any | string): import("../proj/Projection.js").default | undefined;
+    readProjection(source: Document | Element | any | string): import("ol/proj/Projection.js").default | undefined;
     /**
      * Encode a feature in this format.
      *
@@ -207,7 +207,7 @@ declare class FeatureFormat {
      * @param {WriteOptions} [options] Write options.
      * @return {string|ArrayBuffer} Result.
      */
-    writeFeature(feature: import("../Feature.js").default, options?: WriteOptions | undefined): string | ArrayBuffer;
+    writeFeature(feature: import("ol/Feature.js").default, options?: WriteOptions | undefined): string | ArrayBuffer;
     /**
      * Encode an array of features in this format.
      *
@@ -216,7 +216,7 @@ declare class FeatureFormat {
      * @param {WriteOptions} [options] Write options.
      * @return {string|ArrayBuffer} Result.
      */
-    writeFeatures(features: Array<import("../Feature.js").default>, options?: WriteOptions | undefined): string | ArrayBuffer;
+    writeFeatures(features: Array<import("ol/Feature.js").default>, options?: WriteOptions | undefined): string | ArrayBuffer;
     /**
      * Write a single geometry in this format.
      *
@@ -225,6 +225,6 @@ declare class FeatureFormat {
      * @param {WriteOptions} [options] Write options.
      * @return {string|ArrayBuffer} Result.
      */
-    writeGeometry(geometry: import("../geom/Geometry.js").default, options?: WriteOptions | undefined): string | ArrayBuffer;
+    writeGeometry(geometry: import("ol/geom/Geometry.js").default, options?: WriteOptions | undefined): string | ArrayBuffer;
 }
 //# sourceMappingURL=Feature.d.ts.map

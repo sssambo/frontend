@@ -270,7 +270,7 @@ export type NumberExpression = number | any[];
  * A CSS named color (e.g. `'blue'`), an array of 3 RGB values (e.g. `[0, 255, 0]`), an array of 4 RGBA values
  * (e.g. `[0, 255, 0, 0.5]`), or an expression that evaluates to one of these color types (e.g. `['get', 'color']`).
  */
-export type ColorExpression = import("../color.js").Color | string | any[];
+export type ColorExpression = import("ol/color.js").Color | string | any[];
 /**
  * An array of numbers (e.g. `[1, 2, 3]`) or an expression that evaluates to the same (e.g. `['get', 'values']`).
  */
@@ -495,24 +495,24 @@ export type FlatIcon = {
      * Origin of the anchor: `bottom-left`, `bottom-right`,
      * `top-left` or `top-right`.
      */
-    "icon-anchor-origin"?: import("./Icon.js").IconOrigin | undefined;
+    "icon-anchor-origin"?: import("ol/style/Icon.js").IconOrigin | undefined;
     /**
      * Units in which the anchor x value is
      * specified. A value of `'fraction'` indicates the x value is a fraction of the icon. A value of `'pixels'` indicates
      * the x value in pixels.
      */
-    "icon-anchor-x-units"?: import("./Icon.js").IconAnchorUnits | undefined;
+    "icon-anchor-x-units"?: import("ol/style/Icon.js").IconAnchorUnits | undefined;
     /**
      * Units in which the anchor y value is
      * specified. A value of `'fraction'` indicates the y value is a fraction of the icon. A value of `'pixels'` indicates
      * the y value in pixels.
      */
-    "icon-anchor-y-units"?: import("./Icon.js").IconAnchorUnits | undefined;
+    "icon-anchor-y-units"?: import("ol/style/Icon.js").IconAnchorUnits | undefined;
     /**
      * Color to tint the icon. If not specified,
      * the icon will be left as is.
      */
-    "icon-color"?: string | import("../color.js").Color | undefined;
+    "icon-color"?: string | import("ol/color.js").Color | undefined;
     /**
      * The `crossOrigin` attribute for loaded images. Note that you must provide a
      * `icon-cross-origin` value if you want to access pixel data with the Canvas renderer.
@@ -532,7 +532,7 @@ export type FlatIcon = {
      * Origin of the offset: `bottom-left`, `bottom-right`,
      * `top-left` or `top-right`.
      */
-    "icon-offset-origin"?: import("./Icon.js").IconOrigin | undefined;
+    "icon-offset-origin"?: import("ol/style/Icon.js").IconOrigin | undefined;
     /**
      * Opacity of the icon.
      */
@@ -563,7 +563,7 @@ export type FlatIcon = {
      * Icon size in pixel. Can be used together with `icon-offset` to define the
      * sub-rectangle to use from the origin (sprite) icon image.
      */
-    "icon-size"?: import("../size.js").Size | undefined;
+    "icon-size"?: import("ol/size.js").Size | undefined;
     /**
      * Declutter mode
      */
@@ -771,7 +771,7 @@ export type Rule = {
      * to determine if a style applies.  If no filter is included, the rule always applies
      * (unless it is an else rule).
      */
-    filter?: import("../expr/expression.js").EncodedExpression | undefined;
+    filter?: import("ol/expr/expression.js").EncodedExpression | undefined;
     /**
      * If true, the rule applies only if no other previous rule applies.
      * If the else rule also has a filter, the rule will not apply if the filter does not match.

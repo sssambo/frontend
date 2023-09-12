@@ -8,7 +8,7 @@ declare class CanvasVectorLayerRenderer extends CanvasLayerRenderer<any> {
     /**
      * @param {import("../../layer/BaseVector.js").default} vectorLayer Vector layer.
      */
-    constructor(vectorLayer: import("../../layer/BaseVector.js").default<any, any>);
+    constructor(vectorLayer: import("ol/layer/BaseVector.js").default<any, any>);
     /** @private */
     private boundHandleStyleImageChange_;
     /**
@@ -22,7 +22,7 @@ declare class CanvasVectorLayerRenderer extends CanvasLayerRenderer<any> {
     /**
      * @type {Array<import("../../Feature.js").default>}
      */
-    renderedFeatures_: Array<import("../../Feature.js").default>;
+    renderedFeatures_: Array<import("ol/Feature.js").default>;
     /**
      * @private
      * @type {number}
@@ -93,21 +93,21 @@ declare class CanvasVectorLayerRenderer extends CanvasLayerRenderer<any> {
      * @param {import("../../Map.js").FrameState} frameState Frame state.
      * @param {import("rbush").default} [declutterTree] Declutter tree.
      */
-    renderWorlds(executorGroup: ExecutorGroup, frameState: import("../../Map.js").FrameState, declutterTree?: any): void;
+    renderWorlds(executorGroup: ExecutorGroup, frameState: import("ol/Map.js").FrameState, declutterTree?: any): void;
     setupCompositionContext_(): void;
     releaseCompositionContext_(): void;
     /**
      * Render declutter items for this layer
      * @param {import("../../Map.js").FrameState} frameState Frame state.
      */
-    renderDeclutter(frameState: import("../../Map.js").FrameState): void;
+    renderDeclutter(frameState: import("ol/Map.js").FrameState): void;
     /**
      * Asynchronous layer level hit detection.
      * @param {import("../../pixel.js").Pixel} pixel Pixel.
      * @return {Promise<Array<import("../../Feature").default>>} Promise
      * that resolves with an array of features.
      */
-    getFeatures(pixel: import("../../pixel.js").Pixel): Promise<Array<import("../../Feature").default>>;
+    getFeatures(pixel: import("ol/pixel.js").Pixel): Promise<Array<import("ol/Feature").default>>;
     /**
      * Handle changes in image style state.
      * @param {import("../../events/Event.js").default} event Image style change event.
@@ -123,9 +123,9 @@ declare class CanvasVectorLayerRenderer extends CanvasLayerRenderer<any> {
      * @param {import("../../render/canvas/BuilderGroup.js").default} [declutterBuilderGroup] Builder for decluttering.
      * @return {boolean} `true` if an image is loading.
      */
-    renderFeature(feature: import("../../Feature.js").default, squaredTolerance: number, styles: import("../../style/Style.js").default | Array<import("../../style/Style.js").default>, builderGroup: import("../../render/canvas/BuilderGroup.js").default, transform?: import("../../proj.js").TransformFunction | undefined, declutterBuilderGroup?: CanvasBuilderGroup | undefined): boolean;
+    renderFeature(feature: import("ol/Feature.js").default, squaredTolerance: number, styles: import("ol/style/Style.js").default | Array<import("ol/style/Style.js").default>, builderGroup: import("ol/render/canvas/BuilderGroup.js").default, transform?: import("ol/proj.js").TransformFunction | undefined, declutterBuilderGroup?: CanvasBuilderGroup | undefined): boolean;
 }
-import CanvasLayerRenderer from './Layer.js';
-import ExecutorGroup from '../../render/canvas/ExecutorGroup.js';
-import CanvasBuilderGroup from '../../render/canvas/BuilderGroup.js';
+import CanvasLayerRenderer from 'ol/renderer/canvas/Layer.js';
+import ExecutorGroup from 'ol/render/canvas/ExecutorGroup.js';
+import CanvasBuilderGroup from 'ol/render/canvas/BuilderGroup.js';
 //# sourceMappingURL=VectorLayer.d.ts.map

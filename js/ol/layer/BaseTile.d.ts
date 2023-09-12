@@ -2,8 +2,8 @@ export default BaseTileLayer;
 /**
  * *
  */
-export type BaseTileLayerOnSignature<Return> = import("../Observable").OnSignature<import("../Observable").EventTypes, import("../events/Event.js").default, Return> & import("../Observable").OnSignature<import("./Base").BaseLayerObjectEventTypes | import("./Layer.js").LayerEventType | 'change:preload' | 'change:useInterimTilesOnError', import("../Object").ObjectEvent, Return> & import("../Observable").OnSignature<import("../render/EventType").LayerRenderEventTypes, import("../render/Event").default, Return> & import("../Observable").CombinedOnSignature<import("../Observable").EventTypes | import("./Base").BaseLayerObjectEventTypes | import("./Layer.js").LayerEventType | 'change:preload' | 'change:useInterimTilesOnError' | import("../render/EventType").LayerRenderEventTypes, Return>;
-export type Options<TileSourceType extends import("../source/Tile.js").default> = {
+export type BaseTileLayerOnSignature<Return> = import("ol/Observable").OnSignature<import("ol/Observable").EventTypes, import("ol/events/Event.js").default, Return> & import("ol/Observable").OnSignature<import("ol/layer/Base").BaseLayerObjectEventTypes | import("ol/layer/Layer.js").LayerEventType | 'change:preload' | 'change:useInterimTilesOnError', import("ol/Object").ObjectEvent, Return> & import("ol/Observable").OnSignature<import("ol/render/EventType").LayerRenderEventTypes, import("ol/render/Event").default, Return> & import("ol/Observable").CombinedOnSignature<import("ol/Observable").EventTypes | import("ol/layer/Base").BaseLayerObjectEventTypes | import("ol/layer/Layer.js").LayerEventType | 'change:preload' | 'change:useInterimTilesOnError' | import("ol/render/EventType").LayerRenderEventTypes, Return>;
+export type Options<TileSourceType extends import("ol/source/Tile.js").default> = {
     /**
      * A CSS class name to set to the layer element.
      */
@@ -20,7 +20,7 @@ export type Options<TileSourceType extends import("../source/Tile.js").default> 
      * The bounding extent for layer rendering.  The layer will not be
      * rendered outside of this extent.
      */
-    extent?: import("../extent.js").Extent | undefined;
+    extent?: import("ol/extent.js").Extent | undefined;
     /**
      * The z-index for layer rendering.  At rendering time, the layers
      * will be ordered, first by Z-index and then by position. When `undefined`, a `zIndex` of 0 is assumed
@@ -63,7 +63,7 @@ export type Options<TileSourceType extends import("../source/Tile.js").default> 
      * temporary layers. The standard way to add a layer to a map and have it managed by the map is to
      * use {@link import ("../Map.js").default#addLayer map.addLayer()}.
      */
-    map?: import("../Map.js").default | undefined;
+    map?: import("ol/Map.js").default | undefined;
     /**
      * Use interim tiles on error.
      */
@@ -127,7 +127,7 @@ export type Options<TileSourceType extends import("../source/Tile.js").default> 
  * @extends {Layer<TileSourceType, RendererType>}
  * @api
  */
-declare class BaseTileLayer<TileSourceType extends import("../source/Tile.js").default, RendererType extends import("../renderer/Layer.js").default<any>> extends Layer<TileSourceType, RendererType> {
+declare class BaseTileLayer<TileSourceType extends import("ol/source/Tile.js").default, RendererType extends import("ol/renderer/Layer.js").default<any>> extends Layer<TileSourceType, RendererType> {
     /**
      * @param {Options<TileSourceType>} [options] Tile layer options.
      */
@@ -135,11 +135,11 @@ declare class BaseTileLayer<TileSourceType extends import("../source/Tile.js").d
     /***
      * @type {BaseTileLayerOnSignature<import("../events").EventsKey>}
      */
-    on: BaseTileLayerOnSignature<import("../events").EventsKey>;
+    on: BaseTileLayerOnSignature<import("ol/events").EventsKey>;
     /***
      * @type {BaseTileLayerOnSignature<import("../events").EventsKey>}
      */
-    once: BaseTileLayerOnSignature<import("../events").EventsKey>;
+    once: BaseTileLayerOnSignature<import("ol/events").EventsKey>;
     /***
      * @type {BaseTileLayerOnSignature<void>}
      */
@@ -173,5 +173,5 @@ declare class BaseTileLayer<TileSourceType extends import("../source/Tile.js").d
      */
     setUseInterimTilesOnError(useInterimTilesOnError: boolean): void;
 }
-import Layer from './Layer.js';
+import Layer from 'ol/layer/Layer.js';
 //# sourceMappingURL=BaseTile.d.ts.map

@@ -12,7 +12,7 @@ export type CustomAttribute = {
      * This callback computes the numerical value of the
      * attribute for a given feature (properties are available as 2nd arg for quicker access).
      */
-    callback: (arg0: import("../../Feature").default, arg1: {
+    callback: (arg0: import("ol/Feature").default, arg1: {
         [x: string]: any;
     }) => number;
 };
@@ -24,7 +24,7 @@ export type FeatureCacheItem = {
     /**
      * Feature
      */
-    feature: import("../../Feature").default;
+    feature: import("ol/Feature").default;
     /**
      * Feature properties
      */
@@ -34,7 +34,7 @@ export type FeatureCacheItem = {
     /**
      * Feature geometry
      */
-    geometry: import("../../geom").Geometry;
+    geometry: import("ol/geom").Geometry;
 };
 export type Options = {
     /**
@@ -66,12 +66,12 @@ export type Options = {
      * Please note that `u_texture` is reserved for the main texture slot and `u_opacity` is reserved for the layer opacity.
      */
     uniforms?: {
-        [x: string]: import("../../webgl/Helper.js").UniformValue;
+        [x: string]: import("ol/webgl/Helper.js").UniformValue;
     } | undefined;
     /**
      * Post-processes definitions
      */
-    postProcesses?: import("./Layer.js").PostProcessesOptions[] | undefined;
+    postProcesses?: import("ol/renderer/webgl/Layer.js").PostProcessesOptions[] | undefined;
 };
 /**
  * @typedef {Object} CustomAttribute A description of a custom attribute to be passed on to the GPU, with a value different
@@ -170,7 +170,7 @@ declare class WebGLPointsLayerRenderer extends WebGLLayerRenderer<any> {
      * @param {import("../../layer/Layer.js").default} layer Layer.
      * @param {Options} options Options.
      */
-    constructor(layer: import("../../layer/Layer.js").default, options: Options);
+    constructor(layer: import("ol/layer/Layer.js").default, options: Options);
     sourceRevision_: number;
     verticesBuffer_: WebGLArrayBuffer;
     indicesBuffer_: WebGLArrayBuffer;
@@ -197,9 +197,9 @@ declare class WebGLPointsLayerRenderer extends WebGLLayerRenderer<any> {
      * index of the vertex (0 to 3) are required.
      * @type {Array<import('../../webgl/Helper.js').AttributeDescription>}
      */
-    attributes: Array<import('../../webgl/Helper.js').AttributeDescription>;
+    attributes: Array<import('ol/webgl/Helper.js').AttributeDescription>;
     customAttributes: CustomAttribute[];
-    previousExtent_: import("../../extent.js").Extent;
+    previousExtent_: import("ol/extent.js").Extent;
     /**
      * This transform is updated on every frame and is the composition of:
      * - invert of the world->screen transform that was used when rebuilding buffers (see `this.renderTransform_`)
@@ -251,7 +251,7 @@ declare class WebGLPointsLayerRenderer extends WebGLLayerRenderer<any> {
      * @private
      */
     private featureCount_;
-    sourceListenKeys_: import("../../events.js").EventsKey[];
+    sourceListenKeys_: import("ol/events.js").EventsKey[];
     /**
      * @param {import("../../source/Vector.js").VectorSourceEvent} event Event.
      * @private
@@ -276,7 +276,7 @@ declare class WebGLPointsLayerRenderer extends WebGLLayerRenderer<any> {
      * @param {import("../../Map.js").FrameState} frameState Frame state.
      * @return {HTMLElement} The rendered element.
      */
-    renderFrame(frameState: import("../../Map.js").FrameState): HTMLElement;
+    renderFrame(frameState: import("ol/Map.js").FrameState): HTMLElement;
     /**
      * Compute world params
      * @private
@@ -298,8 +298,8 @@ declare class WebGLPointsLayerRenderer extends WebGLLayerRenderer<any> {
      * @param {number} endWorld the last world to render
      * @param {number} worldWidth the width of the worlds being rendered
      */
-    renderWorlds(frameState: import("../../Map.js").FrameState, forHitDetection: boolean, startWorld: number, endWorld: number, worldWidth: number): void;
+    renderWorlds(frameState: import("ol/Map.js").FrameState, forHitDetection: boolean, startWorld: number, endWorld: number, worldWidth: number): void;
 }
-import WebGLLayerRenderer from './Layer.js';
-import WebGLArrayBuffer from '../../webgl/Buffer.js';
+import WebGLLayerRenderer from 'ol/renderer/webgl/Layer.js';
+import WebGLArrayBuffer from 'ol/webgl/Buffer.js';
 //# sourceMappingURL=PointsLayer.d.ts.map

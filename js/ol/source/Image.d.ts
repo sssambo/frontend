@@ -4,7 +4,7 @@
  * @param {import("../Image.js").default} image Image.
  * @param {string} src Source.
  */
-export function defaultImageLoadFunction(image: import("../Image.js").default, src: string): void;
+export function defaultImageLoadFunction(image: import("ol/Image.js").default, src: string): void;
 /**
  * Adjusts the extent so it aligns with pixel boundaries.
  * @param {import("../extent.js").Extent} extent Extent.
@@ -13,7 +13,7 @@ export function defaultImageLoadFunction(image: import("../Image.js").default, s
  * @param {number} ratio Ratio between request size and view size.
  * @return {import("../extent.js").Extent} Request extent.
  */
-export function getRequestExtent(extent: import("../extent.js").Extent, resolution: number, pixelRatio: number, ratio: number): import("../extent.js").Extent;
+export function getRequestExtent(extent: import("ol/extent.js").Extent, resolution: number, pixelRatio: number, ratio: number): import("ol/extent.js").Extent;
 export type ImageSourceEventType = string;
 export namespace ImageSourceEventType {
     let IMAGELOADSTART: string;
@@ -33,25 +33,25 @@ export class ImageSourceEvent extends Event {
      * @param {string} type Type.
      * @param {import("../Image.js").default} image The image.
      */
-    constructor(type: string, image: import("../Image.js").default);
+    constructor(type: string, image: import("ol/Image.js").default);
     /**
      * The image related to the event.
      * @type {import("../Image.js").default}
      * @api
      */
-    image: import("../Image.js").default;
+    image: import("ol/Image.js").default;
 }
 export default ImageSource;
 export type ImageSourceEventTypes = 'imageloadend' | 'imageloaderror' | 'imageloadstart';
 /**
  * *
  */
-export type ImageSourceOnSignature<Return> = import("../Observable").OnSignature<import("../Observable").EventTypes, import("../events/Event.js").default, Return> & import("../Observable").OnSignature<import("../ObjectEventType").Types, import("../Object").ObjectEvent, Return> & import("../Observable").OnSignature<ImageSourceEventTypes, ImageSourceEvent, Return> & import("../Observable").CombinedOnSignature<import("../Observable").EventTypes | import("../ObjectEventType").Types | ImageSourceEventTypes, Return>;
+export type ImageSourceOnSignature<Return> = import("ol/Observable").OnSignature<import("ol/Observable").EventTypes, import("ol/events/Event.js").default, Return> & import("ol/Observable").OnSignature<import("ol/ObjectEventType").Types, import("ol/Object").ObjectEvent, Return> & import("ol/Observable").OnSignature<ImageSourceEventTypes, ImageSourceEvent, Return> & import("ol/Observable").CombinedOnSignature<import("ol/Observable").EventTypes | import("ol/ObjectEventType").Types | ImageSourceEventTypes, Return>;
 export type Options = {
     /**
      * Attributions.
      */
-    attributions?: import("./Source.js").AttributionLike | undefined;
+    attributions?: import("ol/source/Source.js").AttributionLike | undefined;
     /**
      * Use interpolated values when resampling.  By default,
      * linear interpolation is used when resampling.  Set to false to use the nearest neighbor instead.
@@ -63,11 +63,11 @@ export type Options = {
      * {@link module :ol/source/arcgisRest.createLoader arcgisRest}, {@link module :ol/source/mapguide.createLoader mapguide},
      * {@link module :ol/source/static.createLoader static}).
      */
-    loader?: import("../Image.js").Loader | undefined;
+    loader?: import("ol/Image.js").Loader | undefined;
     /**
      * Projection.
      */
-    projection?: import("../proj.js").ProjectionLike;
+    projection?: import("ol/proj.js").ProjectionLike;
     /**
      * Resolutions.
      */
@@ -75,9 +75,9 @@ export type Options = {
     /**
      * State.
      */
-    state?: import("./Source.js").State | undefined;
+    state?: import("ol/source/Source.js").State | undefined;
 };
-import Event from '../events/Event.js';
+import Event from 'ol/events/Event.js';
 /***
  * @template Return
  * @typedef {import("../Observable").OnSignature<import("../Observable").EventTypes, import("../events/Event.js").default, Return> &
@@ -113,11 +113,11 @@ declare class ImageSource extends Source {
     /***
      * @type {ImageSourceOnSignature<import("../events").EventsKey>}
      */
-    on: ImageSourceOnSignature<import("../events").EventsKey>;
+    on: ImageSourceOnSignature<import("ol/events").EventsKey>;
     /***
      * @type {ImageSourceOnSignature<import("../events").EventsKey>}
      */
-    once: ImageSourceOnSignature<import("../events").EventsKey>;
+    once: ImageSourceOnSignature<import("ol/events").EventsKey>;
     /***
      * @type {ImageSourceOnSignature<void>}
      */
@@ -126,7 +126,7 @@ declare class ImageSource extends Source {
      * @protected
      * @type {import("../Image.js").Loader}
      */
-    protected loader: import("../Image.js").Loader;
+    protected loader: import("ol/Image.js").Loader;
     /**
      * @private
      * @type {Array<number>|null}
@@ -146,7 +146,7 @@ declare class ImageSource extends Source {
      * @protected
      * @type {import("../Image.js").default}
      */
-    protected image: import("../Image.js").default;
+    protected image: import("ol/Image.js").default;
     /**
      * @private
      * @type {import("../extent.js").Extent}
@@ -183,7 +183,7 @@ declare class ImageSource extends Source {
      * @param {import("../proj/Projection.js").default} projection Projection.
      * @return {import("../Image.js").default} Single image.
      */
-    getImage(extent: import("../extent.js").Extent, resolution: number, pixelRatio: number, projection: import("../proj/Projection.js").default): import("../Image.js").default;
+    getImage(extent: import("ol/extent.js").Extent, resolution: number, pixelRatio: number, projection: import("ol/proj/Projection.js").default): import("ol/Image.js").default;
     /**
      * @abstract
      * @param {import("../extent.js").Extent} extent Extent.
@@ -193,13 +193,13 @@ declare class ImageSource extends Source {
      * @return {import("../Image.js").default} Single image.
      * @protected
      */
-    protected getImageInternal(extent: import("../extent.js").Extent, resolution: number, pixelRatio: number, projection: import("../proj/Projection.js").default): import("../Image.js").default;
+    protected getImageInternal(extent: import("ol/extent.js").Extent, resolution: number, pixelRatio: number, projection: import("ol/proj/Projection.js").default): import("ol/Image.js").default;
     /**
      * Handle image change events.
      * @param {import("../events/Event.js").default} event Event.
      * @protected
      */
-    protected handleImageChange(event: import("../events/Event.js").default): void;
+    protected handleImageChange(event: import("ol/events/Event.js").default): void;
 }
-import Source from './Source.js';
+import Source from 'ol/source/Source.js';
 //# sourceMappingURL=Image.d.ts.map

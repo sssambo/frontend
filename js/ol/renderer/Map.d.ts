@@ -3,15 +3,15 @@ export type HitMatch<T> = {
     /**
      * Feature.
      */
-    feature: import("../Feature.js").FeatureLike;
+    feature: import("ol/Feature.js").FeatureLike;
     /**
      * Layer.
      */
-    layer: import("../layer/Layer.js").default;
+    layer: import("ol/layer/Layer.js").default;
     /**
      * Geometry.
      */
-    geometry: import("../geom/SimpleGeometry.js").default;
+    geometry: import("ol/geom/SimpleGeometry.js").default;
     /**
      * Squared distance.
      */
@@ -19,7 +19,7 @@ export type HitMatch<T> = {
     /**
      * Callback.
      */
-    callback: import("./vector.js").FeatureCallback<T>;
+    callback: import("ol/renderer/vector.js").FeatureCallback<T>;
 };
 /**
  * @template T
@@ -37,7 +37,7 @@ declare class MapRenderer extends Disposable {
     /**
      * @param {import("../Map.js").default} map Map.
      */
-    constructor(map: import("../Map.js").default);
+    constructor(map: import("ol/Map.js").default);
     /**
      * @private
      * @type {import("../Map.js").default}
@@ -48,12 +48,12 @@ declare class MapRenderer extends Disposable {
      * @param {import("../render/EventType.js").default} type Event type.
      * @param {import("../Map.js").FrameState} frameState Frame state.
      */
-    dispatchRenderEvent(type: any, frameState: import("../Map.js").FrameState): void;
+    dispatchRenderEvent(type: any, frameState: import("ol/Map.js").FrameState): void;
     /**
      * @param {import("../Map.js").FrameState} frameState FrameState.
      * @protected
      */
-    protected calculateMatrices2D(frameState: import("../Map.js").FrameState): void;
+    protected calculateMatrices2D(frameState: import("ol/Map.js").FrameState): void;
     /**
      * @param {import("../coordinate.js").Coordinate} coordinate Coordinate.
      * @param {import("../Map.js").FrameState} frameState FrameState.
@@ -69,7 +69,7 @@ declare class MapRenderer extends Disposable {
      * @return {T|undefined} Callback result.
      * @template S,T,U
      */
-    forEachFeatureAtCoordinate<S, T, U>(coordinate: import("../coordinate.js").Coordinate, frameState: import("../Map.js").FrameState, hitTolerance: number, checkWrapped: boolean, callback: import("./vector.js").FeatureCallback<T>, thisArg: S, layerFilter: (this: U, arg1: import("../layer/Layer.js").default) => boolean, thisArg2: U): T | undefined;
+    forEachFeatureAtCoordinate<S, T, U>(coordinate: import("ol/coordinate.js").Coordinate, frameState: import("ol/Map.js").FrameState, hitTolerance: number, checkWrapped: boolean, callback: import("ol/renderer/vector.js").FeatureCallback<T>, thisArg: S, layerFilter: (this: U, arg1: import("ol/layer/Layer.js").default) => boolean, thisArg2: U): T | undefined;
     /**
      * @param {import("../coordinate.js").Coordinate} coordinate Coordinate.
      * @param {import("../Map.js").FrameState} frameState FrameState.
@@ -83,26 +83,26 @@ declare class MapRenderer extends Disposable {
      * @return {boolean} Is there a feature at the given coordinate?
      * @template U
      */
-    hasFeatureAtCoordinate<U_1>(coordinate: import("../coordinate.js").Coordinate, frameState: import("../Map.js").FrameState, hitTolerance: number, checkWrapped: boolean, layerFilter: (this: U_1, arg1: import("../layer/Layer.js").default) => boolean, thisArg: U_1): boolean;
+    hasFeatureAtCoordinate<U_1>(coordinate: import("ol/coordinate.js").Coordinate, frameState: import("ol/Map.js").FrameState, hitTolerance: number, checkWrapped: boolean, layerFilter: (this: U_1, arg1: import("ol/layer/Layer.js").default) => boolean, thisArg: U_1): boolean;
     /**
      * @return {import("../Map.js").default} Map.
      */
-    getMap(): import("../Map.js").default;
+    getMap(): import("ol/Map.js").default;
     /**
      * Render.
      * @abstract
      * @param {?import("../Map.js").FrameState} frameState Frame state.
      */
-    renderFrame(frameState: import("../Map.js").FrameState | null): void;
+    renderFrame(frameState: import("ol/Map.js").FrameState | null): void;
     /**
      * @param {import("../Map.js").FrameState} frameState Frame state.
      */
-    flushDeclutterItems(frameState: import("../Map.js").FrameState): void;
+    flushDeclutterItems(frameState: import("ol/Map.js").FrameState): void;
     /**
      * @param {import("../Map.js").FrameState} frameState Frame state.
      * @protected
      */
-    protected scheduleExpireIconCache(frameState: import("../Map.js").FrameState): void;
+    protected scheduleExpireIconCache(frameState: import("ol/Map.js").FrameState): void;
 }
-import Disposable from '../Disposable.js';
+import Disposable from 'ol/Disposable.js';
 //# sourceMappingURL=Map.d.ts.map

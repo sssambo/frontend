@@ -6,7 +6,7 @@ declare class BuilderGroup {
      * @param {number} resolution Resolution.
      * @param {number} pixelRatio Pixel ratio.
      */
-    constructor(tolerance: number, maxExtent: import("../../extent.js").Extent, resolution: number, pixelRatio: number);
+    constructor(tolerance: number, maxExtent: import("ol/extent.js").Extent, resolution: number, pixelRatio: number);
     /**
      * @private
      * @type {number}
@@ -43,6 +43,6 @@ declare class BuilderGroup {
      * @param {import("../canvas.js").BuilderType} builderType Replay type.
      * @return {import("../VectorContext.js").default} Replay.
      */
-    getBuilder(zIndex: number | undefined, builderType: import("../canvas.js").BuilderType): import("../VectorContext.js").default;
+    getBuilder(zIndex: number | undefined, builderType: import("ol/render/canvas.js").BuilderType): import("ol/render/VectorContext.js").default;
 }
 //# sourceMappingURL=BuilderGroup.d.ts.map

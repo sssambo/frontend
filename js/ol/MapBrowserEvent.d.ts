@@ -14,7 +14,7 @@ declare class MapBrowserEvent<EVENT extends UIEvent> extends MapEvent {
      * @param {import("./Map.js").FrameState} [frameState] Frame state.
      * @param {Array<PointerEvent>} [activePointers] Active pointers.
      */
-    constructor(type: string, map: import("./Map.js").default, originalEvent: EVENT, dragging?: boolean | undefined, frameState?: import("./Map.js").FrameState | undefined, activePointers?: PointerEvent[] | undefined);
+    constructor(type: string, map: import("ol/Map.js").default, originalEvent: EVENT, dragging?: boolean | undefined, frameState?: import("ol/Map.js").FrameState | undefined, activePointers?: PointerEvent[] | undefined);
     /**
      * The original browser event.
      * @const
@@ -26,12 +26,12 @@ declare class MapBrowserEvent<EVENT extends UIEvent> extends MapEvent {
      * The map pixel relative to the viewport corresponding to the original browser event.
      * @type {?import("./pixel.js").Pixel}
      */
-    pixel_: import("./pixel.js").Pixel | null;
+    pixel_: import("ol/pixel.js").Pixel | null;
     /**
      * The coordinate in the user projection corresponding to the original browser event.
      * @type {?import("./coordinate.js").Coordinate}
      */
-    coordinate_: import("./coordinate.js").Coordinate | null;
+    coordinate_: import("ol/coordinate.js").Coordinate | null;
     /**
      * Indicates if the map is currently being dragged. Only set for
      * `POINTERDRAG` and `POINTERMOVE` events. Default is `false`.
@@ -44,21 +44,21 @@ declare class MapBrowserEvent<EVENT extends UIEvent> extends MapEvent {
      * @type {Array<PointerEvent>|undefined}
      */
     activePointers: Array<PointerEvent> | undefined;
-    set pixel(arg: import("./pixel.js").Pixel);
+    set pixel(arg: import("ol/pixel.js").Pixel);
     /**
      * The map pixel relative to the viewport corresponding to the original event.
      * @type {import("./pixel.js").Pixel}
      * @api
      */
-    get pixel(): import("./pixel.js").Pixel;
-    set coordinate(arg: import("./coordinate.js").Coordinate);
+    get pixel(): import("ol/pixel.js").Pixel;
+    set coordinate(arg: import("ol/coordinate.js").Coordinate);
     /**
      * The coordinate corresponding to the original browser event.  This will be in the user
      * projection if one is set.  Otherwise it will be in the view projection.
      * @type {import("./coordinate.js").Coordinate}
      * @api
      */
-    get coordinate(): import("./coordinate.js").Coordinate;
+    get coordinate(): import("ol/coordinate.js").Coordinate;
 }
-import MapEvent from './MapEvent.js';
+import MapEvent from 'ol/MapEvent.js';
 //# sourceMappingURL=MapBrowserEvent.d.ts.map

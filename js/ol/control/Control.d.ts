@@ -11,7 +11,7 @@ export type Options = {
      * the control should be re-rendered. This is called in a `requestAnimationFrame`
      * callback.
      */
-    render?: ((arg0: import("../MapEvent.js").default) => void) | undefined;
+    render?: ((arg0: import("ol/MapEvent.js").default) => void) | undefined;
     /**
      * Specify a target if you want
      * the control to be rendered outside of the map's viewport.
@@ -77,19 +77,19 @@ declare class Control extends BaseObject {
      * @protected
      * @type {!Array<import("../events.js").EventsKey>}
      */
-    protected listenerKeys: Array<import("../events.js").EventsKey>;
+    protected listenerKeys: Array<import("ol/events.js").EventsKey>;
     /**
      * Renders the control.
      * @param {import("../MapEvent.js").default} mapEvent Map event.
      * @api
      */
-    render(mapEvent: import("../MapEvent.js").default): void;
+    render(mapEvent: import("ol/MapEvent.js").default): void;
     /**
      * Get the map associated with this control.
      * @return {import("../Map.js").default|null} Map.
      * @api
      */
-    getMap(): import("../Map.js").default | null;
+    getMap(): import("ol/Map.js").default | null;
     /**
      * Remove the control from its current map and attach it to the new map.
      * Pass `null` to just remove the control from the current map.
@@ -98,7 +98,7 @@ declare class Control extends BaseObject {
      * @param {import("../Map.js").default|null} map Map.
      * @api
      */
-    setMap(map: import("../Map.js").default | null): void;
+    setMap(map: import("ol/Map.js").default | null): void;
     /**
      * This function is used to set a target element for the control. It has no
      * effect if it is called after the control has been added to the map (i.e.
@@ -110,5 +110,5 @@ declare class Control extends BaseObject {
      */
     setTarget(target: HTMLElement | string): void;
 }
-import BaseObject from '../Object.js';
+import BaseObject from 'ol/Object.js';
 //# sourceMappingURL=Control.d.ts.map

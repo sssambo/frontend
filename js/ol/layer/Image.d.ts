@@ -11,12 +11,12 @@ export default ImageLayer;
  * @extends {BaseImageLayer<ImageSourceType, CanvasImageLayerRenderer>}
  * @api
  */
-declare class ImageLayer<ImageSourceType extends import("../source/Image.js").default> extends BaseImageLayer<ImageSourceType, CanvasImageLayerRenderer> {
+declare class ImageLayer<ImageSourceType extends import("ol/source/Image.js").default> extends BaseImageLayer<ImageSourceType, CanvasImageLayerRenderer> {
     /**
      * @param {import("./BaseImage.js").Options<ImageSourceType>} [options] Layer options.
      */
-    constructor(options?: import("./BaseImage.js").Options<ImageSourceType> | undefined);
+    constructor(options?: import("ol/layer/BaseImage.js").Options<ImageSourceType> | undefined);
 }
-import CanvasImageLayerRenderer from '../renderer/canvas/ImageLayer.js';
-import BaseImageLayer from './BaseImage.js';
+import CanvasImageLayerRenderer from 'ol/renderer/canvas/ImageLayer.js';
+import BaseImageLayer from 'ol/layer/BaseImage.js';
 //# sourceMappingURL=Image.d.ts.map

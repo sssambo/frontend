@@ -6,9 +6,9 @@
  * @param {number} tileResolution Tile resolution.
  * @return {number} Tile priority.
  */
-export function getTilePriority(frameState: import('./Map.js').FrameState, tile: import("./Tile.js").default, tileSourceKey: string, tileCenter: import("./coordinate.js").Coordinate, tileResolution: number): number;
+export function getTilePriority(frameState: import('ol/Map.js').FrameState, tile: import("ol/Tile.js").default, tileSourceKey: string, tileCenter: import("ol/coordinate.js").Coordinate, tileResolution: number): number;
 export default TileQueue;
-export type PriorityFunction = (arg0: import("./Tile.js").default, arg1: string, arg2: import("./coordinate.js").Coordinate, arg3: number) => number;
+export type PriorityFunction = (arg0: import("ol/Tile.js").default, arg1: string, arg2: import("ol/coordinate.js").Coordinate, arg3: number) => number;
 /**
  * @typedef {function(import("./Tile.js").default, string, import("./coordinate.js").Coordinate, number): number} PriorityFunction
  */
@@ -48,12 +48,12 @@ declare class TileQueue extends PriorityQueue<any> {
      * @param {import("./events/Event.js").default} event Event.
      * @protected
      */
-    protected handleTileChange(event: import("./events/Event.js").default): void;
+    protected handleTileChange(event: import("ol/events/Event.js").default): void;
     /**
      * @param {number} maxTotalLoading Maximum number tiles to load simultaneously.
      * @param {number} maxNewLoads Maximum number of new tiles to load.
      */
     loadMoreTiles(maxTotalLoading: number, maxNewLoads: number): void;
 }
-import PriorityQueue from './structs/PriorityQueue.js';
+import PriorityQueue from 'ol/structs/PriorityQueue.js';
 //# sourceMappingURL=TileQueue.d.ts.map

@@ -17,7 +17,7 @@ export type PostProcessesOptions = {
      * Uniform definitions for the post process step
      */
     uniforms?: {
-        [x: string]: import("../../webgl/Helper.js").UniformValue;
+        [x: string]: import("ol/webgl/Helper.js").UniformValue;
     } | undefined;
 };
 export type Options = {
@@ -25,7 +25,7 @@ export type Options = {
      * Uniform definitions for the post process steps
      */
     uniforms?: {
-        [x: string]: import("../../webgl/Helper.js").UniformValue;
+        [x: string]: import("ol/webgl/Helper.js").UniformValue;
     } | undefined;
     /**
      * Post-processes definitions
@@ -52,7 +52,7 @@ export type Options = {
  * @template {import("../../layer/Layer.js").default} LayerType
  * @extends {LayerRenderer<LayerType>}
  */
-declare class WebGLLayerRenderer<LayerType extends import("../../layer/Layer.js").default<import("../../source/Source.js").default, LayerRenderer<any>>> extends LayerRenderer<LayerType> {
+declare class WebGLLayerRenderer<LayerType extends import("ol/layer/Layer.js").default<import("ol/source/Source.js").default, LayerRenderer<any>>> extends LayerRenderer<LayerType> {
     /**
      * @param {LayerType} layer Layer.
      * @param {Options} [options] Options.
@@ -88,13 +88,13 @@ declare class WebGLLayerRenderer<LayerType extends import("../../layer/Layer.js"
      * @param {import("../../Map.js").FrameState} frameState Frame state.
      * @protected
      */
-    protected dispatchPreComposeEvent(context: WebGLRenderingContext, frameState: import("../../Map.js").FrameState): void;
+    protected dispatchPreComposeEvent(context: WebGLRenderingContext, frameState: import("ol/Map.js").FrameState): void;
     /**
      * @param {WebGLRenderingContext} context The WebGL rendering context.
      * @param {import("../../Map.js").FrameState} frameState Frame state.
      * @protected
      */
-    protected dispatchPostComposeEvent(context: WebGLRenderingContext, frameState: import("../../Map.js").FrameState): void;
+    protected dispatchPostComposeEvent(context: WebGLRenderingContext, frameState: import("ol/Map.js").FrameState): void;
     /**
      * Reset options (only handles uniforms).
      * @param {Options} options Options.
@@ -114,7 +114,7 @@ declare class WebGLLayerRenderer<LayerType extends import("../../layer/Layer.js"
      * @return {boolean} Layer is ready to be rendered.
      * @protected
      */
-    protected prepareFrameInternal(frameState: import("../../Map.js").FrameState): boolean;
+    protected prepareFrameInternal(frameState: import("ol/Map.js").FrameState): boolean;
     /**
      * @param {import("../../render/EventType.js").default} type Event type.
      * @param {WebGLRenderingContext} context The rendering context.
@@ -127,14 +127,14 @@ declare class WebGLLayerRenderer<LayerType extends import("../../layer/Layer.js"
      * @param {import("../../Map.js").FrameState} frameState Frame state.
      * @protected
      */
-    protected preRender(context: WebGLRenderingContext, frameState: import("../../Map.js").FrameState): void;
+    protected preRender(context: WebGLRenderingContext, frameState: import("ol/Map.js").FrameState): void;
     /**
      * @param {WebGLRenderingContext} context The rendering context.
      * @param {import("../../Map.js").FrameState} frameState Frame state.
      * @protected
      */
-    protected postRender(context: WebGLRenderingContext, frameState: import("../../Map.js").FrameState): void;
+    protected postRender(context: WebGLRenderingContext, frameState: import("ol/Map.js").FrameState): void;
 }
-import LayerRenderer from '../Layer.js';
-import WebGLHelper from '../../webgl/Helper.js';
+import LayerRenderer from 'ol/renderer/Layer.js';
+import WebGLHelper from 'ol/webgl/Helper.js';
 //# sourceMappingURL=Layer.d.ts.map

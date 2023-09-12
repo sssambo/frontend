@@ -44,7 +44,7 @@ export type BufferCacheEntry = {
     /**
      * Buffer.
      */
-    buffer: import("./Buffer.js").default;
+    buffer: import("ol/webgl/Buffer.js").default;
     /**
      * WebGlBuffer.
      */
@@ -69,12 +69,12 @@ export type AttributeDescription = {
      */
     type?: number | undefined;
 };
-export type UniformLiteralValue = number | Array<number> | HTMLCanvasElement | HTMLImageElement | ImageData | import("../transform").Transform;
+export type UniformLiteralValue = number | Array<number> | HTMLCanvasElement | HTMLImageElement | ImageData | import("ol/transform").Transform;
 /**
  * Uniform value can be a number, array of numbers (2 to 4), canvas element or a callback returning
  * one of the previous types.
  */
-export type UniformValue = UniformLiteralValue | ((arg0: import("../Map.js").FrameState) => UniformLiteralValue);
+export type UniformValue = UniformLiteralValue | ((arg0: import("ol/Map.js").FrameState) => UniformLiteralValue);
 export type PostProcessesOptions = {
     /**
      * Scale ratio; if < 1, the post process will render to a texture smaller than
@@ -141,10 +141,10 @@ export type CanvasCacheItem = {
      */
     users: number;
 };
-import { UNSIGNED_BYTE } from '../webgl.js';
-import { UNSIGNED_SHORT } from '../webgl.js';
-import { UNSIGNED_INT } from '../webgl.js';
-import { FLOAT } from '../webgl.js';
+import { UNSIGNED_BYTE } from 'ol/webgl.js';
+import { UNSIGNED_SHORT } from 'ol/webgl.js';
+import { UNSIGNED_INT } from 'ol/webgl.js';
+import { FLOAT } from 'ol/webgl.js';
 /**
  * @classdesc
  * This class is intended to provide low-level functions related to WebGL rendering, so that accessing
@@ -388,17 +388,17 @@ declare class WebGLHelper extends Disposable {
      * the cache.
      * @param {import("./Buffer").default} buffer Buffer.
      */
-    bindBuffer(buffer: import("./Buffer").default): void;
+    bindBuffer(buffer: import("ol/webgl/Buffer").default): void;
     /**
      * Update the data contained in the buffer array; this is required for the
      * new data to be rendered
      * @param {import("./Buffer").default} buffer Buffer.
      */
-    flushBufferData(buffer: import("./Buffer").default): void;
+    flushBufferData(buffer: import("ol/webgl/Buffer").default): void;
     /**
      * @param {import("./Buffer.js").default} buf Buffer.
      */
-    deleteBuffer(buf: import("./Buffer.js").default): void;
+    deleteBuffer(buf: import("ol/webgl/Buffer.js").default): void;
     /**
      * Clear the buffer & set the viewport to draw.
      * Post process passes will be initialized here, the first one being bound as a render target for
@@ -407,7 +407,7 @@ declare class WebGLHelper extends Disposable {
      * @param {boolean} [disableAlphaBlend] If true, no alpha blending will happen.
      * @param {boolean} [enableDepth] If true, enables depth testing.
      */
-    prepareDraw(frameState: import("../Map.js").FrameState, disableAlphaBlend?: boolean | undefined, enableDepth?: boolean | undefined): void;
+    prepareDraw(frameState: import("ol/Map.js").FrameState, disableAlphaBlend?: boolean | undefined, enableDepth?: boolean | undefined): void;
     /**
      * Prepare a program to use a texture.
      * @param {WebGLTexture} texture The texture.
@@ -424,7 +424,7 @@ declare class WebGLHelper extends Disposable {
      * @param {boolean} [disableAlphaBlend] If true, no alpha blending will happen.
      * @param {boolean} [enableDepth] If true, enables depth testing.
      */
-    prepareDrawToRenderTarget(frameState: import("../Map.js").FrameState, renderTarget: import("./RenderTarget.js").default, disableAlphaBlend?: boolean | undefined, enableDepth?: boolean | undefined): void;
+    prepareDrawToRenderTarget(frameState: import("ol/Map.js").FrameState, renderTarget: import("ol/webgl/RenderTarget.js").default, disableAlphaBlend?: boolean | undefined, enableDepth?: boolean | undefined): void;
     /**
      * Execute a draw call based on the currently bound program, texture, buffers, attributes.
      * @param {number} start Start index.
@@ -437,7 +437,7 @@ declare class WebGLHelper extends Disposable {
      * @param {function(WebGLRenderingContext, import("../Map.js").FrameState):void} [preCompose] Called before composing.
      * @param {function(WebGLRenderingContext, import("../Map.js").FrameState):void} [postCompose] Called before composing.
      */
-    finalizeDraw(frameState: import("../Map.js").FrameState, preCompose?: ((arg0: WebGLRenderingContext, arg1: import("../Map.js").FrameState) => void) | undefined, postCompose?: ((arg0: WebGLRenderingContext, arg1: import("../Map.js").FrameState) => void) | undefined): void;
+    finalizeDraw(frameState: import("ol/Map.js").FrameState, preCompose?: ((arg0: WebGLRenderingContext, arg1: import("ol/Map.js").FrameState) => void) | undefined, postCompose?: ((arg0: WebGLRenderingContext, arg1: import("ol/Map.js").FrameState) => void) | undefined): void;
     /**
      * @return {HTMLCanvasElement} Canvas.
      */
@@ -451,7 +451,7 @@ declare class WebGLHelper extends Disposable {
      * Sets the default matrix uniforms for a given frame state. This is called internally in `prepareDraw`.
      * @param {import("../Map.js").FrameState} frameState Frame state.
      */
-    applyFrameState(frameState: import("../Map.js").FrameState): void;
+    applyFrameState(frameState: import("ol/Map.js").FrameState): void;
     /**
      * Sets the `u_hitDetection` uniform.
      * @param {boolean} enabled Whether to enable the hit detection code path
@@ -461,14 +461,14 @@ declare class WebGLHelper extends Disposable {
      * Sets the custom uniforms based on what was given in the constructor. This is called internally in `prepareDraw`.
      * @param {import("../Map.js").FrameState} frameState Frame state.
      */
-    applyUniforms(frameState: import("../Map.js").FrameState): void;
+    applyUniforms(frameState: import("ol/Map.js").FrameState): void;
     /**
      * Set up a program for use. The program will be set as the current one. Then, the uniforms used
      * in the program will be set based on the current frame state and the helper configuration.
      * @param {WebGLProgram} program Program.
      * @param {import("../Map.js").FrameState} frameState Frame state.
      */
-    useProgram(program: WebGLProgram, frameState: import("../Map.js").FrameState): void;
+    useProgram(program: WebGLProgram, frameState: import("ol/Map.js").FrameState): void;
     /**
      * Will attempt to compile a vertex or fragment shader based on source
      * On error, the shader will be returned but
@@ -505,7 +505,7 @@ declare class WebGLHelper extends Disposable {
      * @param {import("../transform").Transform} transform Transform to update.
      * @return {import("../transform").Transform} The updated transform object.
      */
-    makeProjectionTransform(frameState: import("../Map.js").FrameState, transform: import("../transform").Transform): import("../transform").Transform;
+    makeProjectionTransform(frameState: import("ol/Map.js").FrameState, transform: import("ol/transform").Transform): import("ol/transform").Transform;
     /**
      * Give a value for a standard float uniform
      * @param {string} uniform Uniform name
@@ -576,5 +576,5 @@ declare class WebGLHelper extends Disposable {
      */
     createTexture(size: Array<number>, data?: HTMLCanvasElement | HTMLImageElement | ImageData | undefined, texture?: WebGLTexture | undefined): WebGLTexture;
 }
-import Disposable from '../Disposable.js';
+import Disposable from 'ol/Disposable.js';
 //# sourceMappingURL=Helper.d.ts.map

@@ -23,7 +23,7 @@ declare class ImageCanvas extends ImageWrapper {
      * @param {Loader} [loader] Optional loader function to
      *     support asynchronous canvas drawing.
      */
-    constructor(extent: import("./extent.js").Extent, resolution: number, pixelRatio: number, canvas: HTMLCanvasElement, loader?: Loader | undefined);
+    constructor(extent: import("ol/extent.js").Extent, resolution: number, pixelRatio: number, canvas: HTMLCanvasElement, loader?: Loader | undefined);
     /**
      * Optional canvas loader function.
      * @type {?Loader}
@@ -56,5 +56,5 @@ declare class ImageCanvas extends ImageWrapper {
      */
     getImage(): HTMLCanvasElement;
 }
-import ImageWrapper from './Image.js';
+import ImageWrapper from 'ol/Image.js';
 //# sourceMappingURL=ImageCanvas.d.ts.map

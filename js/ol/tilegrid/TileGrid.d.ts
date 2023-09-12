@@ -5,7 +5,7 @@ export type Options = {
      * extent will be requested by {@link module :ol/source/Tile~TileSource} sources. When no `origin` or
      * `origins` are configured, the `origin` will be set to the top-left corner of the extent.
      */
-    extent?: import("../extent.js").Extent | undefined;
+    extent?: import("ol/extent.js").Extent | undefined;
     /**
      * Minimum zoom.
      */
@@ -15,7 +15,7 @@ export type Options = {
      * and `y` axes meet (`[z, 0, 0]`). Tile coordinates increase left to right and downwards. If not
      * specified, `extent` or `origins` must be provided.
      */
-    origin?: import("../coordinate.js").Coordinate | undefined;
+    origin?: import("ol/coordinate.js").Coordinate | undefined;
     /**
      * Tile grid origins, i.e. where
      * the `x` and `y` axes meet (`[z, 0, 0]`), for each zoom level. If given, the array length
@@ -23,7 +23,7 @@ export type Options = {
      * origin. Tile coordinates increase left to right and downwards. If not specified, `extent` or
      * `origin` must be provided.
      */
-    origins?: import("../coordinate.js").Coordinate[] | undefined;
+    origins?: import("ol/coordinate.js").Coordinate[] | undefined;
     /**
      * Resolutions. The array index of each resolution needs
      * to match the zoom level. This means that even if a `minZoom` is configured, the resolutions
@@ -39,18 +39,18 @@ export type Options = {
      * an extent is used as `origin` or `origins`, then the `y` value must be
      * negative because OpenLayers tile coordinates use the top left as the origin.
      */
-    sizes?: import("../size.js").Size[] | undefined;
+    sizes?: import("ol/size.js").Size[] | undefined;
     /**
      * Tile size.
      * Default is `[256, 256]`.
      */
-    tileSize?: number | import("../size.js").Size | undefined;
+    tileSize?: number | import("ol/size.js").Size | undefined;
     /**
      * Tile sizes. If given, the array length
      * should match the length of the `resolutions` array, i.e. each resolution can have a different
      * tile size.
      */
-    tileSizes?: (number | import("../size.js").Size)[] | undefined;
+    tileSizes?: (number | import("ol/size.js").Size)[] | undefined;
 };
 /**
  * @typedef {Object} Options
@@ -161,7 +161,7 @@ declare class TileGrid {
      * @param {function(import("../tilecoord.js").TileCoord): void} callback Function called with each tile coordinate.
      * @api
      */
-    forEachTileCoord(extent: import("../extent.js").Extent, zoom: number, callback: (arg0: import("../tilecoord.js").TileCoord) => void): void;
+    forEachTileCoord(extent: import("ol/extent.js").Extent, zoom: number, callback: (arg0: import("ol/tilecoord.js").TileCoord) => void): void;
     /**
      * @param {import("../tilecoord.js").TileCoord} tileCoord Tile coordinate.
      * @param {function(number, import("../TileRange.js").default): boolean} callback Callback.
@@ -169,13 +169,13 @@ declare class TileGrid {
      * @param {import("../extent.js").Extent} [tempExtent] Temporary import("../extent.js").Extent object.
      * @return {boolean} Callback succeeded.
      */
-    forEachTileCoordParentTileRange(tileCoord: import("../tilecoord.js").TileCoord, callback: (arg0: number, arg1: import("../TileRange.js").default) => boolean, tempTileRange?: TileRange | undefined, tempExtent?: import("../extent.js").Extent | undefined): boolean;
+    forEachTileCoordParentTileRange(tileCoord: import("ol/tilecoord.js").TileCoord, callback: (arg0: number, arg1: import("ol/TileRange.js").default) => boolean, tempTileRange?: TileRange | undefined, tempExtent?: import("ol/extent.js").Extent | undefined): boolean;
     /**
      * Get the extent for this tile grid, if it was configured.
      * @return {import("../extent.js").Extent} Extent.
      * @api
      */
-    getExtent(): import("../extent.js").Extent;
+    getExtent(): import("ol/extent.js").Extent;
     /**
      * Get the maximum zoom level for the grid.
      * @return {number} Max zoom.
@@ -194,7 +194,7 @@ declare class TileGrid {
      * @return {import("../coordinate.js").Coordinate} Origin.
      * @api
      */
-    getOrigin(z: number): import("../coordinate.js").Coordinate;
+    getOrigin(z: number): import("ol/coordinate.js").Coordinate;
     /**
      * Get the resolution for the given zoom level.
      * @param {number} z Integer zoom level.
@@ -214,14 +214,14 @@ declare class TileGrid {
      * @param {import("../extent.js").Extent} [tempExtent] Temporary import("../extent.js").Extent object.
      * @return {import("../TileRange.js").default|null} Tile range.
      */
-    getTileCoordChildTileRange(tileCoord: import("../tilecoord.js").TileCoord, tempTileRange?: TileRange | undefined, tempExtent?: import("../extent.js").Extent | undefined): import("../TileRange.js").default | null;
+    getTileCoordChildTileRange(tileCoord: import("ol/tilecoord.js").TileCoord, tempTileRange?: TileRange | undefined, tempExtent?: import("ol/extent.js").Extent | undefined): import("ol/TileRange.js").default | null;
     /**
      * @param {import("../tilecoord.js").TileCoord} tileCoord Tile coordinate.
      * @param {number} z Integer zoom level.
      * @param {import("../TileRange.js").default} [tempTileRange] Temporary import("../TileRange.js").default object.
      * @return {import("../TileRange.js").default|null} Tile range.
      */
-    getTileRangeForTileCoordAndZ(tileCoord: import("../tilecoord.js").TileCoord, z: number, tempTileRange?: TileRange | undefined): import("../TileRange.js").default | null;
+    getTileRangeForTileCoordAndZ(tileCoord: import("ol/tilecoord.js").TileCoord, z: number, tempTileRange?: TileRange | undefined): import("ol/TileRange.js").default | null;
     /**
      * Get a tile range for the given extent and integer zoom level.
      * @param {import("../extent.js").Extent} extent Extent.
@@ -229,12 +229,12 @@ declare class TileGrid {
      * @param {import("../TileRange.js").default} [tempTileRange] Temporary tile range object.
      * @return {import("../TileRange.js").default} Tile range.
      */
-    getTileRangeForExtentAndZ(extent: import("../extent.js").Extent, z: number, tempTileRange?: TileRange | undefined): import("../TileRange.js").default;
+    getTileRangeForExtentAndZ(extent: import("ol/extent.js").Extent, z: number, tempTileRange?: TileRange | undefined): import("ol/TileRange.js").default;
     /**
      * @param {import("../tilecoord.js").TileCoord} tileCoord Tile coordinate.
      * @return {import("../coordinate.js").Coordinate} Tile center.
      */
-    getTileCoordCenter(tileCoord: import("../tilecoord.js").TileCoord): import("../coordinate.js").Coordinate;
+    getTileCoordCenter(tileCoord: import("ol/tilecoord.js").TileCoord): import("ol/coordinate.js").Coordinate;
     /**
      * Get the extent of a tile coordinate.
      *
@@ -243,7 +243,7 @@ declare class TileGrid {
      * @return {import("../extent.js").Extent} Extent.
      * @api
      */
-    getTileCoordExtent(tileCoord: import("../tilecoord.js").TileCoord, tempExtent?: import("../extent.js").Extent | undefined): import("../extent.js").Extent;
+    getTileCoordExtent(tileCoord: import("ol/tilecoord.js").TileCoord, tempExtent?: import("ol/extent.js").Extent | undefined): import("ol/extent.js").Extent;
     /**
      * Get the tile coordinate for the given map coordinate and resolution.  This
      * method considers that coordinates that intersect tile boundaries should be
@@ -255,7 +255,7 @@ declare class TileGrid {
      * @return {import("../tilecoord.js").TileCoord} Tile coordinate.
      * @api
      */
-    getTileCoordForCoordAndResolution(coordinate: import("../coordinate.js").Coordinate, resolution: number, opt_tileCoord?: import("../tilecoord.js").TileCoord | undefined): import("../tilecoord.js").TileCoord;
+    getTileCoordForCoordAndResolution(coordinate: import("ol/coordinate.js").Coordinate, resolution: number, opt_tileCoord?: import("ol/tilecoord.js").TileCoord | undefined): import("ol/tilecoord.js").TileCoord;
     /**
      * Note that this method should not be called for resolutions that correspond
      * to an integer zoom level.  Instead call the `getTileCoordForXYAndZ_` method.
@@ -294,12 +294,12 @@ declare class TileGrid {
      * @return {import("../tilecoord.js").TileCoord} Tile coordinate.
      * @api
      */
-    getTileCoordForCoordAndZ(coordinate: import("../coordinate.js").Coordinate, z: number, opt_tileCoord?: import("../tilecoord.js").TileCoord | undefined): import("../tilecoord.js").TileCoord;
+    getTileCoordForCoordAndZ(coordinate: import("ol/coordinate.js").Coordinate, z: number, opt_tileCoord?: import("ol/tilecoord.js").TileCoord | undefined): import("ol/tilecoord.js").TileCoord;
     /**
      * @param {import("../tilecoord.js").TileCoord} tileCoord Tile coordinate.
      * @return {number} Tile resolution.
      */
-    getTileCoordResolution(tileCoord: import("../tilecoord.js").TileCoord): number;
+    getTileCoordResolution(tileCoord: import("ol/tilecoord.js").TileCoord): number;
     /**
      * Get the tile size for a zoom level. The type of the return value matches the
      * `tileSize` or `tileSizes` that the tile grid was configured with. To always
@@ -308,12 +308,12 @@ declare class TileGrid {
      * @return {number|import("../size.js").Size} Tile size.
      * @api
      */
-    getTileSize(z: number): number | import("../size.js").Size;
+    getTileSize(z: number): number | import("ol/size.js").Size;
     /**
      * @param {number} z Zoom level.
      * @return {import("../TileRange.js").default} Extent tile range for the specified zoom level.
      */
-    getFullTileRange(z: number): import("../TileRange.js").default;
+    getFullTileRange(z: number): import("ol/TileRange.js").default;
     /**
      * @param {number} resolution Resolution.
      * @param {number|import("../array.js").NearestDirectionFunction} [opt_direction]
@@ -331,19 +331,19 @@ declare class TileGrid {
      * @return {number} Z.
      * @api
      */
-    getZForResolution(resolution: number, opt_direction?: number | import("../array.js").NearestDirectionFunction | undefined): number;
+    getZForResolution(resolution: number, opt_direction?: number | import("ol/array.js").NearestDirectionFunction | undefined): number;
     /**
      * The tile with the provided tile coordinate intersects the given viewport.
      * @param {import('../tilecoord.js').TileCoord} tileCoord Tile coordinate.
      * @param {Array<number>} viewport Viewport as returned from {@link module:ol/extent.getRotatedViewport}.
      * @return {boolean} The tile with the provided tile coordinate intersects the given viewport.
      */
-    tileCoordIntersectsViewport(tileCoord: import('../tilecoord.js').TileCoord, viewport: Array<number>): boolean;
+    tileCoordIntersectsViewport(tileCoord: import('ol/tilecoord.js').TileCoord, viewport: Array<number>): boolean;
     /**
      * @param {!import("../extent.js").Extent} extent Extent for this tile grid.
      * @private
      */
     private calculateTileRanges_;
 }
-import TileRange from '../TileRange.js';
+import TileRange from 'ol/TileRange.js';
 //# sourceMappingURL=TileGrid.d.ts.map

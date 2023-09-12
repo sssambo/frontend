@@ -36,14 +36,14 @@ export type Options = {
      * The projection the position
      * is reported in.
      */
-    projection?: import("./proj.js").ProjectionLike;
+    projection?: import("ol/proj.js").ProjectionLike;
 };
-export type GeolocationObjectEventTypes = import("./ObjectEventType").Types | 'change:accuracy' | 'change:accuracyGeometry' | 'change:altitude' | 'change:altitudeAccuracy' | 'change:heading' | 'change:position' | 'change:projection' | 'change:speed' | 'change:tracking' | 'change:trackingOptions';
+export type GeolocationObjectEventTypes = import("ol/ObjectEventType").Types | 'change:accuracy' | 'change:accuracyGeometry' | 'change:altitude' | 'change:altitudeAccuracy' | 'change:heading' | 'change:position' | 'change:projection' | 'change:speed' | 'change:tracking' | 'change:trackingOptions';
 /**
  * *
  */
-export type GeolocationOnSignature<Return> = import("./Observable").OnSignature<GeolocationObjectEventTypes, import("./Object").ObjectEvent, Return> & import("./Observable").OnSignature<'error', GeolocationError, Return> & import("./Observable").CombinedOnSignature<import("./Observable").EventTypes | GeolocationObjectEventTypes, Return> & import("./Observable").OnSignature<import("./Observable").EventTypes, import("./events/Event.js").default, Return>;
-import BaseEvent from './events/Event.js';
+export type GeolocationOnSignature<Return> = import("ol/Observable").OnSignature<GeolocationObjectEventTypes, import("ol/Object").ObjectEvent, Return> & import("ol/Observable").OnSignature<'error', GeolocationError, Return> & import("ol/Observable").CombinedOnSignature<import("ol/Observable").EventTypes | GeolocationObjectEventTypes, Return> & import("ol/Observable").OnSignature<import("ol/Observable").EventTypes, import("ol/events/Event.js").default, Return>;
+import BaseEvent from 'ol/events/Event.js';
 /**
  * @typedef {Object} Options
  * @property {boolean} [tracking=false] Start Tracking right after
@@ -100,11 +100,11 @@ declare class Geolocation extends BaseObject {
     /***
      * @type {GeolocationOnSignature<import("./events").EventsKey>}
      */
-    on: GeolocationOnSignature<import("./events").EventsKey>;
+    on: GeolocationOnSignature<import("ol/events").EventsKey>;
     /***
      * @type {GeolocationOnSignature<import("./events").EventsKey>}
      */
-    once: GeolocationOnSignature<import("./events").EventsKey>;
+    once: GeolocationOnSignature<import("ol/events").EventsKey>;
     /***
      * @type {GeolocationOnSignature<void>}
      */
@@ -157,7 +157,7 @@ declare class Geolocation extends BaseObject {
      * @observable
      * @api
      */
-    getAccuracyGeometry(): import("./geom/Polygon.js").default | null;
+    getAccuracyGeometry(): import("ol/geom/Polygon.js").default | null;
     /**
      * Get the altitude associated with the position.
      * @return {number|undefined} The altitude of the position in meters above mean
@@ -190,7 +190,7 @@ declare class Geolocation extends BaseObject {
      * @observable
      * @api
      */
-    getPosition(): import("./coordinate.js").Coordinate | undefined;
+    getPosition(): import("ol/coordinate.js").Coordinate | undefined;
     /**
      * Get the projection associated with the position.
      * @return {import("./proj/Projection.js").default|undefined} The projection the position is
@@ -198,7 +198,7 @@ declare class Geolocation extends BaseObject {
      * @observable
      * @api
      */
-    getProjection(): import("./proj/Projection.js").default | undefined;
+    getProjection(): import("ol/proj/Projection.js").default | undefined;
     /**
      * Get the speed in meters per second.
      * @return {number|undefined} The instantaneous speed of the device in meters
@@ -231,7 +231,7 @@ declare class Geolocation extends BaseObject {
      * @observable
      * @api
      */
-    setProjection(projection: import("./proj.js").ProjectionLike): void;
+    setProjection(projection: import("ol/proj.js").ProjectionLike): void;
     /**
      * Enable or disable tracking.
      * @param {boolean} tracking Enable tracking.
@@ -250,5 +250,5 @@ declare class Geolocation extends BaseObject {
      */
     setTrackingOptions(options: PositionOptions): void;
 }
-import BaseObject from './Object.js';
+import BaseObject from 'ol/Object.js';
 //# sourceMappingURL=Geolocation.d.ts.map

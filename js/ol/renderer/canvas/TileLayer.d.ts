@@ -6,7 +6,7 @@ export default CanvasTileLayerRenderer;
  * @template {import("../../layer/Tile.js").default<import("../../source/Tile.js").default>|import("../../layer/VectorTile.js").default} [LayerType=import("../../layer/Tile.js").default<import("../../source/Tile.js").default>|import("../../layer/VectorTile.js").default]
  * @extends {CanvasLayerRenderer<LayerType>}
  */
-declare class CanvasTileLayerRenderer<LayerType extends import("../../layer/Tile.js").default<import("../../source/Tile.js").default> | import("../../layer/VectorTile.js").default = import("../../layer/Tile.js").default<import("../../source/Tile.js").default> | import("../../layer/VectorTile.js").default> extends CanvasLayerRenderer<LayerType> {
+declare class CanvasTileLayerRenderer<LayerType extends import("ol/layer/Tile.js").default<import("ol/source/Tile.js").default> | import("ol/layer/VectorTile.js").default = import("ol/layer/Tile.js").default<import("ol/source/Tile.js").default> | import("ol/layer/VectorTile.js").default> extends CanvasLayerRenderer<LayerType> {
     /**
      * @param {LayerType} tileLayer Tile layer.
      */
@@ -30,7 +30,7 @@ declare class CanvasTileLayerRenderer<LayerType extends import("../../layer/Tile
      * @protected
      * @type {import("../../proj/Projection.js").default}
      */
-    protected renderedProjection: import("../../proj/Projection.js").default;
+    protected renderedProjection: import("ol/proj/Projection.js").default;
     /**
      * @protected
      * @type {number}
@@ -40,7 +40,7 @@ declare class CanvasTileLayerRenderer<LayerType extends import("../../layer/Tile
      * @protected
      * @type {!Array<import("../../Tile.js").default>}
      */
-    protected renderedTiles: Array<import("../../Tile.js").default>;
+    protected renderedTiles: Array<import("ol/Tile.js").default>;
     /**
      * @private
      * @type {boolean}
@@ -50,7 +50,7 @@ declare class CanvasTileLayerRenderer<LayerType extends import("../../layer/Tile
      * @protected
      * @type {import("../../extent.js").Extent}
      */
-    protected tmpExtent: import("../../extent.js").Extent;
+    protected tmpExtent: import("ol/extent.js").Extent;
     /**
      * @private
      * @type {import("../../TileRange.js").default}
@@ -61,7 +61,7 @@ declare class CanvasTileLayerRenderer<LayerType extends import("../../layer/Tile
      * @param {import("../../Tile.js").default} tile Tile.
      * @return {boolean} Tile is drawable.
      */
-    protected isDrawableTile(tile: import("../../Tile.js").default): boolean;
+    protected isDrawableTile(tile: import("ol/Tile.js").default): boolean;
     /**
      * @param {number} z Tile coordinate z.
      * @param {number} x Tile coordinate x.
@@ -69,19 +69,19 @@ declare class CanvasTileLayerRenderer<LayerType extends import("../../layer/Tile
      * @param {import("../../Map.js").FrameState} frameState Frame state.
      * @return {!import("../../Tile.js").default} Tile.
      */
-    getTile(z: number, x: number, y: number, frameState: import("../../Map.js").FrameState): import("../../Tile.js").default;
+    getTile(z: number, x: number, y: number, frameState: import("ol/Map.js").FrameState): import("ol/Tile.js").default;
     /**
      * @param {import("../../pixel.js").Pixel} pixel Pixel.
      * @return {Uint8ClampedArray} Data at the pixel location.
      */
-    getData(pixel: import("../../pixel.js").Pixel): Uint8ClampedArray;
+    getData(pixel: import("ol/pixel.js").Pixel): Uint8ClampedArray;
     /**
      * Render the layer.
      * @param {import("../../Map.js").FrameState} frameState Frame state.
      * @param {HTMLElement} target Target that may be used to render content to.
      * @return {HTMLElement} The rendered element.
      */
-    renderFrame(frameState: import("../../Map.js").FrameState, target: HTMLElement): HTMLElement;
+    renderFrame(frameState: import("ol/Map.js").FrameState, target: HTMLElement): HTMLElement;
     /**
      * @param {import("../../ImageTile.js").default} tile Tile.
      * @param {import("../../Map.js").FrameState} frameState Frame state.
@@ -92,7 +92,7 @@ declare class CanvasTileLayerRenderer<LayerType extends import("../../layer/Tile
      * @param {number} gutter Tile gutter.
      * @param {boolean} transition Apply an alpha transition.
      */
-    drawTileImage(tile: import("../../ImageTile.js").default, frameState: import("../../Map.js").FrameState, x: number, y: number, w: number, h: number, gutter: number, transition: boolean): void;
+    drawTileImage(tile: import("ol/ImageTile.js").default, frameState: import("ol/Map.js").FrameState, x: number, y: number, w: number, h: number, gutter: number, transition: boolean): void;
     /**
      * @return {HTMLCanvasElement} Image
      */
@@ -103,13 +103,13 @@ declare class CanvasTileLayerRenderer<LayerType extends import("../../layer/Tile
      * @return {HTMLCanvasElement|HTMLImageElement|HTMLVideoElement} Image.
      * @protected
      */
-    protected getTileImage(tile: import("../../ImageTile.js").default): HTMLCanvasElement | HTMLImageElement | HTMLVideoElement;
+    protected getTileImage(tile: import("ol/ImageTile.js").default): HTMLCanvasElement | HTMLImageElement | HTMLVideoElement;
     /**
      * @param {import("../../Map.js").FrameState} frameState Frame state.
      * @param {import("../../source/Tile.js").default} tileSource Tile source.
      * @protected
      */
-    protected scheduleExpireCache(frameState: import("../../Map.js").FrameState, tileSource: import("../../source/Tile.js").default): void;
+    protected scheduleExpireCache(frameState: import("ol/Map.js").FrameState, tileSource: import("ol/source/Tile.js").default): void;
     /**
      * @param {!Object<string, !Object<string, boolean>>} usedTiles Used tiles.
      * @param {import("../../source/Tile.js").default} tileSource Tile source.
@@ -120,7 +120,7 @@ declare class CanvasTileLayerRenderer<LayerType extends import("../../layer/Tile
         [x: string]: {
             [x: string]: boolean;
         };
-    }, tileSource: import("../../source/Tile.js").default, tile: import('../../Tile.js').default): void;
+    }, tileSource: import("ol/source/Tile.js").default, tile: import('ol/Tile.js').default): void;
     /**
      * Manage tile pyramid.
      * This function performs a number of functions related to the tiles at the
@@ -139,7 +139,7 @@ declare class CanvasTileLayerRenderer<LayerType extends import("../../layer/Tile
      * @param {function(import("../../Tile.js").default):void} [tileCallback] Tile callback.
      * @protected
      */
-    protected manageTilePyramid(frameState: import("../../Map.js").FrameState, tileSource: import("../../source/Tile.js").default, tileGrid: import("../../tilegrid/TileGrid.js").default, pixelRatio: number, projection: import("../../proj/Projection.js").default, extent: import("../../extent.js").Extent, currentZ: number, preload: number, tileCallback?: ((arg0: import("../../Tile.js").default) => void) | undefined): void;
+    protected manageTilePyramid(frameState: import("ol/Map.js").FrameState, tileSource: import("ol/source/Tile.js").default, tileGrid: import("ol/tilegrid/TileGrid.js").default, pixelRatio: number, projection: import("ol/proj/Projection.js").default, extent: import("ol/extent.js").Extent, currentZ: number, preload: number, tileCallback?: ((arg0: import("ol/Tile.js").default) => void) | undefined): void;
 }
-import CanvasLayerRenderer from './Layer.js';
+import CanvasLayerRenderer from 'ol/renderer/canvas/Layer.js';
 //# sourceMappingURL=TileLayer.d.ts.map

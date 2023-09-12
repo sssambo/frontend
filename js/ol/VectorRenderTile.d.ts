@@ -7,7 +7,7 @@ export type ReplayState = {
     /**
      * RenderedRenderOrder.
      */
-    renderedRenderOrder: null | import("./render.js").OrderFunction;
+    renderedRenderOrder: null | import("ol/render.js").OrderFunction;
     /**
      * RenderedTileRevision.
      */
@@ -37,7 +37,7 @@ declare class VectorRenderTile extends Tile {
      * @param {function(VectorRenderTile):Array<import("./VectorTile").default>} getSourceTiles Function
      * to get source tiles for this tile.
      */
-    constructor(tileCoord: import("./tilecoord.js").TileCoord, state: any, urlTileCoord: import("./tilecoord.js").TileCoord, getSourceTiles: (arg0: VectorRenderTile) => Array<import("./VectorTile").default>);
+    constructor(tileCoord: import("ol/tilecoord.js").TileCoord, state: any, urlTileCoord: import("ol/tilecoord.js").TileCoord, getSourceTiles: (arg0: VectorRenderTile) => Array<import("ol/VectorTile").default>);
     /**
      * @private
      * @type {!Object<string, CanvasRenderingContext2D>}
@@ -48,14 +48,14 @@ declare class VectorRenderTile extends Tile {
      * @type {Object<string, Array<import("./render/canvas/ExecutorGroup.js").default>>}
      */
     executorGroups: {
-        [x: string]: Array<import("./render/canvas/ExecutorGroup.js").default>;
+        [x: string]: Array<import("ol/render/canvas/ExecutorGroup.js").default>;
     };
     /**
      * Executor groups for decluttering, by layer uid. Entries are read/written by the renderer.
      * @type {Object<string, Array<import("./render/canvas/ExecutorGroup.js").default>>}
      */
     declutterExecutorGroups: {
-        [x: string]: Array<import("./render/canvas/ExecutorGroup.js").default>;
+        [x: string]: Array<import("ol/render/canvas/ExecutorGroup.js").default>;
     };
     /**
      * Number of loading source tiles. Read/written by the source.
@@ -76,7 +76,7 @@ declare class VectorRenderTile extends Tile {
     /**
      * @type {Array<import("./VectorTile.js").default>}
      */
-    sourceTiles: Array<import("./VectorTile.js").default>;
+    sourceTiles: Array<import("ol/VectorTile.js").default>;
     /**
      * @type {Object<string, boolean>}
      */
@@ -90,32 +90,32 @@ declare class VectorRenderTile extends Tile {
     /**
      * @type {!function():Array<import("./VectorTile.js").default>}
      */
-    getSourceTiles: () => Array<import("./VectorTile.js").default>;
+    getSourceTiles: () => Array<import("ol/VectorTile.js").default>;
     /**
      * @type {import("./tilecoord.js").TileCoord}
      */
-    wrappedTileCoord: import("./tilecoord.js").TileCoord;
+    wrappedTileCoord: import("ol/tilecoord.js").TileCoord;
     /**
      * @param {import("./layer/Layer.js").default} layer Layer.
      * @return {CanvasRenderingContext2D} The rendering context.
      */
-    getContext(layer: import("./layer/Layer.js").default): CanvasRenderingContext2D;
+    getContext(layer: import("ol/layer/Layer.js").default): CanvasRenderingContext2D;
     /**
      * @param {import("./layer/Layer.js").default} layer Layer.
      * @return {boolean} Tile has a rendering context for the given layer.
      */
-    hasContext(layer: import("./layer/Layer.js").default): boolean;
+    hasContext(layer: import("ol/layer/Layer.js").default): boolean;
     /**
      * Get the Canvas for this tile.
      * @param {import("./layer/Layer.js").default} layer Layer.
      * @return {HTMLCanvasElement} Canvas.
      */
-    getImage(layer: import("./layer/Layer.js").default): HTMLCanvasElement;
+    getImage(layer: import("ol/layer/Layer.js").default): HTMLCanvasElement;
     /**
      * @param {import("./layer/Layer.js").default} layer Layer.
      * @return {ReplayState} The replay state.
      */
-    getReplayState(layer: import("./layer/Layer.js").default): ReplayState;
+    getReplayState(layer: import("ol/layer/Layer.js").default): ReplayState;
 }
-import Tile from './Tile.js';
+import Tile from 'ol/Tile.js';
 //# sourceMappingURL=VectorRenderTile.d.ts.map

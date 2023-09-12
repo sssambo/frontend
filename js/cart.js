@@ -9,8 +9,7 @@ const checkoutButton = document.createElement('button');
 // Function to get the cart data from local storage
 function getCartFromLocalStorage() {
     const cartData = localStorage.getItem('cart');
-    console.log(cartData)
-    if (cartData) {return  JSON.parse(cartData)}else{ return [];}
+     if (cartData) {return  JSON.parse(cartData)}else{ return [];}
 }
 
 // Function to render cart items
@@ -108,20 +107,23 @@ checkoutButton.addEventListener('click', async () => {
     // Your checkout logic here
         // Check if there is a session in local storage
         const sessionData = localStorage.getItem('session');
-    
+        // Fetch cart data from local storage
+        const cartData = localStorage.getItem('cart');
+        const cart = JSON.parse(cartData || '[]'); // Use an empty array if cart data is not available
+        const deliveryAddress = localStorage.getItem('deliveryAddress');       
+        const deliveryAdd =  JSON.parse(deliveryAddress || '[]');
+  
         if (sessionData) {
             // If there is a session, extract the token
             const session = JSON.parse(sessionData);
             const token = session.token;
-    
-            // Fetch cart data from local storage
-            const cartData = localStorage.getItem('cart');
-            const cart = JSON.parse(cartData || '[]'); // Use an empty array if cart data is not available
-    
+           
+                      
             // Prepare the order data with items and token
             const orderData = {
                 items: cart, // Assuming your cart data is an array of items
-                jwt: token
+                jwty: token,
+                deliveryAddress:deliveryAdd
             };
     
             try {
@@ -140,6 +142,7 @@ checkoutButton.addEventListener('click', async () => {
                     console.log('Order created:', orderResponse);
                     // Clear the cart after successful order
                     localStorage.removeItem('cart');
+                    cartItemsContainer.innerHTML = '<h1>Add dishes to cart</h1>';
                 } else {
                     // Handle error response from the server
                     console.error('Error creating order');
@@ -152,10 +155,43 @@ checkoutButton.addEventListener('click', async () => {
             const email = prompt('Please enter your email:');
             const phone = prompt('Please enter your phone number:');
     
-            // You can validate and use the email and phone data as needed
-            console.log('Email:', email);
-            console.log('Phone:', phone);
+            // // You can validate and use the email and phone data as needed
+            // console.log('Email:', email);
+            // console.log('Phone:', phone);
+            const orderData = {
+                items: cart, // Assuming your cart data is an array of items
+                deliveryAddress:deliveryAdd,
+                email:email,
+                phone:phone
+            };
+    
+            try {
+                // Send the order data to the server for processing
+                const response = await fetch('http://localhost:5000/api/order/create', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(orderData)
+                });
+    
+                if (response.ok) {
+                    // Order was successfully created, handle the response
+                    const orderResponse = await response.json();
+                    console.log('Order created:', orderResponse);
+                    // Clear the cart after successful order
+                    localStorage.removeItem('cart');
+                    cartItemsContainer.innerHTML = '<h1>Add dishes to cart</h1>';
+                } else {
+                    // Handle error response from the server
+                    console.error('Error creating order');
+                }
+            } catch (error) {
+                console.error('Error creating order:', error);
+            }
         }
+
+        
     });
     // Render cart items
     if (cart.length === 0) {
@@ -200,9 +236,5 @@ function decreaseQuantity(item) {
         updateCartLocalStorage(cart); // Update local storage
     }
 }
-    // Initialize a map
-let map;
-
-// Function to open the map
-
+ 
 }

@@ -47,7 +47,7 @@ declare class Target extends Disposable {
      * @param {string} type Type.
      * @param {import("../events.js").Listener} listener Listener.
      */
-    addEventListener(type: string, listener: import("../events.js").Listener): void;
+    addEventListener(type: string, listener: import("ol/events.js").Listener): void;
     /**
      * Dispatches an event and calls all listeners listening for events
      * of this type. The event parameter can either be a string or an
@@ -58,7 +58,7 @@ declare class Target extends Disposable {
      *     event object or if any of the listeners returned false.
      * @api
      */
-    dispatchEvent(event: import("./Event.js").default | string): boolean | undefined;
+    dispatchEvent(event: import("ol/events/Event.js").default | string): boolean | undefined;
     /**
      * Get the listeners for a specified event type. Listeners are returned in the
      * order that they will be called in.
@@ -66,7 +66,7 @@ declare class Target extends Disposable {
      * @param {string} type Type.
      * @return {Array<import("../events.js").Listener>|undefined} Listeners.
      */
-    getListeners(type: string): Array<import("../events.js").Listener> | undefined;
+    getListeners(type: string): Array<import("ol/events.js").Listener> | undefined;
     /**
      * @param {string} [type] Type. If not provided,
      *     `true` will be returned if this event target has any listeners.
@@ -77,7 +77,7 @@ declare class Target extends Disposable {
      * @param {string} type Type.
      * @param {import("../events.js").Listener} listener Listener.
      */
-    removeEventListener(type: string, listener: import("../events.js").Listener): void;
+    removeEventListener(type: string, listener: import("ol/events.js").Listener): void;
 }
-import Disposable from '../Disposable.js';
+import Disposable from 'ol/Disposable.js';
 //# sourceMappingURL=Target.d.ts.map

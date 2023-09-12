@@ -14,12 +14,12 @@ export default VectorLayer;
  * @extends {BaseVectorLayer<VectorSourceType, CanvasVectorLayerRenderer>}
  * @api
  */
-declare class VectorLayer<VectorSourceType extends import("../source/Vector.js").default<import("../geom/Geometry.js").default>> extends BaseVectorLayer<VectorSourceType, CanvasVectorLayerRenderer> {
+declare class VectorLayer<VectorSourceType extends import("ol/source/Vector.js").default<import("ol/geom/Geometry.js").default>> extends BaseVectorLayer<VectorSourceType, CanvasVectorLayerRenderer> {
     /**
      * @param {import("./BaseVector.js").Options<VectorSourceType>} [options] Options.
      */
-    constructor(options?: import("./BaseVector.js").Options<VectorSourceType> | undefined);
+    constructor(options?: import("ol/layer/BaseVector.js").Options<VectorSourceType> | undefined);
 }
-import CanvasVectorLayerRenderer from '../renderer/canvas/VectorLayer.js';
-import BaseVectorLayer from './BaseVector.js';
+import CanvasVectorLayerRenderer from 'ol/renderer/canvas/VectorLayer.js';
+import BaseVectorLayer from 'ol/layer/BaseVector.js';
 //# sourceMappingURL=Vector.d.ts.map

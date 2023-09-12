@@ -42,7 +42,7 @@
  * @param {function(): void} failure Failure
  *      Function called when loading failed.
  */
-export function loadFeaturesXhr(url: string | FeatureUrlFunction, format: import("./format/Feature.js").default, extent: import("./extent.js").Extent, resolution: number, projection: import("./proj/Projection.js").default, success: (arg0: Array<import("./Feature.js").default>, arg1: import("./proj/Projection.js").default) => void, failure: () => void): void;
+export function loadFeaturesXhr(url: string | FeatureUrlFunction, format: import("ol/format/Feature.js").default, extent: import("ol/extent.js").Extent, resolution: number, projection: import("ol/proj/Projection.js").default, success: (arg0: Array<import("ol/Feature.js").default>, arg1: import("ol/proj/Projection.js").default) => void, failure: () => void): void;
 /**
  * Create an XHR feature loader for a `url` and `format`. The feature loader
  * loads features (with XHR), parses the features, and adds them to the
@@ -52,7 +52,7 @@ export function loadFeaturesXhr(url: string | FeatureUrlFunction, format: import
  * @return {FeatureLoader} The feature loader.
  * @api
  */
-export function xhr(url: string | FeatureUrlFunction, format: import("./format/Feature.js").default): FeatureLoader;
+export function xhr(url: string | FeatureUrlFunction, format: import("ol/format/Feature.js").default): FeatureLoader;
 /**
  * Setter for the withCredentials configuration for the XHR.
  *
@@ -76,7 +76,7 @@ export function setWithCredentials(xhrWithCredentials: boolean): void;
  * The function is responsible for loading the features and adding them to the
  * source.
  */
-export type FeatureLoader = (this: (import("./source/Vector").default | import("./VectorTile.js").default), arg1: import("./extent.js").Extent, arg2: number, arg3: import("./proj/Projection.js").default, arg4: ((arg0: Array<import("./Feature.js").default>) => void) | undefined, arg5: (() => void) | undefined) => void;
+export type FeatureLoader = (this: (import("ol/source/Vector").default | import("ol/VectorTile.js").default), arg1: import("ol/extent.js").Extent, arg2: number, arg3: import("ol/proj/Projection.js").default, arg4: ((arg0: Array<import("ol/Feature.js").default>) => void) | undefined, arg5: (() => void) | undefined) => void;
 /**
  * {@link module :ol/source/Vector~VectorSource} sources use a function of this type to
  * get the url to load features from.
@@ -86,5 +86,5 @@ export type FeatureLoader = (this: (import("./source/Vector").default | import("
  * and an {@link module :ol/proj/Projection~Projection} for the projection  as
  * arguments and returns a `{string}` representing the URL.
  */
-export type FeatureUrlFunction = (arg0: import("./extent.js").Extent, arg1: number, arg2: import("./proj/Projection.js").default) => string;
+export type FeatureUrlFunction = (arg0: import("ol/extent.js").Extent, arg1: number, arg2: import("ol/proj/Projection.js").default) => string;
 //# sourceMappingURL=featureloader.d.ts.map

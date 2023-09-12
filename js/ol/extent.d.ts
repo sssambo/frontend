@@ -14,7 +14,7 @@
  * @return {Extent} Bounding extent.
  * @api
  */
-export function boundingExtent(coordinates: Array<import("./coordinate.js").Coordinate>): Extent;
+export function boundingExtent(coordinates: Array<import("ol/coordinate.js").Coordinate>): Extent;
 /**
  * Return extent increased by the provided value.
  * @param {Extent} extent Extent.
@@ -47,7 +47,7 @@ export function closestSquaredDistanceXY(extent: Extent, x: number, y: number): 
  * @return {boolean} The coordinate is contained in the extent.
  * @api
  */
-export function containsCoordinate(extent: Extent, coordinate: import("./coordinate.js").Coordinate): boolean;
+export function containsCoordinate(extent: Extent, coordinate: import("ol/coordinate.js").Coordinate): boolean;
 /**
  * Check if one extent contains another.
  *
@@ -78,7 +78,7 @@ export function containsXY(extent: Extent, x: number, y: number): boolean;
  * @return {import("./extent/Relationship.js").default} The relationship (bitwise compare with
  *     import("./extent/Relationship.js").Relationship).
  */
-export function coordinateRelationship(extent: Extent, coordinate: import("./coordinate.js").Coordinate): any;
+export function coordinateRelationship(extent: Extent, coordinate: import("ol/coordinate.js").Coordinate): any;
 /**
  * Create an empty extent.
  * @return {Extent} Empty extent.
@@ -106,13 +106,13 @@ export function createOrUpdateEmpty(dest?: Extent | undefined): Extent;
  * @param {Extent} [dest] Extent.
  * @return {Extent} Extent.
  */
-export function createOrUpdateFromCoordinate(coordinate: import("./coordinate.js").Coordinate, dest?: Extent | undefined): Extent;
+export function createOrUpdateFromCoordinate(coordinate: import("ol/coordinate.js").Coordinate, dest?: Extent | undefined): Extent;
 /**
  * @param {Array<import("./coordinate.js").Coordinate>} coordinates Coordinates.
  * @param {Extent} [dest] Extent.
  * @return {Extent} Extent.
  */
-export function createOrUpdateFromCoordinates(coordinates: Array<import("./coordinate.js").Coordinate>, dest?: Extent | undefined): Extent;
+export function createOrUpdateFromCoordinates(coordinates: Array<import("ol/coordinate.js").Coordinate>, dest?: Extent | undefined): Extent;
 /**
  * @param {Array<number>} flatCoordinates Flat coordinates.
  * @param {number} offset Offset.
@@ -127,7 +127,7 @@ export function createOrUpdateFromFlatCoordinates(flatCoordinates: Array<number>
  * @param {Extent} [dest] Extent.
  * @return {Extent} Extent.
  */
-export function createOrUpdateFromRings(rings: Array<Array<import("./coordinate.js").Coordinate>>, dest?: Extent | undefined): Extent;
+export function createOrUpdateFromRings(rings: Array<Array<import("ol/coordinate.js").Coordinate>>, dest?: Extent | undefined): Extent;
 /**
  * Determine if two extents are equivalent.
  * @param {Extent} extent1 Extent 1.
@@ -156,13 +156,13 @@ export function extend(extent1: Extent, extent2: Extent): Extent;
  * @param {Extent} extent Extent.
  * @param {import("./coordinate.js").Coordinate} coordinate Coordinate.
  */
-export function extendCoordinate(extent: Extent, coordinate: import("./coordinate.js").Coordinate): void;
+export function extendCoordinate(extent: Extent, coordinate: import("ol/coordinate.js").Coordinate): void;
 /**
  * @param {Extent} extent Extent.
  * @param {Array<import("./coordinate.js").Coordinate>} coordinates Coordinates.
  * @return {Extent} Extent.
  */
-export function extendCoordinates(extent: Extent, coordinates: Array<import("./coordinate.js").Coordinate>): Extent;
+export function extendCoordinates(extent: Extent, coordinates: Array<import("ol/coordinate.js").Coordinate>): Extent;
 /**
  * @param {Extent} extent Extent.
  * @param {Array<number>} flatCoordinates Flat coordinates.
@@ -177,7 +177,7 @@ export function extendFlatCoordinates(extent: Extent, flatCoordinates: Array<num
  * @param {Array<Array<import("./coordinate.js").Coordinate>>} rings Rings.
  * @return {Extent} Extent.
  */
-export function extendRings(extent: Extent, rings: Array<Array<import("./coordinate.js").Coordinate>>): Extent;
+export function extendRings(extent: Extent, rings: Array<Array<import("ol/coordinate.js").Coordinate>>): Extent;
 /**
  * @param {Extent} extent Extent.
  * @param {number} x X.
@@ -193,7 +193,7 @@ export function extendXY(extent: Extent, x: number, y: number): void;
  * @return {S|boolean} Value.
  * @template S
  */
-export function forEachCorner<S>(extent: Extent, callback: (arg0: import("./coordinate.js").Coordinate) => S): boolean | S;
+export function forEachCorner<S>(extent: Extent, callback: (arg0: import("ol/coordinate.js").Coordinate) => S): boolean | S;
 /**
  * Get the size of an extent.
  * @param {Extent} extent Extent.
@@ -207,28 +207,28 @@ export function getArea(extent: Extent): number;
  * @return {import("./coordinate.js").Coordinate} Bottom left coordinate.
  * @api
  */
-export function getBottomLeft(extent: Extent): import("./coordinate.js").Coordinate;
+export function getBottomLeft(extent: Extent): import("ol/coordinate.js").Coordinate;
 /**
  * Get the bottom right coordinate of an extent.
  * @param {Extent} extent Extent.
  * @return {import("./coordinate.js").Coordinate} Bottom right coordinate.
  * @api
  */
-export function getBottomRight(extent: Extent): import("./coordinate.js").Coordinate;
+export function getBottomRight(extent: Extent): import("ol/coordinate.js").Coordinate;
 /**
  * Get the center coordinate of an extent.
  * @param {Extent} extent Extent.
  * @return {import("./coordinate.js").Coordinate} Center.
  * @api
  */
-export function getCenter(extent: Extent): import("./coordinate.js").Coordinate;
+export function getCenter(extent: Extent): import("ol/coordinate.js").Coordinate;
 /**
  * Get a corner coordinate of an extent.
  * @param {Extent} extent Extent.
  * @param {Corner} corner Corner.
  * @return {import("./coordinate.js").Coordinate} Corner coordinate.
  */
-export function getCorner(extent: Extent, corner: Corner): import("./coordinate.js").Coordinate;
+export function getCorner(extent: Extent, corner: Corner): import("ol/coordinate.js").Coordinate;
 /**
  * @param {Extent} extent1 Extent 1.
  * @param {Extent} extent2 Extent 2.
@@ -243,7 +243,7 @@ export function getEnlargedArea(extent1: Extent, extent2: Extent): number;
  * @param {Extent} [dest] Destination extent.
  * @return {Extent} Extent.
  */
-export function getForViewAndSize(center: import("./coordinate.js").Coordinate, resolution: number, rotation: number, size: import("./size.js").Size, dest?: Extent | undefined): Extent;
+export function getForViewAndSize(center: import("ol/coordinate.js").Coordinate, resolution: number, rotation: number, size: import("ol/size.js").Size, dest?: Extent | undefined): Extent;
 /**
  * @param {import("./coordinate.js").Coordinate} center Center.
  * @param {number} resolution Resolution.
@@ -251,7 +251,7 @@ export function getForViewAndSize(center: import("./coordinate.js").Coordinate, 
  * @param {import("./size.js").Size} size Size.
  * @return {Array<number>} Linear ring representing the viewport.
  */
-export function getRotatedViewport(center: import("./coordinate.js").Coordinate, resolution: number, rotation: number, size: import("./size.js").Size): Array<number>;
+export function getRotatedViewport(center: import("ol/coordinate.js").Coordinate, resolution: number, rotation: number, size: import("ol/size.js").Size): Array<number>;
 /**
  * Get the height of an extent.
  * @param {Extent} extent Extent.
@@ -285,21 +285,21 @@ export function getMargin(extent: Extent): number;
  * @return {import("./size.js").Size} The extent size.
  * @api
  */
-export function getSize(extent: Extent): import("./size.js").Size;
+export function getSize(extent: Extent): import("ol/size.js").Size;
 /**
  * Get the top left coordinate of an extent.
  * @param {Extent} extent Extent.
  * @return {import("./coordinate.js").Coordinate} Top left coordinate.
  * @api
  */
-export function getTopLeft(extent: Extent): import("./coordinate.js").Coordinate;
+export function getTopLeft(extent: Extent): import("ol/coordinate.js").Coordinate;
 /**
  * Get the top right coordinate of an extent.
  * @param {Extent} extent Extent.
  * @return {import("./coordinate.js").Coordinate} Top right coordinate.
  * @api
  */
-export function getTopRight(extent: Extent): import("./coordinate.js").Coordinate;
+export function getTopRight(extent: Extent): import("ol/coordinate.js").Coordinate;
 /**
  * Get the width of an extent.
  * @param {Extent} extent Extent.
@@ -341,7 +341,7 @@ export function scaleFromCenter(extent: Extent, value: number): void;
  * @param {import("./coordinate.js").Coordinate} end Segment end coordinate.
  * @return {boolean} The segment intersects the extent.
  */
-export function intersectsSegment(extent: Extent, start: import("./coordinate.js").Coordinate, end: import("./coordinate.js").Coordinate): boolean;
+export function intersectsSegment(extent: Extent, start: import("ol/coordinate.js").Coordinate, end: import("ol/coordinate.js").Coordinate): boolean;
 /**
  * Apply a transform function to the extent.
  * @param {Extent} extent Extent.
@@ -353,7 +353,7 @@ export function intersectsSegment(extent: Extent, start: import("./coordinate.js
  * @return {Extent} Extent.
  * @api
  */
-export function applyTransform(extent: Extent, transformFn: import("./proj.js").TransformFunction, dest?: Extent | undefined, stops?: number | undefined): Extent;
+export function applyTransform(extent: Extent, transformFn: import("ol/proj.js").TransformFunction, dest?: Extent | undefined, stops?: number | undefined): Extent;
 /**
  * Modifies the provided extent in-place to be within the real world
  * extent.
@@ -362,7 +362,7 @@ export function applyTransform(extent: Extent, transformFn: import("./proj.js").
  * @param {import("./proj/Projection.js").default} projection Projection
  * @return {Extent} The extent within the real world extent.
  */
-export function wrapX(extent: Extent, projection: import("./proj/Projection.js").default): Extent;
+export function wrapX(extent: Extent, projection: import("ol/proj/Projection.js").default): Extent;
 /**
  * Fits the extent to the real world
  *
@@ -375,7 +375,7 @@ export function wrapX(extent: Extent, projection: import("./proj/Projection.js")
  * @param {import("./proj/Projection.js").default} projection Projection
  * @return {Array<Extent>} The extent within the real world extent.
  */
-export function wrapAndSliceX(extent: Extent, projection: import("./proj/Projection.js").default): Array<Extent>;
+export function wrapAndSliceX(extent: Extent, projection: import("ol/proj/Projection.js").default): Array<Extent>;
 /**
  * An array of numbers representing an extent: `[minx, miny, maxx, maxy]`.
  */

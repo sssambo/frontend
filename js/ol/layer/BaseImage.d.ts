@@ -1,5 +1,5 @@
 export default BaseImageLayer;
-export type Options<ImageSourceType extends import("../source/Image.js").default> = {
+export type Options<ImageSourceType extends import("ol/source/Image.js").default> = {
     /**
      * A CSS class name to set to the layer element.
      */
@@ -16,7 +16,7 @@ export type Options<ImageSourceType extends import("../source/Image.js").default
      * The bounding extent for layer rendering.  The layer will not be
      * rendered outside of this extent.
      */
-    extent?: import("../extent.js").Extent | undefined;
+    extent?: import("ol/extent.js").Extent | undefined;
     /**
      * The z-index for layer rendering.  At rendering time, the layers
      * will be ordered, first by Z-index and then by position. When `undefined`, a `zIndex` of 0 is assumed
@@ -50,7 +50,7 @@ export type Options<ImageSourceType extends import("../source/Image.js").default
      * temporary layers. The standard way to add a layer to a map and have it managed by the map is to
      * use {@link import ("../Map.js").default#addLayer map.addLayer()}.
      */
-    map?: import("../Map.js").default | undefined;
+    map?: import("ol/Map.js").default | undefined;
     /**
      * Source for this layer.
      */
@@ -102,11 +102,11 @@ export type Options<ImageSourceType extends import("../source/Image.js").default
  * @extends {Layer<ImageSourceType, RendererType>}
  * @api
  */
-declare class BaseImageLayer<ImageSourceType extends import("../source/Image.js").default, RendererType extends import("../renderer/Layer.js").default<any>> extends Layer<ImageSourceType, RendererType> {
+declare class BaseImageLayer<ImageSourceType extends import("ol/source/Image.js").default, RendererType extends import("ol/renderer/Layer.js").default<any>> extends Layer<ImageSourceType, RendererType> {
     /**
      * @param {Options<ImageSourceType>} [options] Layer options.
      */
     constructor(options?: Options<ImageSourceType> | undefined);
 }
-import Layer from './Layer.js';
+import Layer from 'ol/layer/Layer.js';
 //# sourceMappingURL=BaseImage.d.ts.map

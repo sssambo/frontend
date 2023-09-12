@@ -57,18 +57,18 @@ export type ImageOrLabelDimensions = {
     /**
      * CanvasTransform.
      */
-    canvasTransform: import("../../transform.js").Transform;
+    canvasTransform: import("ol/transform.js").Transform;
 };
 export type ReplayImageOrLabelArgs = {
     0: CanvasRenderingContext2D;
     1: number;
-    2: import("../canvas.js").Label | HTMLImageElement | HTMLCanvasElement | HTMLVideoElement;
+    2: import("ol/render/canvas.js").Label | HTMLImageElement | HTMLCanvasElement | HTMLVideoElement;
     3: ImageOrLabelDimensions;
     4: number;
     5: Array<any>;
     6: Array<any>;
 };
-export type FeatureCallback<T> = (arg0: import("../../Feature.js").FeatureLike, arg1: import("../../geom/SimpleGeometry.js").default) => T;
+export type FeatureCallback<T> = (arg0: import("ol/Feature.js").FeatureLike, arg1: import("ol/geom/SimpleGeometry.js").default) => T;
 declare class Executor {
     /**
      * @param {number} resolution Resolution.
@@ -76,7 +76,7 @@ declare class Executor {
      * @param {boolean} overlaps The replay can have overlapping geometries.
      * @param {import("../canvas.js").SerializableInstructions} instructions The serializable instructions
      */
-    constructor(resolution: number, pixelRatio: number, overlaps: boolean, instructions: import("../canvas.js").SerializableInstructions);
+    constructor(resolution: number, pixelRatio: number, overlaps: boolean, instructions: import("ol/render/canvas.js").SerializableInstructions);
     /**
      * @protected
      * @type {boolean}
@@ -137,19 +137,19 @@ declare class Executor {
      * @type {!Object<string, import("../canvas.js").FillState>}
      */
     fillStates: {
-        [x: string]: import("../canvas.js").FillState;
+        [x: string]: import("ol/render/canvas.js").FillState;
     };
     /**
      * @type {!Object<string, import("../canvas.js").StrokeState>}
      */
     strokeStates: {
-        [x: string]: import("../canvas.js").StrokeState;
+        [x: string]: import("ol/render/canvas.js").StrokeState;
     };
     /**
      * @type {!Object<string, import("../canvas.js").TextState>}
      */
     textStates: {
-        [x: string]: import("../canvas.js").TextState;
+        [x: string]: import("ol/render/canvas.js").TextState;
     };
     /**
      * @private
@@ -168,7 +168,7 @@ declare class Executor {
      * @param {string} strokeKey Stroke style key.
      * @return {import("../canvas.js").Label} Label.
      */
-    createLabel(text: string | Array<string>, textKey: string, fillKey: string, strokeKey: string): import("../canvas.js").Label;
+    createLabel(text: string | Array<string>, textKey: string, fillKey: string, strokeKey: string): import("ol/render/canvas.js").Label;
     /**
      * @param {CanvasRenderingContext2D} context Context.
      * @param {import("../../coordinate.js").Coordinate} p1 1st point of the background box.
@@ -178,7 +178,7 @@ declare class Executor {
      * @param {Array<*>} fillInstruction Fill instruction.
      * @param {Array<*>} strokeInstruction Stroke instruction.
      */
-    replayTextBackground_(context: CanvasRenderingContext2D, p1: import("../../coordinate.js").Coordinate, p2: import("../../coordinate.js").Coordinate, p3: import("../../coordinate.js").Coordinate, p4: import("../../coordinate.js").Coordinate, fillInstruction: Array<any>, strokeInstruction: Array<any>): void;
+    replayTextBackground_(context: CanvasRenderingContext2D, p1: import("ol/coordinate.js").Coordinate, p2: import("ol/coordinate.js").Coordinate, p3: import("ol/coordinate.js").Coordinate, p4: import("ol/coordinate.js").Coordinate, fillInstruction: Array<any>, strokeInstruction: Array<any>): void;
     /**
      * @private
      * @param {number} sheetWidth Width of the sprite sheet.
@@ -255,7 +255,7 @@ declare class Executor {
      * @param {boolean} snapToPixel Snap point symbols and text to integer pixels.
      * @param {import("rbush").default} [declutterTree] Declutter tree.
      */
-    execute(context: CanvasRenderingContext2D, contextScale: number, transform: import("../../transform.js").Transform, viewRotation: number, snapToPixel: boolean, declutterTree?: any): void;
+    execute(context: CanvasRenderingContext2D, contextScale: number, transform: import("ol/transform.js").Transform, viewRotation: number, snapToPixel: boolean, declutterTree?: any): void;
     /**
      * @param {CanvasRenderingContext2D} context Context.
      * @param {import("../../transform.js").Transform} transform Transform.
@@ -266,6 +266,6 @@ declare class Executor {
      * @return {T|undefined} Callback result.
      * @template T
      */
-    executeHitDetection<T>(context: CanvasRenderingContext2D, transform: import("../../transform.js").Transform, viewRotation: number, featureCallback?: FeatureCallback<T> | undefined, hitExtent?: import("../../extent.js").Extent | undefined): T | undefined;
+    executeHitDetection<T>(context: CanvasRenderingContext2D, transform: import("ol/transform.js").Transform, viewRotation: number, featureCallback?: FeatureCallback<T> | undefined, hitExtent?: import("ol/extent.js").Extent | undefined): T | undefined;
 }
 //# sourceMappingURL=Executor.d.ts.map

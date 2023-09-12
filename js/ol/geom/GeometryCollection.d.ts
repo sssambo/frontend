@@ -18,7 +18,7 @@ declare class GeometryCollection extends Geometry {
     /**
      * @type {Array<import("../events.js").EventsKey>}
      */
-    changeEventsKeys_: Array<import("../events.js").EventsKey>;
+    changeEventsKeys_: Array<import("ol/events.js").EventsKey>;
     /**
      * @private
      */
@@ -68,5 +68,5 @@ declare class GeometryCollection extends Geometry {
      */
     setGeometriesArray(geometries: Array<Geometry>): void;
 }
-import Geometry from './Geometry.js';
+import Geometry from 'ol/geom/Geometry.js';
 //# sourceMappingURL=GeometryCollection.d.ts.map

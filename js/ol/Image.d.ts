@@ -4,7 +4,7 @@
  * @param {function():any} errorHandler Error callback function.
  * @return {function():void} Callback to stop listening.
  */
-export function listenImage(image: import('./DataTile.js').ImageLike, loadHandler: () => any, errorHandler: () => any): () => void;
+export function listenImage(image: import('ol/DataTile.js').ImageLike, loadHandler: () => any, errorHandler: () => any): () => void;
 /**
  * Loads an image.
  * @param {HTMLImageElement} image Image, not yet loaded.
@@ -44,17 +44,17 @@ export default ImageWrapper;
  * post requests or - in general - through XHR requests, where the src of the
  * image element would be set to a data URI when the content is loaded.
  */
-export type LoadFunction = (arg0: import("./Image.js").default, arg1: string) => void;
+export type LoadFunction = (arg0: import("ol/Image.js").default, arg1: string) => void;
 export type ImageObject = {
     /**
      * Extent, if different from the requested one.
      */
-    extent?: import("./extent.js").Extent | undefined;
+    extent?: import("ol/extent.js").Extent | undefined;
     /**
      * Resolution, if different from the requested one.
      * When x and y resolution are different, use the array type (`[xResolution, yResolution]`).
      */
-    resolution?: import("./resolution.js").ResolutionLike | undefined;
+    resolution?: import("ol/resolution.js").ResolutionLike | undefined;
     /**
      * Pixel ratio, if different from the requested one.
      */
@@ -62,7 +62,7 @@ export type ImageObject = {
     /**
      * Image.
      */
-    image: import('./DataTile.js').ImageLike;
+    image: import('ol/DataTile.js').ImageLike;
 };
 /**
  * Loader function used for image sources. Receives extent, resolution and pixel ratio as arguments.
@@ -74,12 +74,12 @@ export type ImageObject = {
  * it has to return an {@link import ("./Image.js").ImageObject image object} with the `image` and the
  * correct `extent`, `resolution` and `pixelRatio`.
  */
-export type Loader = (arg0: import("./extent.js").Extent, arg1: number, arg2: number, arg3: ((arg0: HTMLImageElement, arg1: string) => void) | undefined) => import("./DataTile.js").ImageLike | ImageObject | Promise<import("./DataTile.js").ImageLike | ImageObject>;
+export type Loader = (arg0: import("ol/extent.js").Extent, arg1: number, arg2: number, arg3: ((arg0: HTMLImageElement, arg1: string) => void) | undefined) => import("ol/DataTile.js").ImageLike | ImageObject | Promise<import("ol/DataTile.js").ImageLike | ImageObject>;
 /**
  * Loader function used for image sources. Receives extent, resolution and pixel ratio as arguments.
  * The function returns a promise for an  {@link import ("./Image.js").ImageObject image object}.
  */
-export type ImageObjectPromiseLoader = (arg0: import("./extent.js").Extent, arg1: number, arg2: number, arg3: ((arg0: HTMLImageElement, arg1: string) => void) | undefined) => import("./DataTile.js").ImageLike | ImageObject | Promise<import("./DataTile.js").ImageLike | ImageObject>;
+export type ImageObjectPromiseLoader = (arg0: import("ol/extent.js").Extent, arg1: number, arg2: number, arg3: ((arg0: HTMLImageElement, arg1: string) => void) | undefined) => import("ol/DataTile.js").ImageLike | ImageObject | Promise<import("ol/DataTile.js").ImageLike | ImageObject>;
 /**
  * A function that takes an {@link module:ol/Image~ImageWrapper} for the image and a
  * `{string}` for the src as arguments. It is supposed to make it so the
@@ -132,12 +132,12 @@ declare class ImageWrapper extends EventTarget {
      * @param {number} pixelRatio Pixel ratio.
      * @param {import("./ImageState.js").default|import("./Image.js").Loader} stateOrLoader State.
      */
-    constructor(extent: import("./extent.js").Extent, resolution: number | Array<number> | undefined, pixelRatio: number, stateOrLoader: any | import("./Image.js").Loader);
+    constructor(extent: import("ol/extent.js").Extent, resolution: number | Array<number> | undefined, pixelRatio: number, stateOrLoader: any | import("ol/Image.js").Loader);
     /**
      * @protected
      * @type {import("./extent.js").Extent}
      */
-    protected extent: import("./extent.js").Extent;
+    protected extent: import("ol/extent.js").Extent;
     /**
      * @private
      * @type {number}
@@ -162,7 +162,7 @@ declare class ImageWrapper extends EventTarget {
      * @protected
      * @type {import("./Image.js").Loader}
      */
-    protected loader: import("./Image.js").Loader;
+    protected loader: import("ol/Image.js").Loader;
     /**
      * @protected
      */
@@ -170,11 +170,11 @@ declare class ImageWrapper extends EventTarget {
     /**
      * @return {import("./extent.js").Extent} Extent.
      */
-    getExtent(): import("./extent.js").Extent;
+    getExtent(): import("ol/extent.js").Extent;
     /**
      * @return {import('./DataTile.js').ImageLike} Image.
      */
-    getImage(): import('./DataTile.js').ImageLike;
+    getImage(): import('ol/DataTile.js').ImageLike;
     /**
      * @return {number} PixelRatio.
      */
@@ -194,11 +194,11 @@ declare class ImageWrapper extends EventTarget {
     /**
      * @param {import('./DataTile.js').ImageLike} image The image.
      */
-    setImage(image: import('./DataTile.js').ImageLike): void;
+    setImage(image: import('ol/DataTile.js').ImageLike): void;
     /**
      * @param {number|Array<number>} resolution Resolution.
      */
     setResolution(resolution: number | Array<number>): void;
 }
-import EventTarget from './events/Target.js';
+import EventTarget from 'ol/events/Target.js';
 //# sourceMappingURL=Image.d.ts.map

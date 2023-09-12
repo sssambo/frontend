@@ -58,7 +58,7 @@ export function toContext(context: CanvasRenderingContext2D, options?: ToContext
  * @return {CanvasImmediateRenderer} Vector context.
  * @api
  */
-export function getVectorContext(event: import("./render/Event.js").default): CanvasImmediateRenderer;
+export function getVectorContext(event: import("ol/render/Event.js").default): CanvasImmediateRenderer;
 /**
  * Gets the pixel of the event's canvas context from the map viewport's CSS pixel.
  * @param {import("./render/Event.js").default} event Render event.
@@ -67,7 +67,7 @@ export function getVectorContext(event: import("./render/Event.js").default): Ca
  * @return {import("./pixel.js").Pixel} Pixel on the event's canvas context.
  * @api
  */
-export function getRenderPixel(event: import("./render/Event.js").default, pixel: import("./pixel.js").Pixel): import("./pixel.js").Pixel;
+export function getRenderPixel(event: import("ol/render/Event.js").default, pixel: import("ol/pixel.js").Pixel): import("ol/pixel.js").Pixel;
 export type State = {
     /**
      * Canvas context that the layer is being rendered to.
@@ -76,11 +76,11 @@ export type State = {
     /**
      * Feature.
      */
-    feature: import("./Feature.js").FeatureLike;
+    feature: import("ol/Feature.js").FeatureLike;
     /**
      * Geometry.
      */
-    geometry: import("./geom/SimpleGeometry.js").default;
+    geometry: import("ol/geom/SimpleGeometry.js").default;
     /**
      * Pixel ratio used by the layer renderer.
      */
@@ -100,7 +100,7 @@ export type State = {
  * It takes two instances of {@link module :ol/Feature~Feature} or
  * {@link module :ol/render/Feature~RenderFeature} and returns a `{number}`.
  */
-export type OrderFunction = (arg0: import("./Feature.js").FeatureLike, arg1: import("./Feature.js").FeatureLike) => number;
+export type OrderFunction = (arg0: import("ol/Feature.js").FeatureLike, arg1: import("ol/Feature.js").FeatureLike) => number;
 export type ToContextOptions = {
     /**
      * Desired size of the canvas in css
@@ -108,12 +108,12 @@ export type ToContextOptions = {
      * `pixelRatio`. If not provided, the current canvas and css sizes will not be
      * altered.
      */
-    size?: import("./size.js").Size | undefined;
+    size?: import("ol/size.js").Size | undefined;
     /**
      * Pixel ratio (canvas
      * pixel to css pixel ratio) for the canvas.
      */
     pixelRatio?: number | undefined;
 };
-import CanvasImmediateRenderer from './render/canvas/Immediate.js';
+import CanvasImmediateRenderer from 'ol/render/canvas/Immediate.js';
 //# sourceMappingURL=render.d.ts.map

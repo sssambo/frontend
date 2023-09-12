@@ -3,7 +3,7 @@ export type Options = {
     /**
      * Attributions.
      */
-    attributions?: import("./Source.js").AttributionLike | undefined;
+    attributions?: import("ol/source/Source.js").AttributionLike | undefined;
     /**
      * Attributions are collapsible.
      */
@@ -19,19 +19,19 @@ export type Options = {
     /**
      * Projection.
      */
-    projection?: import("../proj.js").ProjectionLike;
+    projection?: import("ol/proj.js").ProjectionLike;
     /**
      * State.
      */
-    state?: import("./Source.js").State | undefined;
+    state?: import("ol/source/Source.js").State | undefined;
     /**
      * TileGrid.
      */
-    tileGrid?: import("../tilegrid/TileGrid.js").default | undefined;
+    tileGrid?: import("ol/tilegrid/TileGrid.js").default | undefined;
     /**
      * TileLoadFunction.
      */
-    tileLoadFunction: import("../Tile.js").LoadFunction;
+    tileLoadFunction: import("ol/Tile.js").LoadFunction;
     /**
      * TilePixelRatio.
      */
@@ -39,7 +39,7 @@ export type Options = {
     /**
      * TileUrlFunction.
      */
-    tileUrlFunction?: import("../Tile.js").UrlFunction | undefined;
+    tileUrlFunction?: import("ol/Tile.js").UrlFunction | undefined;
     /**
      * Url.
      */
@@ -63,7 +63,7 @@ export type Options = {
     /**
      * ZDirection.
      */
-    zDirection?: number | import("../array.js").NearestDirectionFunction | undefined;
+    zDirection?: number | import("ol/array.js").NearestDirectionFunction | undefined;
     /**
      * Use interpolated values when resampling.  By default,
      * the nearest neighbor is used when resampling.
@@ -111,14 +111,14 @@ declare class UrlTile extends TileSource {
      * @protected
      * @type {import("../Tile.js").LoadFunction}
      */
-    protected tileLoadFunction: import("../Tile.js").LoadFunction;
+    protected tileLoadFunction: import("ol/Tile.js").LoadFunction;
     /**
      * @param {import("../tilecoord.js").TileCoord} tileCoord Tile coordinate.
      * @param {number} pixelRatio Pixel ratio.
      * @param {import("../proj/Projection.js").default} projection Projection.
      * @return {string|undefined} Tile URL.
      */
-    tileUrlFunction(tileCoord: import("../tilecoord.js").TileCoord, pixelRatio: number, projection: import("../proj/Projection.js").default): string | undefined;
+    tileUrlFunction(tileCoord: import("ol/tilecoord.js").TileCoord, pixelRatio: number, projection: import("ol/proj/Projection.js").default): string | undefined;
     /**
      * @protected
      * @type {!Array<string>|null}
@@ -134,13 +134,13 @@ declare class UrlTile extends TileSource {
      * @return {import("../Tile.js").LoadFunction} TileLoadFunction
      * @api
      */
-    getTileLoadFunction(): import("../Tile.js").LoadFunction;
+    getTileLoadFunction(): import("ol/Tile.js").LoadFunction;
     /**
      * Return the tile URL function of the source.
      * @return {import("../Tile.js").UrlFunction} TileUrlFunction
      * @api
      */
-    getTileUrlFunction(): import("../Tile.js").UrlFunction;
+    getTileUrlFunction(): import("ol/Tile.js").UrlFunction;
     /**
      * Return the URLs used for this source.
      * When a tileUrlFunction is used instead of url or urls,
@@ -154,20 +154,20 @@ declare class UrlTile extends TileSource {
      * @param {import("../events/Event.js").default} event Event.
      * @protected
      */
-    protected handleTileChange(event: import("../events/Event.js").default): void;
+    protected handleTileChange(event: import("ol/events/Event.js").default): void;
     /**
      * Set the tile load function of the source.
      * @param {import("../Tile.js").LoadFunction} tileLoadFunction Tile load function.
      * @api
      */
-    setTileLoadFunction(tileLoadFunction: import("../Tile.js").LoadFunction): void;
+    setTileLoadFunction(tileLoadFunction: import("ol/Tile.js").LoadFunction): void;
     /**
      * Set the tile URL function of the source.
      * @param {import("../Tile.js").UrlFunction} tileUrlFunction Tile URL function.
      * @param {string} [key] Optional new tile key for the source.
      * @api
      */
-    setTileUrlFunction(tileUrlFunction: import("../Tile.js").UrlFunction, key?: string | undefined): void;
+    setTileUrlFunction(tileUrlFunction: import("ol/Tile.js").UrlFunction, key?: string | undefined): void;
     /**
      * Set the URL to use for requests.
      * @param {string} url URL.
@@ -188,5 +188,5 @@ declare class UrlTile extends TileSource {
      */
     useTile(z: number, x: number, y: number): void;
 }
-import TileSource from './Tile.js';
+import TileSource from 'ol/source/Tile.js';
 //# sourceMappingURL=UrlTile.d.ts.map

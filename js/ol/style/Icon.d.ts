@@ -33,7 +33,7 @@ export type Options = {
      * Color to tint the icon. If not specified,
      * the icon will be left as is.
      */
-    color?: string | import("../color.js").Color | undefined;
+    color?: string | import("ol/color.js").Color | undefined;
     /**
      * The `crossOrigin` attribute for loaded images. Note that you must provide a
      * `crossOrigin` value if you want to access pixel data with the Canvas renderer.
@@ -64,7 +64,7 @@ export type Options = {
     /**
      * Scale.
      */
-    scale?: number | import("../size.js").Size | undefined;
+    scale?: number | import("ol/size.js").Size | undefined;
     /**
      * Whether to rotate the icon with the view.
      */
@@ -87,7 +87,7 @@ export type Options = {
      * Icon size in pixels. Used together with `offset` to define the
      * sub-rectangle to use from the original (sprite) image.
      */
-    size?: import("../size.js").Size | undefined;
+    size?: import("ol/size.js").Size | undefined;
     /**
      * Image source URI.
      */
@@ -187,7 +187,7 @@ declare class Icon extends ImageStyle {
      * @return {import("../color.js").Color} Color.
      * @api
      */
-    getColor(): import("../color.js").Color;
+    getColor(): import("ol/color.js").Color;
     /**
      * Get the image icon.
      * @param {number} pixelRatio Pixel ratio.
@@ -219,5 +219,5 @@ declare class Icon extends ImageStyle {
      */
     getHeight(): number;
 }
-import ImageStyle from './Image.js';
+import ImageStyle from 'ol/style/Image.js';
 //# sourceMappingURL=Icon.d.ts.map

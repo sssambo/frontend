@@ -34,7 +34,7 @@ export type Options = {
     /**
      * Tile coordinate.
      */
-    tileCoord: import("./tilecoord.js").TileCoord;
+    tileCoord: import("ol/tilecoord.js").TileCoord;
     /**
      * Data loader.  For loaders that generate images,
      * the promise should not resolve until the image is loaded.
@@ -53,7 +53,7 @@ export type Options = {
     /**
      * Tile size.
      */
-    size?: import("./size.js").Size | undefined;
+    size?: import("ol/size.js").Size | undefined;
 };
 /**
  * @typedef {Object} Options
@@ -96,7 +96,7 @@ declare class DataTile extends Tile {
      * Get the tile size.
      * @return {import('./size.js').Size} Tile size.
      */
-    getSize(): import('./size.js').Size;
+    getSize(): import('ol/size.js').Size;
     /**
      * Get the data for the tile.
      * @return {Data} Tile data.
@@ -110,5 +110,5 @@ declare class DataTile extends Tile {
      */
     getError(): Error;
 }
-import Tile from './Tile.js';
+import Tile from 'ol/Tile.js';
 //# sourceMappingURL=DataTile.d.ts.map

@@ -8,7 +8,7 @@ declare class ImageTile extends Tile {
      * @param {import("./Tile.js").LoadFunction} tileLoadFunction Tile load function.
      * @param {import("./Tile.js").Options} [options] Tile options.
      */
-    constructor(tileCoord: import("./tilecoord.js").TileCoord, state: any, src: string, crossOrigin: string | null, tileLoadFunction: import("./Tile.js").LoadFunction, options?: import("./Tile.js").Options | undefined);
+    constructor(tileCoord: import("ol/tilecoord.js").TileCoord, state: any, src: string, crossOrigin: string | null, tileLoadFunction: import("ol/Tile.js").LoadFunction, options?: import("ol/Tile.js").Options | undefined);
     /**
      * @private
      * @type {?string}
@@ -66,5 +66,5 @@ declare class ImageTile extends Tile {
      */
     private unlistenImage_;
 }
-import Tile from './Tile.js';
+import Tile from 'ol/Tile.js';
 //# sourceMappingURL=ImageTile.d.ts.map

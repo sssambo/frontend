@@ -3,11 +3,11 @@ export default BaseLayer;
  * A css color, or a function called with a view resolution returning a css color.
  */
 export type BackgroundColor = string | ((arg0: number) => string);
-export type BaseLayerObjectEventTypes = import("../ObjectEventType").Types | 'change:extent' | 'change:maxResolution' | 'change:maxZoom' | 'change:minResolution' | 'change:minZoom' | 'change:opacity' | 'change:visible' | 'change:zIndex';
+export type BaseLayerObjectEventTypes = import("ol/ObjectEventType").Types | 'change:extent' | 'change:maxResolution' | 'change:maxZoom' | 'change:minResolution' | 'change:minZoom' | 'change:opacity' | 'change:visible' | 'change:zIndex';
 /**
  * *
  */
-export type BaseLayerOnSignature<Return> = import("../Observable").OnSignature<import("../Observable").EventTypes, import("../events/Event.js").default, Return> & import("../Observable").OnSignature<BaseLayerObjectEventTypes, import("../Object").ObjectEvent, Return> & import("../Observable").CombinedOnSignature<import("../Observable").EventTypes | BaseLayerObjectEventTypes, Return>;
+export type BaseLayerOnSignature<Return> = import("ol/Observable").OnSignature<import("ol/Observable").EventTypes, import("ol/events/Event.js").default, Return> & import("ol/Observable").OnSignature<BaseLayerObjectEventTypes, import("ol/Object").ObjectEvent, Return> & import("ol/Observable").CombinedOnSignature<import("ol/Observable").EventTypes | BaseLayerObjectEventTypes, Return>;
 export type Options = {
     /**
      * A CSS class name to set to the layer element.
@@ -25,7 +25,7 @@ export type Options = {
      * The bounding extent for layer rendering.  The layer will not be
      * rendered outside of this extent.
      */
-    extent?: import("../extent.js").Extent | undefined;
+    extent?: import("ol/extent.js").Extent | undefined;
     /**
      * The z-index for layer rendering.  At rendering time, the layers
      * will be ordered, first by Z-index and then by position. When `undefined`, a `zIndex` of 0 is assumed
@@ -122,11 +122,11 @@ declare class BaseLayer extends BaseObject {
     /***
      * @type {BaseLayerOnSignature<import("../events").EventsKey>}
      */
-    on: BaseLayerOnSignature<import("../events").EventsKey>;
+    on: BaseLayerOnSignature<import("ol/events").EventsKey>;
     /***
      * @type {BaseLayerOnSignature<import("../events").EventsKey>}
      */
-    once: BaseLayerOnSignature<import("../events").EventsKey>;
+    once: BaseLayerOnSignature<import("ol/events").EventsKey>;
     /***
      * @type {BaseLayerOnSignature<void>}
      */
@@ -162,21 +162,21 @@ declare class BaseLayer extends BaseObject {
      * @param {boolean} [managed] Layer is managed.
      * @return {import("./Layer.js").State} Layer state.
      */
-    getLayerState(managed?: boolean | undefined): import("./Layer.js").State;
+    getLayerState(managed?: boolean | undefined): import("ol/layer/Layer.js").State;
     /**
      * @abstract
      * @param {Array<import("./Layer.js").default>} [array] Array of layers (to be
      *     modified in place).
      * @return {Array<import("./Layer.js").default>} Array of layers.
      */
-    getLayersArray(array?: import("./Layer.js").default<import("../source/Source.js").default, import("../renderer/Layer.js").default<any>>[] | undefined): Array<import("./Layer.js").default>;
+    getLayersArray(array?: import("ol/layer/Layer.js").default<import("ol/source/Source.js").default, import("ol/renderer/Layer.js").default<any>>[] | undefined): Array<import("ol/layer/Layer.js").default>;
     /**
      * @abstract
      * @param {Array<import("./Layer.js").State>} [states] Optional list of layer
      *     states (to be modified in place).
      * @return {Array<import("./Layer.js").State>} List of layer states.
      */
-    getLayerStatesArray(states?: import("./Layer.js").State[] | undefined): Array<import("./Layer.js").State>;
+    getLayerStatesArray(states?: import("ol/layer/Layer.js").State[] | undefined): Array<import("ol/layer/Layer.js").State>;
     /**
      * Return the {@link module:ol/extent~Extent extent} of the layer or `undefined` if it
      * will be visible regardless of extent.
@@ -184,7 +184,7 @@ declare class BaseLayer extends BaseObject {
      * @observable
      * @api
      */
-    getExtent(): import("../extent.js").Extent | undefined;
+    getExtent(): import("ol/extent.js").Extent | undefined;
     /**
      * Return the maximum resolution of the layer. Returns Infinity if
      * the layer has no maximum resolution set.
@@ -228,7 +228,7 @@ declare class BaseLayer extends BaseObject {
      * @abstract
      * @return {import("../source/Source.js").State} Source state.
      */
-    getSourceState(): import("../source/Source.js").State;
+    getSourceState(): import("ol/source/Source.js").State;
     /**
      * Return the value of this layer's `visible` property. To find out whether the layer
      * is visible on a map, use `isVisible()` instead.
@@ -257,7 +257,7 @@ declare class BaseLayer extends BaseObject {
      * @observable
      * @api
      */
-    setExtent(extent: import("../extent.js").Extent | undefined): void;
+    setExtent(extent: import("ol/extent.js").Extent | undefined): void;
     /**
      * Set the maximum resolution at which the layer is visible.
      * @param {number} maxResolution The maximum resolution of the layer.
@@ -313,5 +313,5 @@ declare class BaseLayer extends BaseObject {
      */
     setZIndex(zindex: number): void;
 }
-import BaseObject from '../Object.js';
+import BaseObject from 'ol/Object.js';
 //# sourceMappingURL=Base.d.ts.map

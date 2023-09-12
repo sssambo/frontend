@@ -37,7 +37,7 @@ export function add(coordinate: Coordinate, delta: Coordinate): Coordinate;
  * @param {import("./geom/Circle.js").default} circle The circle.
  * @return {Coordinate} Closest point on the circumference.
  */
-export function closestOnCircle(coordinate: Coordinate, circle: import("./geom/Circle.js").default): Coordinate;
+export function closestOnCircle(coordinate: Coordinate, circle: import("ol/geom/Circle.js").default): Coordinate;
 /**
  * Calculates the point closest to the passed coordinate on the passed segment.
  * This is the foot of the perpendicular of the coordinate to the segment when
@@ -246,14 +246,14 @@ export function toStringXY(coordinate: Coordinate, fractionDigits?: number | und
  * @param {import("./proj/Projection.js").default} projection Projection.
  * @return {Coordinate} The coordinate within the real world extent.
  */
-export function wrapX(coordinate: Coordinate, projection: import("./proj/Projection.js").default): Coordinate;
+export function wrapX(coordinate: Coordinate, projection: import("ol/proj/Projection.js").default): Coordinate;
 /**
  * @param {Coordinate} coordinate Coordinate.
  * @param {import("./proj/Projection.js").default} projection Projection.
  * @param {number} [sourceExtentWidth] Width of the source extent.
  * @return {number} Offset in world widths.
  */
-export function getWorldsAway(coordinate: Coordinate, projection: import("./proj/Projection.js").default, sourceExtentWidth?: number | undefined): number;
+export function getWorldsAway(coordinate: Coordinate, projection: import("ol/proj/Projection.js").default, sourceExtentWidth?: number | undefined): number;
 /**
  * An array of numbers representing an `xy`, `xyz` or `xyzm` coordinate.
  * Example: `[16, 48]`.

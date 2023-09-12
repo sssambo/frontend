@@ -1,11 +1,11 @@
 /**
  * @param {Event|import("./Event.js").default} evt Event
  */
-export function stopPropagation(evt: Event | import("./Event.js").default): void;
+export function stopPropagation(evt: Event | import("ol/events/Event.js").default): void;
 /**
  * @param {Event|import("./Event.js").default} evt Event
  */
-export function preventDefault(evt: Event | import("./Event.js").default): void;
+export function preventDefault(evt: Event | import("ol/events/Event.js").default): void;
 export default BaseEvent;
 /**
  * @module ol/events/Event

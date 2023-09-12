@@ -2,7 +2,7 @@ export default LayerRenderer;
 /**
  * @template {import("../layer/Layer.js").default} LayerType
  */
-declare class LayerRenderer<LayerType extends import("../layer/Layer.js").default<import("../source/Source.js").default, LayerRenderer<any>>> extends Observable {
+declare class LayerRenderer<LayerType extends import("ol/layer/Layer.js").default<import("ol/source/Source.js").default, LayerRenderer<any>>> extends Observable {
     /**
      * @param {LayerType} layer Layer.
      */
@@ -22,26 +22,26 @@ declare class LayerRenderer<LayerType extends import("../layer/Layer.js").defaul
     /**
      * @type {import("../render/canvas/ExecutorGroup").default}
      */
-    declutterExecutorGroup: import("../render/canvas/ExecutorGroup").default;
+    declutterExecutorGroup: import("ol/render/canvas/ExecutorGroup").default;
     /**
      * Asynchronous layer level hit detection.
      * @param {import("../pixel.js").Pixel} pixel Pixel.
      * @return {Promise<Array<import("../Feature").FeatureLike>>} Promise that resolves with
      * an array of features.
      */
-    getFeatures(pixel: import("../pixel.js").Pixel): Promise<Array<import("../Feature").FeatureLike>>;
+    getFeatures(pixel: import("ol/pixel.js").Pixel): Promise<Array<import("ol/Feature").FeatureLike>>;
     /**
      * @param {import("../pixel.js").Pixel} pixel Pixel.
      * @return {Uint8ClampedArray|Uint8Array|Float32Array|DataView|null} Pixel data.
      */
-    getData(pixel: import("../pixel.js").Pixel): Uint8ClampedArray | Uint8Array | Float32Array | DataView | null;
+    getData(pixel: import("ol/pixel.js").Pixel): Uint8ClampedArray | Uint8Array | Float32Array | DataView | null;
     /**
      * Determine whether render should be called.
      * @abstract
      * @param {import("../Map.js").FrameState} frameState Frame state.
      * @return {boolean} Layer is ready to be rendered.
      */
-    prepareFrame(frameState: import("../Map.js").FrameState): boolean;
+    prepareFrame(frameState: import("ol/Map.js").FrameState): boolean;
     /**
      * Render the layer.
      * @abstract
@@ -49,7 +49,7 @@ declare class LayerRenderer<LayerType extends import("../layer/Layer.js").defaul
      * @param {HTMLElement|null} target Target that may be used to render content to.
      * @return {HTMLElement|null} The rendered element.
      */
-    renderFrame(frameState: import("../Map.js").FrameState, target: HTMLElement | null): HTMLElement | null;
+    renderFrame(frameState: import("ol/Map.js").FrameState, target: HTMLElement | null): HTMLElement | null;
     /**
      * @param {Object<number, Object<string, import("../Tile.js").default>>} tiles Lookup of loaded tiles by zoom level.
      * @param {number} zoom Zoom level.
@@ -58,9 +58,9 @@ declare class LayerRenderer<LayerType extends import("../layer/Layer.js").defaul
      */
     loadedTileCallback(tiles: {
         [x: number]: {
-            [x: string]: import("../Tile.js").default;
+            [x: string]: import("ol/Tile.js").default;
         };
-    }, zoom: number, tile: import("../Tile.js").default): boolean | void;
+    }, zoom: number, tile: import("ol/Tile.js").default): boolean | void;
     /**
      * Create a function that adds loaded tiles to the tile lookup.
      * @param {import("../source/Tile.js").default} source Tile source.
@@ -70,11 +70,11 @@ declare class LayerRenderer<LayerType extends import("../layer/Layer.js").defaul
      *     called with a zoom level and a tile range to add loaded tiles to the lookup.
      * @protected
      */
-    protected createLoadedTileFinder(source: import("../source/Tile.js").default, projection: import("../proj/Projection.js").default, tiles: {
+    protected createLoadedTileFinder(source: import("ol/source/Tile.js").default, projection: import("ol/proj/Projection.js").default, tiles: {
         [x: number]: {
-            [x: string]: import("../Tile.js").default;
+            [x: string]: import("ol/Tile.js").default;
         };
-    }): (arg0: number, arg1: import("../TileRange.js").default) => boolean;
+    }): (arg0: number, arg1: import("ol/TileRange.js").default) => boolean;
     /**
      * @abstract
      * @param {import("../coordinate.js").Coordinate} coordinate Coordinate.
@@ -85,7 +85,7 @@ declare class LayerRenderer<LayerType extends import("../layer/Layer.js").defaul
      * @return {T|undefined} Callback result.
      * @template T
      */
-    forEachFeatureAtCoordinate<T>(coordinate: import("../coordinate.js").Coordinate, frameState: import("../Map.js").FrameState, hitTolerance: number, callback: import("./vector.js").FeatureCallback<T>, matches: import("./Map.js").HitMatch<T>[]): T | undefined;
+    forEachFeatureAtCoordinate<T>(coordinate: import("ol/coordinate.js").Coordinate, frameState: import("ol/Map.js").FrameState, hitTolerance: number, callback: import("ol/renderer/vector.js").FeatureCallback<T>, matches: import("ol/renderer/Map.js").HitMatch<T>[]): T | undefined;
     /**
      * @return {LayerType} Layer.
      */
@@ -108,11 +108,11 @@ declare class LayerRenderer<LayerType extends import("../layer/Layer.js").defaul
      * @return {boolean} `true` if the image is already loaded, `false` otherwise.
      * @protected
      */
-    protected loadImage(image: import("../Image.js").default): boolean;
+    protected loadImage(image: import("ol/Image.js").default): boolean;
     /**
      * @protected
      */
     protected renderIfReadyAndVisible(): void;
 }
-import Observable from '../Observable.js';
+import Observable from 'ol/Observable.js';
 //# sourceMappingURL=Layer.d.ts.map

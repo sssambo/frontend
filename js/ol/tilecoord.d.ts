@@ -50,7 +50,7 @@ export function hash(tileCoord: TileCoord): number;
  * @param {!import("./tilegrid/TileGrid.js").default} tileGrid Tile grid.
  * @return {boolean} Tile coordinate is within extent and zoom level range.
  */
-export function withinExtentAndZ(tileCoord: TileCoord, tileGrid: import("./tilegrid/TileGrid.js").default): boolean;
+export function withinExtentAndZ(tileCoord: TileCoord, tileGrid: import("ol/tilegrid/TileGrid.js").default): boolean;
 /**
  * An array of three numbers representing the location of a tile in a tile
  * grid. The order is `z` (zoom level), `x` (column), and `y` (row).

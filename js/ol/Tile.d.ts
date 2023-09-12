@@ -43,7 +43,7 @@ export type LoadFunction = (arg0: Tile, arg1: string) => void;
  * and returns a `{string}` representing the tile URL, or undefined if no tile
  * should be requested for the passed tile coordinate.
  */
-export type UrlFunction = (arg0: import("./tilecoord.js").TileCoord, arg1: number, arg2: import("./proj/Projection.js").default) => (string | undefined);
+export type UrlFunction = (arg0: import("ol/tilecoord.js").TileCoord, arg1: number, arg2: import("ol/proj/Projection.js").default) => (string | undefined);
 export type Options = {
     /**
      * A duration for tile opacity
@@ -126,11 +126,11 @@ declare class Tile extends EventTarget {
      * @param {import("./TileState.js").default} state State.
      * @param {Options} [options] Tile options.
      */
-    constructor(tileCoord: import("./tilecoord.js").TileCoord, state: any, options?: Options | undefined);
+    constructor(tileCoord: import("ol/tilecoord.js").TileCoord, state: any, options?: Options | undefined);
     /**
      * @type {import("./tilecoord.js").TileCoord}
      */
-    tileCoord: import("./tilecoord.js").TileCoord;
+    tileCoord: import("ol/tilecoord.js").TileCoord;
     /**
      * @protected
      * @type {import("./TileState.js").default}
@@ -196,7 +196,7 @@ declare class Tile extends EventTarget {
      * @return {import("./tilecoord.js").TileCoord} The tile coordinate.
      * @api
      */
-    getTileCoord(): import("./tilecoord.js").TileCoord;
+    getTileCoord(): import("ol/tilecoord.js").TileCoord;
     /**
      * @return {import("./TileState.js").default} State.
      */
@@ -239,5 +239,5 @@ declare class Tile extends EventTarget {
      */
     endTransition(id: string): void;
 }
-import EventTarget from './events/Target.js';
+import EventTarget from 'ol/events/Target.js';
 //# sourceMappingURL=Tile.d.ts.map

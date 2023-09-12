@@ -60,7 +60,7 @@ declare class Geometry extends BaseObject {
      * @param {import("../proj.js").TransformFunction} [transform] Optional transform function.
      * @return {Geometry} Simplified geometry.
      */
-    simplifyTransformed(squaredTolerance: number, transform?: import("../proj.js").TransformFunction | undefined): Geometry;
+    simplifyTransformed(squaredTolerance: number, transform?: import("ol/proj.js").TransformFunction | undefined): Geometry;
     /**
      * Make a complete copy of the geometry.
      * @abstract
@@ -75,7 +75,7 @@ declare class Geometry extends BaseObject {
      * @param {number} minSquaredDistance Minimum squared distance.
      * @return {number} Minimum squared distance.
      */
-    closestPointXY(x: number, y: number, closestPoint: import("../coordinate.js").Coordinate, minSquaredDistance: number): number;
+    closestPointXY(x: number, y: number, closestPoint: import("ol/coordinate.js").Coordinate, minSquaredDistance: number): number;
     /**
      * @param {number} x X.
      * @param {number} y Y.
@@ -90,7 +90,7 @@ declare class Geometry extends BaseObject {
      * @return {import("../coordinate.js").Coordinate} Closest point.
      * @api
      */
-    getClosestPoint(point: import("../coordinate.js").Coordinate, closestPoint?: import("../coordinate.js").Coordinate | undefined): import("../coordinate.js").Coordinate;
+    getClosestPoint(point: import("ol/coordinate.js").Coordinate, closestPoint?: import("ol/coordinate.js").Coordinate | undefined): import("ol/coordinate.js").Coordinate;
     /**
      * Returns true if this geometry includes the specified coordinate. If the
      * coordinate is on the boundary of the geometry, returns false.
@@ -98,21 +98,21 @@ declare class Geometry extends BaseObject {
      * @return {boolean} Contains coordinate.
      * @api
      */
-    intersectsCoordinate(coordinate: import("../coordinate.js").Coordinate): boolean;
+    intersectsCoordinate(coordinate: import("ol/coordinate.js").Coordinate): boolean;
     /**
      * @abstract
      * @param {import("../extent.js").Extent} extent Extent.
      * @protected
      * @return {import("../extent.js").Extent} extent Extent.
      */
-    protected computeExtent(extent: import("../extent.js").Extent): import("../extent.js").Extent;
+    protected computeExtent(extent: import("ol/extent.js").Extent): import("ol/extent.js").Extent;
     /**
      * Get the extent of the geometry.
      * @param {import("../extent.js").Extent} [extent] Extent.
      * @return {import("../extent.js").Extent} extent Extent.
      * @api
      */
-    getExtent(extent?: import("../extent.js").Extent | undefined): import("../extent.js").Extent;
+    getExtent(extent?: import("ol/extent.js").Extent | undefined): import("ol/extent.js").Extent;
     /**
      * Rotate the geometry around a given coordinate. This modifies the geometry
      * coordinates in place.
@@ -121,7 +121,7 @@ declare class Geometry extends BaseObject {
      * @param {import("../coordinate.js").Coordinate} anchor The rotation center.
      * @api
      */
-    rotate(angle: number, anchor: import("../coordinate.js").Coordinate): void;
+    rotate(angle: number, anchor: import("ol/coordinate.js").Coordinate): void;
     /**
      * Scale the geometry (with an optional origin).  This modifies the geometry
      * coordinates in place.
@@ -132,7 +132,7 @@ declare class Geometry extends BaseObject {
      *     of the geometry extent).
      * @api
      */
-    scale(sx: number, sy?: number | undefined, anchor?: import("../coordinate.js").Coordinate | undefined): void;
+    scale(sx: number, sy?: number | undefined, anchor?: import("ol/coordinate.js").Coordinate | undefined): void;
     /**
      * Create a simplified version of this geometry.  For linestrings, this uses
      * the [Douglas Peucker](https://en.wikipedia.org/wiki/Ramer-Douglas-Peucker_algorithm)
@@ -167,14 +167,14 @@ declare class Geometry extends BaseObject {
      * @param {import("../proj.js").TransformFunction} transformFn Transform function.
      * Called with a flat array of geometry coordinates.
      */
-    applyTransform(transformFn: import("../proj.js").TransformFunction): void;
+    applyTransform(transformFn: import("ol/proj.js").TransformFunction): void;
     /**
      * Test if the geometry and the passed extent intersect.
      * @abstract
      * @param {import("../extent.js").Extent} extent Extent.
      * @return {boolean} `true` if the geometry and the extent intersect.
      */
-    intersectsExtent(extent: import("../extent.js").Extent): boolean;
+    intersectsExtent(extent: import("ol/extent.js").Extent): boolean;
     /**
      * Translate the geometry.  This modifies the geometry coordinates in place.  If
      * instead you want a new geometry, first `clone()` this geometry.
@@ -199,7 +199,7 @@ declare class Geometry extends BaseObject {
      *     modified in place.
      * @api
      */
-    transform(source: import("../proj.js").ProjectionLike, destination: import("../proj.js").ProjectionLike): Geometry;
+    transform(source: import("ol/proj.js").ProjectionLike, destination: import("ol/proj.js").ProjectionLike): Geometry;
 }
-import BaseObject from '../Object.js';
+import BaseObject from 'ol/Object.js';
 //# sourceMappingURL=Geometry.d.ts.map

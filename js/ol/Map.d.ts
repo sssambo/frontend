@@ -15,7 +15,7 @@ export type FrameState = {
     /**
      * The state of the current view.
      */
-    viewState: import("./View.js").State;
+    viewState: import("ol/View.js").State;
     /**
      * Animate.
      */
@@ -23,7 +23,7 @@ export type FrameState = {
     /**
      * CoordinateToPixelTransform.
      */
-    coordinateToPixelTransform: import("./transform.js").Transform;
+    coordinateToPixelTransform: import("ol/transform.js").Transform;
     /**
      * DeclutterTree.
      */
@@ -31,11 +31,11 @@ export type FrameState = {
     /**
      * Extent (in view projection coordinates).
      */
-    extent: null | import("./extent.js").Extent;
+    extent: null | import("ol/extent.js").Extent;
     /**
      * Next extent during an animation series.
      */
-    nextExtent?: import("./extent.js").Extent | undefined;
+    nextExtent?: import("ol/extent.js").Extent | undefined;
     /**
      * Index.
      */
@@ -43,7 +43,7 @@ export type FrameState = {
     /**
      * LayerStatesArray.
      */
-    layerStatesArray: Array<import("./layer/Layer.js").State>;
+    layerStatesArray: Array<import("ol/layer/Layer.js").State>;
     /**
      * LayerIndex.
      */
@@ -51,7 +51,7 @@ export type FrameState = {
     /**
      * PixelToCoordinateTransform.
      */
-    pixelToCoordinateTransform: import("./transform.js").Transform;
+    pixelToCoordinateTransform: import("ol/transform.js").Transform;
     /**
      * PostRenderFunctions.
      */
@@ -59,7 +59,7 @@ export type FrameState = {
     /**
      * Size.
      */
-    size: import("./size.js").Size;
+    size: import("ol/size.js").Size;
     /**
      * TileQueue.
      */
@@ -104,7 +104,7 @@ export type AtPixelOptions = {
      * Only layers which are visible and for which this function returns `true`
      * will be tested for features. By default, all visible layers will be tested.
      */
-    layerFilter?: undefined | ((arg0: import("./layer/Layer.js").default<import("./source/Source").default>) => boolean);
+    layerFilter?: undefined | ((arg0: import("ol/layer/Layer.js").default<import("ol/source/Source").default>) => boolean);
     /**
      * Hit-detection tolerance in css pixels. Pixels
      * inside the radius around the given position will be checked for features.
@@ -120,11 +120,11 @@ export type MapOptionsInternal = {
     /**
      * Controls.
      */
-    controls?: Collection<import("./control/Control.js").default> | undefined;
+    controls?: Collection<import("ol/control/Control.js").default> | undefined;
     /**
      * Interactions.
      */
-    interactions?: Collection<import("./interaction/Interaction.js").default> | undefined;
+    interactions?: Collection<import("ol/interaction/Interaction.js").default> | undefined;
     /**
      * KeyboardEventTarget.
      */
@@ -132,7 +132,7 @@ export type MapOptionsInternal = {
     /**
      * Overlays.
      */
-    overlays: Collection<import("./Overlay.js").default>;
+    overlays: Collection<import("ol/Overlay.js").default>;
     /**
      * Values.
      */
@@ -140,11 +140,11 @@ export type MapOptionsInternal = {
         [x: string]: any;
     };
 };
-export type MapObjectEventTypes = import("./ObjectEventType").Types | 'change:layergroup' | 'change:size' | 'change:target' | 'change:view';
+export type MapObjectEventTypes = import("ol/ObjectEventType").Types | 'change:layergroup' | 'change:size' | 'change:target' | 'change:view';
 /**
  * *
  */
-export type MapEventHandler<Return> = import("./Observable").OnSignature<import("./Observable").EventTypes, import("./events/Event.js").default, Return> & import("./Observable").OnSignature<MapObjectEventTypes, import("./Object").ObjectEvent, Return> & import("./Observable").OnSignature<import("./MapBrowserEventType").Types, MapBrowserEvent<any>, Return> & import("./Observable").OnSignature<import("./MapEventType").Types, import("./MapEvent").default, Return> & import("./Observable").OnSignature<import("./render/EventType").MapRenderEventTypes, import("./render/Event").default, Return> & import("./Observable").CombinedOnSignature<import("./Observable").EventTypes | MapObjectEventTypes | import("./MapBrowserEventType").Types | import("./MapEventType").Types | import("./render/EventType").MapRenderEventTypes, Return>;
+export type MapEventHandler<Return> = import("ol/Observable").OnSignature<import("ol/Observable").EventTypes, import("ol/events/Event.js").default, Return> & import("ol/Observable").OnSignature<MapObjectEventTypes, import("ol/Object").ObjectEvent, Return> & import("ol/Observable").OnSignature<import("ol/MapBrowserEventType").Types, MapBrowserEvent<any>, Return> & import("ol/Observable").OnSignature<import("ol/MapEventType").Types, import("ol/MapEvent").default, Return> & import("ol/Observable").OnSignature<import("ol/render/EventType").MapRenderEventTypes, import("ol/render/Event").default, Return> & import("ol/Observable").CombinedOnSignature<import("ol/Observable").EventTypes | MapObjectEventTypes | import("ol/MapBrowserEventType").Types | import("ol/MapEventType").Types | import("ol/render/EventType").MapRenderEventTypes, Return>;
 /**
  * Object literal with config options for the map.
  */
@@ -153,7 +153,7 @@ export type MapOptions = {
      * Controls initially added to the map. If not specified,
      * {@link module :ol/control/defaults.defaults} is used.
      */
-    controls?: Collection<import("./control/Control.js").default> | import("./control/Control.js").default[] | undefined;
+    controls?: Collection<import("ol/control/Control.js").default> | import("ol/control/Control.js").default[] | undefined;
     /**
      * The ratio between
      * physical pixels and device-independent pixels (dips) on the device.
@@ -163,7 +163,7 @@ export type MapOptions = {
      * Interactions that are initially added to the map. If not specified,
      * {@link module :ol/interaction/defaults.defaults} is used.
      */
-    interactions?: Collection<import("./interaction/Interaction.js").default> | import("./interaction/Interaction.js").default[] | undefined;
+    interactions?: Collection<import("ol/interaction/Interaction.js").default> | import("ol/interaction/Interaction.js").default[] | undefined;
     /**
      * The element to
      * listen to keyboard events on. This determines when the `KeyboardPan` and
@@ -181,7 +181,7 @@ export type MapOptions = {
      * a vector layer to appear on top of a tile layer, it must come after the tile
      * layer.
      */
-    layers?: import("./layer/Base.js").default[] | Collection<import("./layer/Base.js").default> | LayerGroup | undefined;
+    layers?: import("ol/layer/Base.js").default[] | Collection<import("ol/layer/Base.js").default> | LayerGroup | undefined;
     /**
      * Maximum number tiles to load
      * simultaneously.
@@ -196,7 +196,7 @@ export type MapOptions = {
     /**
      * Overlays initially added to the map. By default, no overlays are added.
      */
-    overlays?: Collection<import("./Overlay.js").default> | import("./Overlay.js").default[] | undefined;
+    overlays?: Collection<import("ol/Overlay.js").default> | import("ol/Overlay.js").default[] | undefined;
     /**
      * The container for the map, either the
      * element itself or the `id` of the element. If not specified at construction
@@ -210,7 +210,7 @@ export type MapOptions = {
      * fetched unless this is specified at construction time or through
      * {@link module :ol/Map~Map#setView}.
      */
-    view?: View | Promise<import("./View.js").ViewOptions> | undefined;
+    view?: View | Promise<import("ol/View.js").ViewOptions> | undefined;
 };
 /**
  * @classdesc
@@ -272,11 +272,11 @@ declare class Map extends BaseObject {
     /***
      * @type {MapEventHandler<import("./events").EventsKey>}
      */
-    on: MapEventHandler<import("./events").EventsKey>;
+    on: MapEventHandler<import("ol/events").EventsKey>;
     /***
      * @type {MapEventHandler<import("./events").EventsKey>}
      */
-    once: MapEventHandler<import("./events").EventsKey>;
+    once: MapEventHandler<import("ol/events").EventsKey>;
     /***
      * @type {MapEventHandler<void>}
      */
@@ -406,12 +406,12 @@ declare class Map extends BaseObject {
      * @type {Collection<import("./control/Control.js").default>}
      * @protected
      */
-    protected controls: Collection<import("./control/Control.js").default>;
+    protected controls: Collection<import("ol/control/Control.js").default>;
     /**
      * @type {Collection<import("./interaction/Interaction.js").default>}
      * @protected
      */
-    protected interactions: Collection<import("./interaction/Interaction.js").default>;
+    protected interactions: Collection<import("ol/interaction/Interaction.js").default>;
     /**
      * @type {Collection<import("./Overlay.js").default>}
      * @private
@@ -443,7 +443,7 @@ declare class Map extends BaseObject {
      * @param {import("./control/Control.js").default} control Control.
      * @api
      */
-    addControl(control: import("./control/Control.js").default): void;
+    addControl(control: import("ol/control/Control.js").default): void;
     /**
      * Add the given interaction to the map. If you want to add an interaction
      * at another point of the collection use `getInteractions()` and the methods
@@ -453,7 +453,7 @@ declare class Map extends BaseObject {
      * @param {import("./interaction/Interaction.js").default} interaction Interaction to add.
      * @api
      */
-    addInteraction(interaction: import("./interaction/Interaction.js").default): void;
+    addInteraction(interaction: import("ol/interaction/Interaction.js").default): void;
     /**
      * Adds the given layer to the top of this map. If you want to add a layer
      * elsewhere in the stack, use `getLayers()` and the methods available on
@@ -461,7 +461,7 @@ declare class Map extends BaseObject {
      * @param {import("./layer/Base.js").default} layer Layer.
      * @api
      */
-    addLayer(layer: import("./layer/Base.js").default): void;
+    addLayer(layer: import("ol/layer/Base.js").default): void;
     /**
      * @param {import("./layer/Group.js").GroupEvent} event The layer add event.
      * @private
@@ -472,7 +472,7 @@ declare class Map extends BaseObject {
      * @param {import("./Overlay.js").default} overlay Overlay.
      * @api
      */
-    addOverlay(overlay: import("./Overlay.js").default): void;
+    addOverlay(overlay: import("ol/Overlay.js").default): void;
     /**
      * This deals with map's overlay collection changes.
      * @param {import("./Overlay.js").default} overlay Overlay.
@@ -497,7 +497,7 @@ declare class Map extends BaseObject {
      * @template T
      * @api
      */
-    forEachFeatureAtPixel<T>(pixel: import("./pixel.js").Pixel, callback: (arg0: import("./Feature.js").FeatureLike, arg1: import("./layer/Layer.js").default<import("./source/Source").default>, arg2: import("./geom/SimpleGeometry.js").default) => T, options?: AtPixelOptions | undefined): T | undefined;
+    forEachFeatureAtPixel<T>(pixel: import("ol/pixel.js").Pixel, callback: (arg0: import("ol/Feature.js").FeatureLike, arg1: import("ol/layer/Layer.js").default<import("ol/source/Source").default>, arg2: import("ol/geom/SimpleGeometry.js").default) => T, options?: AtPixelOptions | undefined): T | undefined;
     /**
      * Get all features that intersect a pixel on the viewport.
      * @param {import("./pixel.js").Pixel} pixel Pixel.
@@ -506,13 +506,13 @@ declare class Map extends BaseObject {
      * an empty array if none were found.
      * @api
      */
-    getFeaturesAtPixel(pixel: import("./pixel.js").Pixel, options?: AtPixelOptions | undefined): Array<import("./Feature.js").FeatureLike>;
+    getFeaturesAtPixel(pixel: import("ol/pixel.js").Pixel, options?: AtPixelOptions | undefined): Array<import("ol/Feature.js").FeatureLike>;
     /**
      * Get all layers from all layer groups.
      * @return {Array<import("./layer/Layer.js").default>} Layers.
      * @api
      */
-    getAllLayers(): Array<import("./layer/Layer.js").default>;
+    getAllLayers(): Array<import("ol/layer/Layer.js").default>;
     /**
      * Detect if features intersect a pixel on the viewport. Layers included in the
      * detection can be configured through the `layerFilter` option.
@@ -521,20 +521,20 @@ declare class Map extends BaseObject {
      * @return {boolean} Is there a feature at the given pixel?
      * @api
      */
-    hasFeatureAtPixel(pixel: import("./pixel.js").Pixel, options?: AtPixelOptions | undefined): boolean;
+    hasFeatureAtPixel(pixel: import("ol/pixel.js").Pixel, options?: AtPixelOptions | undefined): boolean;
     /**
      * Returns the coordinate in user projection for a browser event.
      * @param {MouseEvent} event Event.
      * @return {import("./coordinate.js").Coordinate} Coordinate.
      * @api
      */
-    getEventCoordinate(event: MouseEvent): import("./coordinate.js").Coordinate;
+    getEventCoordinate(event: MouseEvent): import("ol/coordinate.js").Coordinate;
     /**
      * Returns the coordinate in view projection for a browser event.
      * @param {MouseEvent} event Event.
      * @return {import("./coordinate.js").Coordinate} Coordinate.
      */
-    getEventCoordinateInternal(event: MouseEvent): import("./coordinate.js").Coordinate;
+    getEventCoordinateInternal(event: MouseEvent): import("ol/coordinate.js").Coordinate;
     /**
      * Returns the map pixel position for a browser event relative to the viewport.
      * @param {UIEvent|{clientX: number, clientY: number}} event Event.
@@ -544,7 +544,7 @@ declare class Map extends BaseObject {
     getEventPixel(event: UIEvent | {
         clientX: number;
         clientY: number;
-    }): import("./pixel.js").Pixel;
+    }): import("ol/pixel.js").Pixel;
     /**
      * Get the target in which this map is rendered.
      * Note that this returns what is entered as an option or in setTarget:
@@ -570,28 +570,28 @@ declare class Map extends BaseObject {
      * @return {import("./coordinate.js").Coordinate} The coordinate for the pixel position.
      * @api
      */
-    getCoordinateFromPixel(pixel: import("./pixel.js").Pixel): import("./coordinate.js").Coordinate;
+    getCoordinateFromPixel(pixel: import("ol/pixel.js").Pixel): import("ol/coordinate.js").Coordinate;
     /**
      * Get the coordinate for a given pixel.  This returns a coordinate in the
      * map view projection.
      * @param {import("./pixel.js").Pixel} pixel Pixel position in the map viewport.
      * @return {import("./coordinate.js").Coordinate} The coordinate for the pixel position.
      */
-    getCoordinateFromPixelInternal(pixel: import("./pixel.js").Pixel): import("./coordinate.js").Coordinate;
+    getCoordinateFromPixelInternal(pixel: import("ol/pixel.js").Pixel): import("ol/coordinate.js").Coordinate;
     /**
      * Get the map controls. Modifying this collection changes the controls
      * associated with the map.
      * @return {Collection<import("./control/Control.js").default>} Controls.
      * @api
      */
-    getControls(): Collection<import("./control/Control.js").default>;
+    getControls(): Collection<import("ol/control/Control.js").default>;
     /**
      * Get the map overlays. Modifying this collection changes the overlays
      * associated with the map.
      * @return {Collection<import("./Overlay.js").default>} Overlays.
      * @api
      */
-    getOverlays(): Collection<import("./Overlay.js").default>;
+    getOverlays(): Collection<import("ol/Overlay.js").default>;
     /**
      * Get an overlay by its identifier (the value returned by overlay.getId()).
      * Note that the index treats string and numeric identifiers as the same. So
@@ -600,7 +600,7 @@ declare class Map extends BaseObject {
      * @return {import("./Overlay.js").default} Overlay.
      * @api
      */
-    getOverlayById(id: string | number): import("./Overlay.js").default;
+    getOverlayById(id: string | number): import("ol/Overlay.js").default;
     /**
      * Get the map interactions. Modifying this collection changes the interactions
      * associated with the map.
@@ -609,7 +609,7 @@ declare class Map extends BaseObject {
      * @return {Collection<import("./interaction/Interaction.js").default>} Interactions.
      * @api
      */
-    getInteractions(): Collection<import("./interaction/Interaction.js").default>;
+    getInteractions(): Collection<import("ol/interaction/Interaction.js").default>;
     /**
      * Get the layergroup associated with this map.
      * @return {LayerGroup} A layer group containing the layers in this map.
@@ -622,13 +622,13 @@ declare class Map extends BaseObject {
      * @param {Array<import("./layer/Base.js").default>|Collection<import("./layer/Base.js").default>} layers The layers to be added to the map.
      * @api
      */
-    setLayers(layers: Array<import("./layer/Base.js").default> | Collection<import("./layer/Base.js").default>): void;
+    setLayers(layers: Array<import("ol/layer/Base.js").default> | Collection<import("ol/layer/Base.js").default>): void;
     /**
      * Get the collection of layers associated with this map.
      * @return {!Collection<import("./layer/Base.js").default>} Layers.
      * @api
      */
-    getLayers(): Collection<import("./layer/Base.js").default>;
+    getLayers(): Collection<import("ol/layer/Base.js").default>;
     /**
      * @return {boolean} Layers have sources that are still loading.
      */
@@ -640,26 +640,26 @@ declare class Map extends BaseObject {
      * @return {import("./pixel.js").Pixel} A pixel position in the map viewport.
      * @api
      */
-    getPixelFromCoordinate(coordinate: import("./coordinate.js").Coordinate): import("./pixel.js").Pixel;
+    getPixelFromCoordinate(coordinate: import("ol/coordinate.js").Coordinate): import("ol/pixel.js").Pixel;
     /**
      * Get the pixel for a coordinate.  This takes a coordinate in the map view
      * projection and returns the corresponding pixel.
      * @param {import("./coordinate.js").Coordinate} coordinate A map coordinate.
      * @return {import("./pixel.js").Pixel} A pixel position in the map viewport.
      */
-    getPixelFromCoordinateInternal(coordinate: import("./coordinate.js").Coordinate): import("./pixel.js").Pixel;
+    getPixelFromCoordinateInternal(coordinate: import("ol/coordinate.js").Coordinate): import("ol/pixel.js").Pixel;
     /**
      * Get the map renderer.
      * @return {import("./renderer/Map.js").default|null} Renderer
      */
-    getRenderer(): import("./renderer/Map.js").default | null;
+    getRenderer(): import("ol/renderer/Map.js").default | null;
     /**
      * Get the size of this map.
      * @return {import("./size.js").Size|undefined} The size in pixels of the map in the DOM.
      * @observable
      * @api
      */
-    getSize(): import("./size.js").Size | undefined;
+    getSize(): import("ol/size.js").Size | undefined;
     /**
      * Get the view associated with this map. A view manages properties such as
      * center and resolution.
@@ -701,7 +701,7 @@ declare class Map extends BaseObject {
      * @param {number} tileResolution Tile resolution.
      * @return {number} Tile priority.
      */
-    getTilePriority(tile: import("./Tile.js").default, tileSourceKey: string, tileCenter: import("./coordinate.js").Coordinate, tileResolution: number): number;
+    getTilePriority(tile: import("ol/Tile.js").default, tileSourceKey: string, tileCenter: import("ol/coordinate.js").Coordinate, tileResolution: number): number;
     /**
      * @param {UIEvent} browserEvent Browser event.
      * @param {string} [type] Type.
@@ -772,7 +772,7 @@ declare class Map extends BaseObject {
      *     if the control was not found).
      * @api
      */
-    removeControl(control: import("./control/Control.js").default): import("./control/Control.js").default | undefined;
+    removeControl(control: import("ol/control/Control.js").default): import("ol/control/Control.js").default | undefined;
     /**
      * Remove the given interaction from the map.
      * @param {import("./interaction/Interaction.js").default} interaction Interaction to remove.
@@ -780,7 +780,7 @@ declare class Map extends BaseObject {
      *     undefined if the interaction was not found).
      * @api
      */
-    removeInteraction(interaction: import("./interaction/Interaction.js").default): import("./interaction/Interaction.js").default | undefined;
+    removeInteraction(interaction: import("ol/interaction/Interaction.js").default): import("ol/interaction/Interaction.js").default | undefined;
     /**
      * Removes the given layer from the map.
      * @param {import("./layer/Base.js").default} layer Layer.
@@ -788,7 +788,7 @@ declare class Map extends BaseObject {
      *     layer was not found).
      * @api
      */
-    removeLayer(layer: import("./layer/Base.js").default): import("./layer/Base.js").default | undefined;
+    removeLayer(layer: import("ol/layer/Base.js").default): import("ol/layer/Base.js").default | undefined;
     /**
      * @param {import("./layer/Group.js").GroupEvent} event The layer remove event.
      * @private
@@ -801,7 +801,7 @@ declare class Map extends BaseObject {
      *     if the overlay was not found).
      * @api
      */
-    removeOverlay(overlay: import("./Overlay.js").default): import("./Overlay.js").default | undefined;
+    removeOverlay(overlay: import("ol/Overlay.js").default): import("ol/Overlay.js").default | undefined;
     /**
      * @param {number} time Time.
      * @private
@@ -820,7 +820,7 @@ declare class Map extends BaseObject {
      * @observable
      * @api
      */
-    setSize(size: import("./size.js").Size | undefined): void;
+    setSize(size: import("ol/size.js").Size | undefined): void;
     /**
      * Set the target element to render this map into.
      * @param {HTMLElement|string} [target] The Element or id of the Element
@@ -838,7 +838,7 @@ declare class Map extends BaseObject {
      * @observable
      * @api
      */
-    setView(view: View | Promise<import("./View.js").ViewOptions>): void;
+    setView(view: View | Promise<import("ol/View.js").ViewOptions>): void;
     /**
      * Force a recalculation of the map viewport size.  This should be called when
      * third-party code changes the size of the map viewport.
@@ -851,10 +851,10 @@ declare class Map extends BaseObject {
      */
     private updateViewportSize_;
 }
-import TileQueue from './TileQueue.js';
-import Collection from './Collection.js';
-import MapBrowserEvent from './MapBrowserEvent.js';
-import LayerGroup from './layer/Group.js';
-import View from './View.js';
-import BaseObject from './Object.js';
+import TileQueue from 'ol/TileQueue.js';
+import Collection from 'ol/Collection.js';
+import MapBrowserEvent from 'ol/MapBrowserEvent.js';
+import LayerGroup from 'ol/layer/Group.js';
+import View from 'ol/View.js';
+import BaseObject from 'ol/Object.js';
 //# sourceMappingURL=Map.d.ts.map

@@ -5,7 +5,7 @@ const homeContainer = document.getElementById('content');
 
 // Define restaurant information
 const restaurantName = "Sample Restaurant";
-const restaurantLogo = "./logo.png";
+const restaurantLogo = "./logo.pjng";
 const restaurantAddress = "123 Main Street, Cityville";
 const restaurantPhone = "(123) 456-7890";
 const restaurantEmail = "info@samplerestaurant.com";

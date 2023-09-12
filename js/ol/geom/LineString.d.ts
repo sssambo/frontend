@@ -11,7 +11,7 @@ declare class LineString extends SimpleGeometry {
      *     For internal use, flat coordinates in combination with `layout` are also accepted.
      * @param {import("./Geometry.js").GeometryLayout} [layout] Layout.
      */
-    constructor(coordinates: Array<import("../coordinate.js").Coordinate> | Array<number>, layout?: import("./Geometry.js").GeometryLayout | undefined);
+    constructor(coordinates: Array<import("ol/coordinate.js").Coordinate> | Array<number>, layout?: import("ol/geom/Geometry.js").GeometryLayout | undefined);
     /**
      * @private
      * @type {import("../coordinate.js").Coordinate}
@@ -37,7 +37,7 @@ declare class LineString extends SimpleGeometry {
      * @param {import("../coordinate.js").Coordinate} coordinate Coordinate.
      * @api
      */
-    appendCoordinate(coordinate: import("../coordinate.js").Coordinate): void;
+    appendCoordinate(coordinate: import("ol/coordinate.js").Coordinate): void;
     /**
      * Make a complete copy of the geometry.
      * @return {!LineString} Clone.
@@ -55,7 +55,7 @@ declare class LineString extends SimpleGeometry {
      * @template T,S
      * @api
      */
-    forEachSegment<T, S>(callback: (this: S, arg1: import("../coordinate.js").Coordinate, arg2: import("../coordinate.js").Coordinate) => T): boolean | T;
+    forEachSegment<T, S>(callback: (this: S, arg1: import("ol/coordinate.js").Coordinate, arg2: import("ol/coordinate.js").Coordinate) => T): boolean | T;
     /**
      * Returns the coordinate at `m` using linear interpolation, or `null` if no
      * such coordinate exists.
@@ -70,13 +70,13 @@ declare class LineString extends SimpleGeometry {
      * @return {import("../coordinate.js").Coordinate|null} Coordinate.
      * @api
      */
-    getCoordinateAtM(m: number, extrapolate?: boolean | undefined): import("../coordinate.js").Coordinate | null;
+    getCoordinateAtM(m: number, extrapolate?: boolean | undefined): import("ol/coordinate.js").Coordinate | null;
     /**
      * Return the coordinates of the linestring.
      * @return {Array<import("../coordinate.js").Coordinate>} Coordinates.
      * @api
      */
-    getCoordinates(): Array<import("../coordinate.js").Coordinate>;
+    getCoordinates(): Array<import("ol/coordinate.js").Coordinate>;
     /**
      * Return the coordinate at the provided fraction along the linestring.
      * The `fraction` is a number between 0 and 1, where 0 is the start of the
@@ -87,7 +87,7 @@ declare class LineString extends SimpleGeometry {
      * @return {import("../coordinate.js").Coordinate} Coordinate of the interpolated point.
      * @api
      */
-    getCoordinateAt(fraction: number, dest?: import("../coordinate.js").Coordinate | undefined): import("../coordinate.js").Coordinate;
+    getCoordinateAt(fraction: number, dest?: import("ol/coordinate.js").Coordinate | undefined): import("ol/coordinate.js").Coordinate;
     /**
      * Return the length of the linestring on projected plane.
      * @return {number} Length (on projected plane).
@@ -110,7 +110,7 @@ declare class LineString extends SimpleGeometry {
      * @param {import("./Geometry.js").GeometryLayout} [layout] Layout.
      * @api
      */
-    setCoordinates(coordinates: Array<import("../coordinate.js").Coordinate>, layout?: import("./Geometry.js").GeometryLayout | undefined): void;
+    setCoordinates(coordinates: Array<import("ol/coordinate.js").Coordinate>, layout?: import("ol/geom/Geometry.js").GeometryLayout | undefined): void;
 }
-import SimpleGeometry from './SimpleGeometry.js';
+import SimpleGeometry from 'ol/geom/SimpleGeometry.js';
 //# sourceMappingURL=LineString.d.ts.map

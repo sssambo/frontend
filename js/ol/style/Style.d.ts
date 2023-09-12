@@ -12,7 +12,7 @@ export function toFunction(obj: StyleFunction | Array<Style> | Style): StyleFunc
  * @param {number} resolution Resolution.
  * @return {Array<Style>} Style.
  */
-export function createDefaultStyle(feature: import("../Feature.js").FeatureLike, resolution: number): Array<Style>;
+export function createDefaultStyle(feature: import("ol/Feature.js").FeatureLike, resolution: number): Array<Style>;
 /**
  * Default styles for editing features.
  * @return {Object<import("../geom/Geometry.js").Type, Array<Style>>} Styles
@@ -26,7 +26,7 @@ export default Style;
  * vector layer can be styled. If the function returns `undefined`, the
  * feature will not be rendered.
  */
-export type StyleFunction = (arg0: import("../Feature.js").FeatureLike, arg1: number) => (Style | Array<Style> | void);
+export type StyleFunction = (arg0: import("ol/Feature.js").FeatureLike, arg1: number) => (Style | Array<Style> | void);
 /**
  * A {@link Style }, an array of {@link Style }, or a {@link StyleFunction }.
  */
@@ -35,20 +35,20 @@ export type StyleLike = Style | Array<Style> | StyleFunction;
  * A function that takes an {@link module :ol/Feature~Feature} as argument and returns an
  * {@link module :ol/geom/Geometry~Geometry} that will be rendered and styled for the feature.
  */
-export type GeometryFunction = (arg0: import("../Feature.js").FeatureLike) => (import("../geom/Geometry.js").default | import("../render/Feature.js").default | undefined);
+export type GeometryFunction = (arg0: import("ol/Feature.js").FeatureLike) => (import("ol/geom/Geometry.js").default | import("ol/render/Feature.js").default | undefined);
 /**
  * Custom renderer function. Takes two arguments:
  *
  * 1. The pixel coordinates of the geometry in GeoJSON notation.
  * 2. The {@link module :ol/render~State} of the layer renderer.
  */
-export type RenderFunction = (arg0: (import("../coordinate.js").Coordinate | Array<import("../coordinate.js").Coordinate> | Array<Array<import("../coordinate.js").Coordinate>> | Array<Array<Array<import("../coordinate.js").Coordinate>>>), arg1: import("../render.js").State) => void;
+export type RenderFunction = (arg0: (import("ol/coordinate.js").Coordinate | Array<import("ol/coordinate.js").Coordinate> | Array<Array<import("ol/coordinate.js").Coordinate>> | Array<Array<Array<import("ol/coordinate.js").Coordinate>>>), arg1: import("ol/render.js").State) => void;
 export type Options = {
     /**
      * Feature property or geometry
      * or function returning a geometry to render for this style.
      */
-    geometry?: string | import("../geom/Geometry.js").default | GeometryFunction | undefined;
+    geometry?: string | import("ol/geom/Geometry.js").default | GeometryFunction | undefined;
     /**
      * Fill style.
      */
@@ -56,7 +56,7 @@ export type Options = {
     /**
      * Image style.
      */
-    image?: import("./Image.js").default | undefined;
+    image?: import("ol/style/Image.js").default | undefined;
     /**
      * Custom renderer. When configured, `fill`, `stroke` and `image` will be
      * ignored, and the provided function will be called with each render frame for each geometry.
@@ -74,7 +74,7 @@ export type Options = {
     /**
      * Text style.
      */
-    text?: import("./Text.js").default | undefined;
+    text?: import("ol/style/Text.js").default | undefined;
     /**
      * Z index.
      */
@@ -308,7 +308,7 @@ declare class Style {
      * be rendered with this style.
      * @api
      */
-    getGeometry(): string | import("../geom/Geometry.js").default | GeometryFunction;
+    getGeometry(): string | import("ol/geom/Geometry.js").default | GeometryFunction;
     /**
      * Get the function used to generate a geometry for rendering.
      * @return {!GeometryFunction} Function that is called with a feature
@@ -321,49 +321,49 @@ declare class Style {
      * @return {import("./Fill.js").default} Fill style.
      * @api
      */
-    getFill(): import("./Fill.js").default;
+    getFill(): import("ol/style/Fill.js").default;
     /**
      * Set the fill style.
      * @param {import("./Fill.js").default} fill Fill style.
      * @api
      */
-    setFill(fill: import("./Fill.js").default): void;
+    setFill(fill: import("ol/style/Fill.js").default): void;
     /**
      * Get the image style.
      * @return {import("./Image.js").default} Image style.
      * @api
      */
-    getImage(): import("./Image.js").default;
+    getImage(): import("ol/style/Image.js").default;
     /**
      * Set the image style.
      * @param {import("./Image.js").default} image Image style.
      * @api
      */
-    setImage(image: import("./Image.js").default): void;
+    setImage(image: import("ol/style/Image.js").default): void;
     /**
      * Get the stroke style.
      * @return {import("./Stroke.js").default} Stroke style.
      * @api
      */
-    getStroke(): import("./Stroke.js").default;
+    getStroke(): import("ol/style/Stroke.js").default;
     /**
      * Set the stroke style.
      * @param {import("./Stroke.js").default} stroke Stroke style.
      * @api
      */
-    setStroke(stroke: import("./Stroke.js").default): void;
+    setStroke(stroke: import("ol/style/Stroke.js").default): void;
     /**
      * Get the text style.
      * @return {import("./Text.js").default} Text style.
      * @api
      */
-    getText(): import("./Text.js").default;
+    getText(): import("ol/style/Text.js").default;
     /**
      * Set the text style.
      * @param {import("./Text.js").default} text Text style.
      * @api
      */
-    setText(text: import("./Text.js").default): void;
+    setText(text: import("ol/style/Text.js").default): void;
     /**
      * Get the z-index for the style.
      * @return {number|undefined} ZIndex.
@@ -378,7 +378,7 @@ declare class Style {
      *     for this style.
      * @api
      */
-    setGeometry(geometry: string | import("../geom/Geometry.js").default | GeometryFunction): void;
+    setGeometry(geometry: string | import("ol/geom/Geometry.js").default | GeometryFunction): void;
     /**
      * Set the z-index.
      *
@@ -387,6 +387,6 @@ declare class Style {
      */
     setZIndex(zIndex: number | undefined): void;
 }
-import Fill from './Fill.js';
-import Stroke from './Stroke.js';
+import Fill from 'ol/style/Fill.js';
+import Stroke from 'ol/style/Stroke.js';
 //# sourceMappingURL=Style.d.ts.map

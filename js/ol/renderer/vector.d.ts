@@ -3,7 +3,7 @@
  * @param {import("../Feature.js").FeatureLike} feature2 Feature 2.
  * @return {number} Order.
  */
-export function defaultOrder(feature1: import("../Feature.js").FeatureLike, feature2: import("../Feature.js").FeatureLike): number;
+export function defaultOrder(feature1: import("ol/Feature.js").FeatureLike, feature2: import("ol/Feature.js").FeatureLike): number;
 /**
  * @param {number} resolution Resolution.
  * @param {number} pixelRatio Pixel ratio.
@@ -26,7 +26,7 @@ export function getTolerance(resolution: number, pixelRatio: number): number;
  * @param {import("../render/canvas/BuilderGroup.js").default} [declutterBuilderGroup] Builder for decluttering.
  * @return {boolean} `true` if style is loading.
  */
-export function renderFeature(replayGroup: import("../render/canvas/BuilderGroup.js").default, feature: import("../Feature.js").FeatureLike, style: import("../style/Style.js").default, squaredTolerance: number, listener: (arg0: import("../events/Event.js").default) => void, transform?: import("../proj.js").TransformFunction | undefined, declutterBuilderGroup?: import("../render/canvas/BuilderGroup.js").default | undefined): boolean;
+export function renderFeature(replayGroup: import("ol/render/canvas/BuilderGroup.js").default, feature: import("ol/Feature.js").FeatureLike, style: import("ol/style/Style.js").default, squaredTolerance: number, listener: (arg0: import("ol/events/Event.js").default) => void, transform?: import("ol/proj.js").TransformFunction | undefined, declutterBuilderGroup?: import("ol/render/canvas/BuilderGroup.js").default | undefined): boolean;
 /**
  * Feature callback. The callback will be called with three arguments. The first
  * argument is one {@link module :ol/Feature~Feature feature} or {@link module :ol/render/Feature~RenderFeature render feature}
@@ -34,5 +34,5 @@ export function renderFeature(replayGroup: import("../render/canvas/BuilderGroup
  * unmanaged layers. The third is the {@link module :ol/geom/SimpleGeometry~SimpleGeometry} of the feature. For features
  * with a GeometryCollection geometry, it will be the first detected geometry from the collection.
  */
-export type FeatureCallback<T> = (arg0: import("../Feature.js").FeatureLike, arg1: import("../layer/Layer.js").default<import("../source/Source").default>, arg2: import("../geom/SimpleGeometry.js").default) => T;
+export type FeatureCallback<T> = (arg0: import("ol/Feature.js").FeatureLike, arg1: import("ol/layer/Layer.js").default<import("ol/source/Source").default>, arg2: import("ol/geom/SimpleGeometry.js").default) => T;
 //# sourceMappingURL=vector.d.ts.map

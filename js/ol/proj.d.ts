@@ -57,7 +57,7 @@ export function get(projectionLike: ProjectionLike): Projection | null;
  * @return {number} Point resolution.
  * @api
  */
-export function getPointResolution(projection: ProjectionLike, resolution: number, point: import("./coordinate.js").Coordinate, units?: import("./proj/Units.js").Units | undefined): number;
+export function getPointResolution(projection: ProjectionLike, resolution: number, point: import("ol/coordinate.js").Coordinate, units?: import("ol/proj/Units.js").Units | undefined): number;
 /**
  * Registers transformation functions that don't alter coordinates. Those allow
  * to transform between projections with equal meaning.
@@ -97,7 +97,7 @@ export function createProjection(projection: Projection | string | undefined, de
  *     transform.
  * @return {TransformFunction} Transform function.
  */
-export function createTransformFromCoordinateTransform(coordTransform: (arg0: import("./coordinate.js").Coordinate) => import("./coordinate.js").Coordinate): TransformFunction;
+export function createTransformFromCoordinateTransform(coordTransform: (arg0: import("ol/coordinate.js").Coordinate) => import("ol/coordinate.js").Coordinate): TransformFunction;
 /**
  * Registers coordinate transform functions to convert coordinates between the
  * source projection and the destination projection.
@@ -120,7 +120,7 @@ export function createTransformFromCoordinateTransform(coordTransform: (arg0: im
  *     source.
  * @api
  */
-export function addCoordinateTransforms(source: ProjectionLike, destination: ProjectionLike, forward: (arg0: import("./coordinate.js").Coordinate) => import("./coordinate.js").Coordinate, inverse: (arg0: import("./coordinate.js").Coordinate) => import("./coordinate.js").Coordinate): void;
+export function addCoordinateTransforms(source: ProjectionLike, destination: ProjectionLike, forward: (arg0: import("ol/coordinate.js").Coordinate) => import("ol/coordinate.js").Coordinate, inverse: (arg0: import("ol/coordinate.js").Coordinate) => import("ol/coordinate.js").Coordinate): void;
 /**
  * Transforms a coordinate from longitude/latitude to a different projection.
  * @param {import("./coordinate.js").Coordinate} coordinate Coordinate as longitude and latitude, i.e.
@@ -130,7 +130,7 @@ export function addCoordinateTransforms(source: ProjectionLike, destination: Pro
  * @return {import("./coordinate.js").Coordinate} Coordinate projected to the target projection.
  * @api
  */
-export function fromLonLat(coordinate: import("./coordinate.js").Coordinate, projection?: ProjectionLike): import("./coordinate.js").Coordinate;
+export function fromLonLat(coordinate: import("ol/coordinate.js").Coordinate, projection?: ProjectionLike): import("ol/coordinate.js").Coordinate;
 /**
  * Transforms a coordinate to longitude/latitude.
  * @param {import("./coordinate.js").Coordinate} coordinate Projected coordinate.
@@ -140,7 +140,7 @@ export function fromLonLat(coordinate: import("./coordinate.js").Coordinate, pro
  *     with longitude as 1st and latitude as 2nd element.
  * @api
  */
-export function toLonLat(coordinate: import("./coordinate.js").Coordinate, projection?: ProjectionLike): import("./coordinate.js").Coordinate;
+export function toLonLat(coordinate: import("ol/coordinate.js").Coordinate, projection?: ProjectionLike): import("ol/coordinate.js").Coordinate;
 /**
  * Checks if two projections are the same, that is every coordinate in one
  * projection does represent the same geographic point as the same coordinate in
@@ -187,7 +187,7 @@ export function getTransform(source: ProjectionLike, destination: ProjectionLike
  * @return {import("./coordinate.js").Coordinate} Coordinate.
  * @api
  */
-export function transform(coordinate: import("./coordinate.js").Coordinate, source: ProjectionLike, destination: ProjectionLike): import("./coordinate.js").Coordinate;
+export function transform(coordinate: import("ol/coordinate.js").Coordinate, source: ProjectionLike, destination: ProjectionLike): import("ol/coordinate.js").Coordinate;
 /**
  * Transforms an extent from source projection to destination projection.  This
  * returns a new extent (and does not modify the original).
@@ -200,7 +200,7 @@ export function transform(coordinate: import("./coordinate.js").Coordinate, sour
  * @return {import("./extent.js").Extent} The transformed extent.
  * @api
  */
-export function transformExtent(extent: import("./extent.js").Extent, source: ProjectionLike, destination: ProjectionLike, stops?: number | undefined): import("./extent.js").Extent;
+export function transformExtent(extent: import("ol/extent.js").Extent, source: ProjectionLike, destination: ProjectionLike, stops?: number | undefined): import("ol/extent.js").Extent;
 /**
  * Transforms the given point to the destination projection.
  *
@@ -209,7 +209,7 @@ export function transformExtent(extent: import("./extent.js").Extent, source: Pr
  * @param {Projection} destinationProjection Destination projection.
  * @return {import("./coordinate.js").Coordinate} Point.
  */
-export function transformWithProjections(point: import("./coordinate.js").Coordinate, sourceProjection: Projection, destinationProjection: Projection): import("./coordinate.js").Coordinate;
+export function transformWithProjections(point: import("ol/coordinate.js").Coordinate, sourceProjection: Projection, destinationProjection: Projection): import("ol/coordinate.js").Coordinate;
 /**
  * Set the projection for coordinates supplied from and returned by API methods.
  * This includes all API methods except for those interacting with tile grids,
@@ -259,7 +259,7 @@ export function fromUserCoordinate(coordinate: Array<number>, destProjection: Pr
  * @param {ProjectionLike} sourceProjection The input extent projection.
  * @return {import("./extent.js").Extent} The input extent in the user projection.
  */
-export function toUserExtent(extent: import("./extent.js").Extent, sourceProjection: ProjectionLike): import("./extent.js").Extent;
+export function toUserExtent(extent: import("ol/extent.js").Extent, sourceProjection: ProjectionLike): import("ol/extent.js").Extent;
 /**
  * Return an extent transformed from the user projection.  If no user projection
  * is set, the original extent is returned.
@@ -267,7 +267,7 @@ export function toUserExtent(extent: import("./extent.js").Extent, sourceProject
  * @param {ProjectionLike} destProjection The destination projection.
  * @return {import("./extent.js").Extent} The input extent transformed.
  */
-export function fromUserExtent(extent: import("./extent.js").Extent, destProjection: ProjectionLike): import("./extent.js").Extent;
+export function fromUserExtent(extent: import("ol/extent.js").Extent, destProjection: ProjectionLike): import("ol/extent.js").Extent;
 /**
  * Return the resolution in user projection units per pixel. If no user projection
  * is set, or source or user projection are missing units, the original resolution
@@ -296,7 +296,7 @@ export function fromUserResolution(resolution: number, destProjection: Projectio
  * @param {function(import("./coordinate.js").Coordinate): import("./coordinate.js").Coordinate} transform Transform function (source to destination).
  * @return {function(import("./coordinate.js").Coordinate): import("./coordinate.js").Coordinate} Safe transform function (source to destination).
  */
-export function createSafeCoordinateTransform(sourceProj: Projection, destProj: Projection, transform: (arg0: import("./coordinate.js").Coordinate) => import("./coordinate.js").Coordinate): (arg0: import("./coordinate.js").Coordinate) => import("./coordinate.js").Coordinate;
+export function createSafeCoordinateTransform(sourceProj: Projection, destProj: Projection, transform: (arg0: import("ol/coordinate.js").Coordinate) => import("ol/coordinate.js").Coordinate): (arg0: import("ol/coordinate.js").Coordinate) => import("ol/coordinate.js").Coordinate;
 /**
  * Add transforms to and from EPSG:4326 and EPSG:3857.  This function is called
  * by when this module is executed and should only need to be called again after
@@ -315,7 +315,7 @@ export type ProjectionLike = Projection | string | undefined;
  * returns the output array.
  */
 export type TransformFunction = (arg0: Array<number>, arg1: Array<number> | undefined, arg2: number | undefined) => Array<number>;
-import Projection from './proj/Projection.js';
-import { METERS_PER_UNIT } from './proj/Units.js';
+import Projection from 'ol/proj/Projection.js';
+import { METERS_PER_UNIT } from 'ol/proj/Units.js';
 export { METERS_PER_UNIT, Projection };
 //# sourceMappingURL=proj.d.ts.map

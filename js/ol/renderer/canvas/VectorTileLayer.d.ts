@@ -5,11 +5,11 @@ export default CanvasVectorTileLayerRenderer;
  * @api
  * @extends {CanvasTileLayerRenderer<import("../../layer/VectorTile.js").default>}
  */
-declare class CanvasVectorTileLayerRenderer extends CanvasTileLayerRenderer<import("../../layer/VectorTile.js").default> {
+declare class CanvasVectorTileLayerRenderer extends CanvasTileLayerRenderer<import("ol/layer/VectorTile.js").default> {
     /**
      * @param {import("../../layer/VectorTile.js").default} layer VectorTile layer.
      */
-    constructor(layer: import("../../layer/VectorTile.js").default);
+    constructor(layer: import("ol/layer/VectorTile.js").default);
     /** @private */
     private boundHandleStyleImageChange_;
     /**
@@ -38,12 +38,12 @@ declare class CanvasVectorTileLayerRenderer extends CanvasTileLayerRenderer<impo
      * @param {import("../../proj/Projection").default} projection Projection.
      * @return {boolean|undefined} Tile needs to be rendered.
      */
-    prepareTile(tile: import("../../VectorRenderTile.js").default, pixelRatio: number, projection: import("../../proj/Projection").default): boolean | undefined;
+    prepareTile(tile: import("ol/VectorRenderTile.js").default, pixelRatio: number, projection: import("ol/proj/Projection").default): boolean | undefined;
     /**
      * @param {import("../../VectorRenderTile.js").default} tile Tile.
      * @return {boolean} Tile is drawable.
      */
-    isDrawableTile(tile: import("../../VectorRenderTile.js").default): boolean;
+    isDrawableTile(tile: import("ol/VectorRenderTile.js").default): boolean;
     /**
      * @inheritDoc
      */
@@ -65,7 +65,7 @@ declare class CanvasVectorTileLayerRenderer extends CanvasTileLayerRenderer<impo
      * Render declutter items for this layer
      * @param {import("../../Map.js").FrameState} frameState Frame state.
      */
-    renderDeclutter(frameState: import("../../Map.js").FrameState): void;
+    renderDeclutter(frameState: import("ol/Map.js").FrameState): void;
     getTileRenderTransform(tile: any, frameState: any): number[];
     /**
      * @param {import("../../Feature.js").FeatureLike} feature Feature.
@@ -75,7 +75,7 @@ declare class CanvasVectorTileLayerRenderer extends CanvasTileLayerRenderer<impo
      * @param {import("../../render/canvas/BuilderGroup.js").default} [declutterBuilderGroup] Builder group for decluttering.
      * @return {boolean} `true` if an image is loading.
      */
-    renderFeature(feature: import("../../Feature.js").FeatureLike, squaredTolerance: number, styles: import("../../style/Style.js").default | Array<import("../../style/Style.js").default>, builderGroup: import("../../render/canvas/BuilderGroup.js").default, declutterBuilderGroup?: CanvasBuilderGroup | undefined): boolean;
+    renderFeature(feature: import("ol/Feature.js").FeatureLike, squaredTolerance: number, styles: import("ol/style/Style.js").default | Array<import("ol/style/Style.js").default>, builderGroup: import("ol/render/canvas/BuilderGroup.js").default, declutterBuilderGroup?: CanvasBuilderGroup | undefined): boolean;
     /**
      * @param {import("../../VectorRenderTile.js").default} tile Tile.
      * @return {boolean} A new tile image was rendered.
@@ -89,6 +89,6 @@ declare class CanvasVectorTileLayerRenderer extends CanvasTileLayerRenderer<impo
      */
     private renderTileImage_;
 }
-import CanvasTileLayerRenderer from './TileLayer.js';
-import CanvasBuilderGroup from '../../render/canvas/BuilderGroup.js';
+import CanvasTileLayerRenderer from 'ol/renderer/canvas/TileLayer.js';
+import CanvasBuilderGroup from 'ol/render/canvas/BuilderGroup.js';
 //# sourceMappingURL=VectorTileLayer.d.ts.map

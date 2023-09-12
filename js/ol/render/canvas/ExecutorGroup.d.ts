@@ -20,7 +20,7 @@ declare class ExecutorGroup {
      * The serializable instructions.
      * @param {number} [renderBuffer] Optional rendering buffer.
      */
-    constructor(maxExtent: import("../../extent.js").Extent, resolution: number, pixelRatio: number, overlaps: boolean, allInstructions: {
+    constructor(maxExtent: import("ol/extent.js").Extent, resolution: number, pixelRatio: number, overlaps: boolean, allInstructions: {
         [x: string]: any;
     }, renderBuffer?: number | undefined);
     /**
@@ -67,7 +67,7 @@ declare class ExecutorGroup {
      * @param {CanvasRenderingContext2D} context Context.
      * @param {import("../../transform.js").Transform} transform Transform.
      */
-    clip(context: CanvasRenderingContext2D, transform: import("../../transform.js").Transform): void;
+    clip(context: CanvasRenderingContext2D, transform: import("ol/transform.js").Transform): void;
     /**
      * Create executors and populate them using the provided instructions.
      * @private
@@ -78,7 +78,7 @@ declare class ExecutorGroup {
      * @param {Array<import("../canvas.js").BuilderType>} executors Executors.
      * @return {boolean} Has executors of the provided types.
      */
-    hasExecutors(executors: Array<import("../canvas.js").BuilderType>): boolean;
+    hasExecutors(executors: Array<import("ol/render/canvas.js").BuilderType>): boolean;
     /**
      * @param {import("../../coordinate.js").Coordinate} coordinate Coordinate.
      * @param {number} resolution Resolution.
@@ -89,12 +89,12 @@ declare class ExecutorGroup {
      * @return {T|undefined} Callback result.
      * @template T
      */
-    forEachFeatureAtCoordinate<T>(coordinate: import("../../coordinate.js").Coordinate, resolution: number, rotation: number, hitTolerance: number, callback: (arg0: import("../../Feature.js").FeatureLike, arg1: import("../../geom/SimpleGeometry.js").default, arg2: number) => T, declutteredFeatures: Array<import("../../Feature.js").FeatureLike>): T | undefined;
+    forEachFeatureAtCoordinate<T>(coordinate: import("ol/coordinate.js").Coordinate, resolution: number, rotation: number, hitTolerance: number, callback: (arg0: import("ol/Feature.js").FeatureLike, arg1: import("ol/geom/SimpleGeometry.js").default, arg2: number) => T, declutteredFeatures: Array<import("ol/Feature.js").FeatureLike>): T | undefined;
     /**
      * @param {import("../../transform.js").Transform} transform Transform.
      * @return {Array<number>|null} Clip coordinates.
      */
-    getClipCoords(transform: import("../../transform.js").Transform): Array<number> | null;
+    getClipCoords(transform: import("ol/transform.js").Transform): Array<number> | null;
     /**
      * @return {boolean} Is empty.
      */
@@ -109,6 +109,6 @@ declare class ExecutorGroup {
      *     Default is {@link module:ol/render/replay~ORDER}
      * @param {import("rbush").default} [declutterTree] Declutter tree.
      */
-    execute(context: CanvasRenderingContext2D, contextScale: number, transform: import("../../transform.js").Transform, viewRotation: number, snapToPixel: boolean, builderTypes?: import("../canvas.js").BuilderType[] | undefined, declutterTree?: any): void;
+    execute(context: CanvasRenderingContext2D, contextScale: number, transform: import("ol/transform.js").Transform, viewRotation: number, snapToPixel: boolean, builderTypes?: import("ol/render/canvas.js").BuilderType[] | undefined, declutterTree?: any): void;
 }
 //# sourceMappingURL=ExecutorGroup.d.ts.map

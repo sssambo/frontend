@@ -46,7 +46,7 @@ export function rotateAtOffset(context: CanvasRenderingContext2D, rotation: numb
  * @param {number} y Y.
  * @param {import("../size.js").Size} scale Scale.
  */
-export function drawImageOrLabel(context: CanvasRenderingContext2D, transform: import("../transform.js").Transform | null, opacity: number, labelOrImage: Label | HTMLCanvasElement | HTMLImageElement | HTMLVideoElement, originX: number, originY: number, w: number, h: number, x: number, y: number, scale: import("../size.js").Size): void;
+export function drawImageOrLabel(context: CanvasRenderingContext2D, transform: import("ol/transform.js").Transform | null, opacity: number, labelOrImage: Label | HTMLCanvasElement | HTMLImageElement | HTMLVideoElement, originX: number, originY: number, w: number, h: number, x: number, y: number, scale: import("ol/size.js").Size): void;
 /**
  * @typedef {'Circle' | 'Image' | 'LineString' | 'Polygon' | 'Text' | 'Default'} BuilderType
  */
@@ -156,7 +156,7 @@ export const defaultMiterLimit: number;
  * @const
  * @type {import("../colorlike.js").ColorLike}
  */
-export const defaultStrokeStyle: import("../colorlike.js").ColorLike;
+export const defaultStrokeStyle: import("ol/colorlike.js").ColorLike;
 /**
  * @const
  * @type {CanvasTextAlign}
@@ -194,7 +194,7 @@ export type FillState = {
     /**
      * FillStyle.
      */
-    fillStyle: import("../colorlike.js").ColorLike;
+    fillStyle: import("ol/colorlike.js").ColorLike;
 };
 export type Label = {
     /**
@@ -214,11 +214,11 @@ export type FillStrokeState = {
     /**
      * Current FillStyle.
      */
-    currentFillStyle?: import("../colorlike.js").ColorLike | undefined;
+    currentFillStyle?: import("ol/colorlike.js").ColorLike | undefined;
     /**
      * Current StrokeStyle.
      */
-    currentStrokeStyle?: import("../colorlike.js").ColorLike | undefined;
+    currentStrokeStyle?: import("ol/colorlike.js").ColorLike | undefined;
     /**
      * Current LineCap.
      */
@@ -250,11 +250,11 @@ export type FillStrokeState = {
     /**
      * FillStyle.
      */
-    fillStyle?: import("../colorlike.js").ColorLike | undefined;
+    fillStyle?: import("ol/colorlike.js").ColorLike | undefined;
     /**
      * StrokeStyle.
      */
-    strokeStyle?: import("../colorlike.js").ColorLike | undefined;
+    strokeStyle?: import("ol/colorlike.js").ColorLike | undefined;
     /**
      * LineCap.
      */
@@ -308,7 +308,7 @@ export type StrokeState = {
     /**
      * StrokeStyle.
      */
-    strokeStyle: import("../colorlike.js").ColorLike;
+    strokeStyle: import("ol/colorlike.js").ColorLike;
 };
 export type TextState = {
     /**
@@ -326,7 +326,7 @@ export type TextState = {
     /**
      * Justify.
      */
-    justify?: import("../style/Text.js").TextJustify | undefined;
+    justify?: import("ol/style/Text.js").TextJustify | undefined;
     /**
      * TextBaseline.
      */
@@ -334,7 +334,7 @@ export type TextState = {
     /**
      * Placement.
      */
-    placement?: import("../style/Text.js").TextPlacement | undefined;
+    placement?: import("ol/style/Text.js").TextPlacement | undefined;
     /**
      * MaxAngle.
      */
@@ -346,15 +346,15 @@ export type TextState = {
     /**
      * BackgroundFill.
      */
-    backgroundFill?: import("../style/Fill.js").default | undefined;
+    backgroundFill?: import("ol/style/Fill.js").default | undefined;
     /**
      * BackgroundStroke.
      */
-    backgroundStroke?: import("../style/Stroke.js").default | undefined;
+    backgroundStroke?: import("ol/style/Stroke.js").default | undefined;
     /**
      * Scale.
      */
-    scale?: import("../size.js").Size | undefined;
+    scale?: import("ol/size.js").Size | undefined;
     /**
      * Padding.
      */
@@ -393,7 +393,7 @@ export type SerializableInstructions = {
     } | undefined;
 };
 export type DeclutterImageWithText = {
-    [x: number]: import("./canvas/Executor.js").ReplayImageOrLabelArgs;
+    [x: number]: import("ol/render/canvas/Executor.js").ReplayImageOrLabelArgs;
 };
-import BaseObject from '../Object.js';
+import BaseObject from 'ol/Object.js';
 //# sourceMappingURL=canvas.d.ts.map

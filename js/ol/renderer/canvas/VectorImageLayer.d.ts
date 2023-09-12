@@ -8,7 +8,7 @@ declare class CanvasVectorImageLayerRenderer extends CanvasImageLayerRenderer {
     /**
      * @param {import("../../layer/VectorImage.js").default} layer Vector image layer.
      */
-    constructor(layer: import("../../layer/VectorImage.js").default<any>);
+    constructor(layer: import("ol/layer/VectorImage.js").default<any>);
     /**
      * @private
      * @type {import("./VectorLayer.js").default}
@@ -34,7 +34,7 @@ declare class CanvasVectorImageLayerRenderer extends CanvasImageLayerRenderer {
      * @param {import("../../pixel.js").Pixel} pixel Pixel.
      * @return {Promise<Array<import("../../Feature").default>>} Promise that resolves with an array of features.
      */
-    getFeatures(pixel: import("../../pixel.js").Pixel): Promise<Array<import("../../Feature").default>>;
+    getFeatures(pixel: import("ol/pixel.js").Pixel): Promise<Array<import("ol/Feature").default>>;
     /**
      */
     preRender(): void;
@@ -45,5 +45,5 @@ declare class CanvasVectorImageLayerRenderer extends CanvasImageLayerRenderer {
      */
     renderDeclutter(): void;
 }
-import CanvasImageLayerRenderer from './ImageLayer.js';
+import CanvasImageLayerRenderer from 'ol/renderer/canvas/ImageLayer.js';
 //# sourceMappingURL=VectorImageLayer.d.ts.map

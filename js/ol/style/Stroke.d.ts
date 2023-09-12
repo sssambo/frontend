@@ -5,7 +5,7 @@ export type Options = {
      * See {@link module :ol/color~Color} and {@link module :ol/colorlike~ColorLike} for possible formats.
      * Default null; if null, the Canvas/renderer default black will be used.
      */
-    color?: import("../color.js").Color | import("../colorlike.js").ColorLike | undefined;
+    color?: import("ol/color.js").Color | import("ol/colorlike.js").ColorLike | undefined;
     /**
      * Line cap style: `butt`, `round`, or `square`.
      */
@@ -105,7 +105,7 @@ declare class Stroke {
      * @return {import("../color.js").Color|import("../colorlike.js").ColorLike} Color.
      * @api
      */
-    getColor(): import("../color.js").Color | import("../colorlike.js").ColorLike;
+    getColor(): import("ol/color.js").Color | import("ol/colorlike.js").ColorLike;
     /**
      * Get the line cap type for the stroke.
      * @return {CanvasLineCap|undefined} Line cap.
@@ -148,7 +148,7 @@ declare class Stroke {
      * @param {import("../color.js").Color|import("../colorlike.js").ColorLike} color Color.
      * @api
      */
-    setColor(color: import("../color.js").Color | import("../colorlike.js").ColorLike): void;
+    setColor(color: import("ol/color.js").Color | import("ol/colorlike.js").ColorLike): void;
     /**
      * Set the line cap.
      *

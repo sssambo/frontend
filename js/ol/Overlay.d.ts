@@ -27,7 +27,7 @@ export type Options = {
      * The overlay position
      * in map projection.
      */
-    position?: import("./coordinate.js").Coordinate | undefined;
+    position?: import("ol/coordinate.js").Coordinate | undefined;
     /**
      * Defines how
      * the overlay is actually positioned with respect to its `position` property.
@@ -87,11 +87,11 @@ export type PanIntoViewOptions = {
      */
     margin?: number | undefined;
 };
-export type OverlayObjectEventTypes = import("./ObjectEventType").Types | 'change:element' | 'change:map' | 'change:offset' | 'change:position' | 'change:positioning';
+export type OverlayObjectEventTypes = import("ol/ObjectEventType").Types | 'change:element' | 'change:map' | 'change:offset' | 'change:position' | 'change:positioning';
 /**
  * *
  */
-export type OverlayOnSignature<Return> = import("./Observable").OnSignature<import("./Observable").EventTypes, import("./events/Event.js").default, Return> & import("./Observable").OnSignature<OverlayObjectEventTypes, import("./Object").ObjectEvent, Return> & import("./Observable").CombinedOnSignature<import("./Observable").EventTypes | OverlayObjectEventTypes, Return>;
+export type OverlayOnSignature<Return> = import("ol/Observable").OnSignature<import("ol/Observable").EventTypes, import("ol/events/Event.js").default, Return> & import("ol/Observable").OnSignature<OverlayObjectEventTypes, import("ol/Object").ObjectEvent, Return> & import("ol/Observable").CombinedOnSignature<import("ol/Observable").EventTypes | OverlayObjectEventTypes, Return>;
 /**
  * @typedef {import("./ObjectEventType").Types|'change:element'|'change:map'|'change:offset'|'change:position'|
  *   'change:positioning'} OverlayObjectEventTypes
@@ -131,11 +131,11 @@ declare class Overlay extends BaseObject {
     /***
      * @type {OverlayOnSignature<import("./events").EventsKey>}
      */
-    on: OverlayOnSignature<import("./events").EventsKey>;
+    on: OverlayOnSignature<import("ol/events").EventsKey>;
     /***
      * @type {OverlayOnSignature<import("./events").EventsKey>}
      */
-    once: OverlayOnSignature<import("./events").EventsKey>;
+    once: OverlayOnSignature<import("ol/events").EventsKey>;
     /***
      * @type {OverlayOnSignature<void>}
      */
@@ -183,7 +183,7 @@ declare class Overlay extends BaseObject {
      * @protected
      * @type {?import("./events.js").EventsKey}
      */
-    protected mapPostrenderListenerKey: import("./events.js").EventsKey | null;
+    protected mapPostrenderListenerKey: import("ol/events.js").EventsKey | null;
     /**
      * Get the DOM element of this overlay.
      * @return {HTMLElement|undefined} The Element containing the overlay.
@@ -204,7 +204,7 @@ declare class Overlay extends BaseObject {
      * @observable
      * @api
      */
-    getMap(): import("./Map.js").default | null;
+    getMap(): import("ol/Map.js").default | null;
     /**
      * Get the offset of this overlay.
      * @return {Array<number>} The offset.
@@ -219,7 +219,7 @@ declare class Overlay extends BaseObject {
      * @observable
      * @api
      */
-    getPosition(): import("./coordinate.js").Coordinate | undefined;
+    getPosition(): import("ol/coordinate.js").Coordinate | undefined;
     /**
      * Get the current positioning of this overlay.
      * @return {Positioning} How the overlay is positioned
@@ -266,7 +266,7 @@ declare class Overlay extends BaseObject {
      * @observable
      * @api
      */
-    setMap(map: import("./Map.js").default | null): void;
+    setMap(map: import("ol/Map.js").default | null): void;
     /**
      * Set the offset for this overlay.
      * @param {Array<number>} offset Offset.
@@ -282,7 +282,7 @@ declare class Overlay extends BaseObject {
      * @observable
      * @api
      */
-    setPosition(position: import("./coordinate.js").Coordinate | undefined): void;
+    setPosition(position: import("ol/coordinate.js").Coordinate | undefined): void;
     /**
      * Pan the map so that the overlay is entirely visible in the current viewport
      * (if necessary) using the configured autoPan parameters
@@ -303,7 +303,7 @@ declare class Overlay extends BaseObject {
      * @return {import("./extent.js").Extent} The extent.
      * @protected
      */
-    protected getRect(element: HTMLElement, size: import("./size.js").Size): import("./extent.js").Extent;
+    protected getRect(element: HTMLElement, size: import("ol/size.js").Size): import("ol/extent.js").Extent;
     /**
      * Set the positioning for this overlay.
      * @param {Positioning} positioning how the overlay is
@@ -328,12 +328,12 @@ declare class Overlay extends BaseObject {
      * @param {import("./size.js").Size|undefined} mapSize The map size.
      * @protected
      */
-    protected updateRenderedPosition(pixel: import("./pixel.js").Pixel, mapSize: import("./size.js").Size | undefined): void;
+    protected updateRenderedPosition(pixel: import("ol/pixel.js").Pixel, mapSize: import("ol/size.js").Size | undefined): void;
     /**
      * returns the options this Overlay has been created with
      * @return {Options} overlay options
      */
     getOptions(): Options;
 }
-import BaseObject from './Object.js';
+import BaseObject from 'ol/Object.js';
 //# sourceMappingURL=Overlay.d.ts.map

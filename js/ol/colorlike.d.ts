@@ -14,7 +14,7 @@
  * @return {ColorLike} The color as an {@link ol/colorlike~ColorLike}.
  * @api
  */
-export function asColorLike(color: import("./color.js").Color | ColorLike): ColorLike;
+export function asColorLike(color: import("ol/color.js").Color | ColorLike): ColorLike;
 /**
  * A type accepted by CanvasRenderingContext2D.fillStyle
  * or CanvasRenderingContext2D.strokeStyle.

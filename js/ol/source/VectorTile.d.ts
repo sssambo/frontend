@@ -3,13 +3,13 @@
  * @param {import("../VectorTile.js").default} tile Vector tile.
  * @param {string} url URL.
  */
-export function defaultLoadFunction(tile: import("../VectorTile.js").default, url: string): void;
+export function defaultLoadFunction(tile: import("ol/VectorTile.js").default, url: string): void;
 export default VectorTile;
 export type Options = {
     /**
      * Attributions.
      */
-    attributions?: import("./Source.js").AttributionLike | undefined;
+    attributions?: import("ol/source/Source.js").AttributionLike | undefined;
     /**
      * Attributions are collapsible.
      */
@@ -21,11 +21,11 @@ export type Options = {
     /**
      * Extent.
      */
-    extent?: import("../extent.js").Extent | undefined;
+    extent?: import("ol/extent.js").Extent | undefined;
     /**
      * Feature format for tiles. Used and required by the default.
      */
-    format?: import("../format/Feature.js").default | undefined;
+    format?: import("ol/format/Feature.js").default | undefined;
     /**
      * This source may have overlapping geometries. Setting this
      * to `false` (e.g. for sources with polygons that represent administrative
@@ -36,11 +36,11 @@ export type Options = {
     /**
      * Projection of the tile grid.
      */
-    projection?: import("../proj.js").ProjectionLike;
+    projection?: import("ol/proj.js").ProjectionLike;
     /**
      * Source state.
      */
-    state?: import("./Source.js").State | undefined;
+    state?: import("ol/source/Source.js").State | undefined;
     /**
      * Class used to instantiate image tiles.
      * Default is {@link module :ol/VectorTile~VectorTile}.
@@ -57,7 +57,7 @@ export type Options = {
     /**
      * Optional tile size. Not used if `tileGrid` is provided.
      */
-    tileSize?: number | import("../size.js").Size | undefined;
+    tileSize?: number | import("ol/size.js").Size | undefined;
     /**
      * Optional tile grid resolution at level zero. Not used if `tileGrid` is provided.
      */
@@ -96,11 +96,11 @@ export type Options = {
      * }
      * ```
      */
-    tileLoadFunction?: import("../Tile.js").LoadFunction | undefined;
+    tileLoadFunction?: import("ol/Tile.js").LoadFunction | undefined;
     /**
      * Optional function to get tile URL given a tile coordinate and the projection.
      */
-    tileUrlFunction?: import("../Tile.js").UrlFunction | undefined;
+    tileUrlFunction?: import("ol/Tile.js").UrlFunction | undefined;
     /**
      * URL template. Must include `{x}`, `{y}` or `{-y}`, and `{z}` placeholders.
      * A `{?-?}` template pattern, for example `subdomain{a-f}.domain.com`, may be
@@ -127,7 +127,7 @@ export type Options = {
      * Choose whether to use tiles with a higher or lower zoom level when between integer
      * zoom levels. See {@link module :ol/tilegrid/TileGrid~TileGrid#getZForResolution}.
      */
-    zDirection?: number | import("../array.js").NearestDirectionFunction | undefined;
+    zDirection?: number | import("ol/array.js").NearestDirectionFunction | undefined;
 };
 /**
  * @typedef {Object} Options
@@ -230,7 +230,7 @@ declare class VectorTile extends UrlTile {
      * @protected
      * @type {typeof import("../VectorTile.js").default}
      */
-    protected tileClass: typeof import("../VectorTile.js").default;
+    protected tileClass: typeof import("ol/VectorTile.js").default;
     /**
      * @private
      * @type {Object<string, import("../tilegrid/TileGrid.js").default>}
@@ -248,7 +248,7 @@ declare class VectorTile extends UrlTile {
      * @return {Array<import("../Feature.js").FeatureLike>} Features.
      * @api
      */
-    getFeaturesInExtent(extent: import("../extent.js").Extent): Array<import("../Feature.js").FeatureLike>;
+    getFeaturesInExtent(extent: import("ol/extent.js").Extent): Array<import("ol/Feature.js").FeatureLike>;
     /**
      * @return {boolean} The source can have overlapping geometries.
      */
@@ -259,7 +259,7 @@ declare class VectorTile extends UrlTile {
      * @param {VectorRenderTile} tile Vector image tile.
      * @return {Array<import("../VectorTile").default>} Tile keys.
      */
-    getSourceTiles(pixelRatio: number, projection: import("../proj/Projection").default, tile: VectorRenderTile): Array<import("../VectorTile").default>;
+    getSourceTiles(pixelRatio: number, projection: import("ol/proj/Projection").default, tile: VectorRenderTile): Array<import("ol/VectorTile").default>;
     /**
      * @param {number} z Tile coordinate z.
      * @param {number} x Tile coordinate x.
@@ -268,10 +268,10 @@ declare class VectorTile extends UrlTile {
      * @param {import("../proj/Projection.js").default} projection Projection.
      * @return {!VectorRenderTile} Tile.
      */
-    getTile(z: number, x: number, y: number, pixelRatio: number, projection: import("../proj/Projection.js").default): VectorRenderTile;
+    getTile(z: number, x: number, y: number, pixelRatio: number, projection: import("ol/proj/Projection.js").default): VectorRenderTile;
 }
-import Tile from '../VectorTile.js';
-import TileGrid from '../tilegrid/TileGrid.js';
-import UrlTile from './UrlTile.js';
-import VectorRenderTile from '../VectorRenderTile.js';
+import Tile from 'ol/VectorTile.js';
+import TileGrid from 'ol/tilegrid/TileGrid.js';
+import UrlTile from 'ol/source/UrlTile.js';
+import VectorRenderTile from 'ol/VectorRenderTile.js';
 //# sourceMappingURL=VectorTile.d.ts.map

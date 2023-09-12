@@ -8,11 +8,11 @@ export type Options = {
      * Units. Required unless a
      * proj4 projection is defined for `code`.
      */
-    units?: import("./Units.js").Units | undefined;
+    units?: import("ol/proj/Units.js").Units | undefined;
     /**
      * The validity extent for the SRS.
      */
-    extent?: import("../extent.js").Extent | undefined;
+    extent?: import("ol/extent.js").Extent | undefined;
     /**
      * The axis orientation as specified in Proj4.
      */
@@ -29,14 +29,14 @@ export type Options = {
     /**
      * The world extent for the SRS.
      */
-    worldExtent?: import("../extent.js").Extent | undefined;
+    worldExtent?: import("ol/extent.js").Extent | undefined;
     /**
      * Function to determine resolution at a point. The function is called with a
      * `number` view resolution and a {@link module :ol/coordinate~Coordinate} as arguments, and returns
      * the `number` resolution in projection units at the passed coordinate. If this is `undefined`,
      * the default {@link module :ol/proj.getPointResolution} function will be used.
      */
-    getPointResolution?: ((arg0: number, arg1: import("../coordinate.js").Coordinate) => number) | undefined;
+    getPointResolution?: ((arg0: number, arg1: import("ol/coordinate.js").Coordinate) => number) | undefined;
 };
 /**
  * @typedef {Object} Options
@@ -162,13 +162,13 @@ declare class Projection {
      * @return {import("../extent.js").Extent} Extent.
      * @api
      */
-    getExtent(): import("../extent.js").Extent;
+    getExtent(): import("ol/extent.js").Extent;
     /**
      * Get the units of this projection.
      * @return {import("./Units.js").Units} Units.
      * @api
      */
-    getUnits(): import("./Units.js").Units;
+    getUnits(): import("ol/proj/Units.js").Units;
     /**
      * Get the amount of meters per unit of this projection.  If the projection is
      * not configured with `metersPerUnit` or a units identifier, the return is
@@ -182,7 +182,7 @@ declare class Projection {
      * @return {import("../extent.js").Extent} Extent.
      * @api
      */
-    getWorldExtent(): import("../extent.js").Extent;
+    getWorldExtent(): import("ol/extent.js").Extent;
     /**
      * Get the axis orientation of this projection.
      * Example values are:
@@ -210,36 +210,36 @@ declare class Projection {
     /**
      * @return {import("../tilegrid/TileGrid.js").default} The default tile grid.
      */
-    getDefaultTileGrid(): import("../tilegrid/TileGrid.js").default;
+    getDefaultTileGrid(): import("ol/tilegrid/TileGrid.js").default;
     /**
      * @param {import("../tilegrid/TileGrid.js").default} tileGrid The default tile grid.
      */
-    setDefaultTileGrid(tileGrid: import("../tilegrid/TileGrid.js").default): void;
+    setDefaultTileGrid(tileGrid: import("ol/tilegrid/TileGrid.js").default): void;
     /**
      * Set the validity extent for this projection.
      * @param {import("../extent.js").Extent} extent Extent.
      * @api
      */
-    setExtent(extent: import("../extent.js").Extent): void;
+    setExtent(extent: import("ol/extent.js").Extent): void;
     /**
      * Set the world extent for this projection.
      * @param {import("../extent.js").Extent} worldExtent World extent
      *     [minlon, minlat, maxlon, maxlat].
      * @api
      */
-    setWorldExtent(worldExtent: import("../extent.js").Extent): void;
+    setWorldExtent(worldExtent: import("ol/extent.js").Extent): void;
     /**
      * Set the getPointResolution function (see {@link module:ol/proj.getPointResolution}
      * for this projection.
      * @param {function(number, import("../coordinate.js").Coordinate):number} func Function
      * @api
      */
-    setGetPointResolution(func: (arg0: number, arg1: import("../coordinate.js").Coordinate) => number): void;
+    setGetPointResolution(func: (arg0: number, arg1: import("ol/coordinate.js").Coordinate) => number): void;
     /**
      * Get the custom point resolution function for this projection (if set).
      * @return {function(number, import("../coordinate.js").Coordinate):number|undefined} The custom point
      * resolution function (if set).
      */
-    getPointResolutionFunc(): (arg0: number, arg1: import("../coordinate.js").Coordinate) => number | undefined;
+    getPointResolutionFunc(): (arg0: number, arg1: import("ol/coordinate.js").Coordinate) => number | undefined;
 }
 //# sourceMappingURL=Projection.d.ts.map

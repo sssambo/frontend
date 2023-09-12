@@ -3,19 +3,19 @@
  * @param {import("../coordinate.js").Coordinate} delta Delta.
  * @param {number} [duration] Duration.
  */
-export function pan(view: import("../View.js").default, delta: import("../coordinate.js").Coordinate, duration?: number | undefined): void;
+export function pan(view: import("ol/View.js").default, delta: import("ol/coordinate.js").Coordinate, duration?: number | undefined): void;
 /**
  * @param {import("../View.js").default} view View.
  * @param {number} delta Delta from previous zoom level.
  * @param {import("../coordinate.js").Coordinate} [anchor] Anchor coordinate in the user projection.
  * @param {number} [duration] Duration.
  */
-export function zoomByDelta(view: import("../View.js").default, delta: number, anchor?: import("../coordinate.js").Coordinate | undefined, duration?: number | undefined): void;
+export function zoomByDelta(view: import("ol/View.js").default, delta: number, anchor?: import("ol/coordinate.js").Coordinate | undefined, duration?: number | undefined): void;
 export default Interaction;
 /**
  * *
  */
-export type InteractionOnSignature<Return> = import("../Observable").OnSignature<import("../Observable").EventTypes, import("../events/Event.js").default, Return> & import("../Observable").OnSignature<import("../ObjectEventType").Types | 'change:active', import("../Object").ObjectEvent, Return> & import("../Observable").CombinedOnSignature<import("../Observable").EventTypes | import("../ObjectEventType").Types | 'change:active', Return>;
+export type InteractionOnSignature<Return> = import("ol/Observable").OnSignature<import("ol/Observable").EventTypes, import("ol/events/Event.js").default, Return> & import("ol/Observable").OnSignature<import("ol/ObjectEventType").Types | 'change:active', import("ol/Object").ObjectEvent, Return> & import("ol/Observable").CombinedOnSignature<import("ol/Observable").EventTypes | import("ol/ObjectEventType").Types | 'change:active', Return>;
 /**
  * Object literal with config options for interactions.
  */
@@ -27,7 +27,7 @@ export type InteractionOptions = {
      * prevented (this includes functions with no explicit return). The interactions
      * are traversed in reverse order of the interactions collection of the map.
      */
-    handleEvent: (arg0: import("../MapBrowserEvent.js").default<any>) => boolean;
+    handleEvent: (arg0: import("ol/MapBrowserEvent.js").default<any>) => boolean;
 };
 /***
  * @template Return
@@ -68,11 +68,11 @@ declare class Interaction extends BaseObject {
     /***
      * @type {InteractionOnSignature<import("../events").EventsKey>}
      */
-    on: InteractionOnSignature<import("../events").EventsKey>;
+    on: InteractionOnSignature<import("ol/events").EventsKey>;
     /***
      * @type {InteractionOnSignature<import("../events").EventsKey>}
      */
-    once: InteractionOnSignature<import("../events").EventsKey>;
+    once: InteractionOnSignature<import("ol/events").EventsKey>;
     /***
      * @type {InteractionOnSignature<void>}
      */
@@ -83,7 +83,7 @@ declare class Interaction extends BaseObject {
      * @return {boolean} `false` to stop event propagation.
      * @api
      */
-    handleEvent(mapBrowserEvent: import("../MapBrowserEvent.js").default<any>): boolean;
+    handleEvent(mapBrowserEvent: import("ol/MapBrowserEvent.js").default<any>): boolean;
     /**
      * @private
      * @type {import("../Map.js").default|null}
@@ -101,7 +101,7 @@ declare class Interaction extends BaseObject {
      * @return {import("../Map.js").default|null} Map.
      * @api
      */
-    getMap(): import("../Map.js").default | null;
+    getMap(): import("ol/Map.js").default | null;
     /**
      * Activate or deactivate the interaction.
      * @param {boolean} active Active.
@@ -115,7 +115,7 @@ declare class Interaction extends BaseObject {
      * the map here.
      * @param {import("../Map.js").default|null} map Map.
      */
-    setMap(map: import("../Map.js").default | null): void;
+    setMap(map: import("ol/Map.js").default | null): void;
 }
-import BaseObject from '../Object.js';
+import BaseObject from 'ol/Object.js';
 //# sourceMappingURL=Interaction.d.ts.map

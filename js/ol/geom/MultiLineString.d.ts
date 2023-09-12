@@ -13,7 +13,7 @@ declare class MultiLineString extends SimpleGeometry {
      * @param {import("./Geometry.js").GeometryLayout} [layout] Layout.
      * @param {Array<number>} [ends] Flat coordinate ends for internal use.
      */
-    constructor(coordinates: Array<Array<import("../coordinate.js").Coordinate> | LineString> | Array<number>, layout?: import("./Geometry.js").GeometryLayout | undefined, ends?: number[] | undefined);
+    constructor(coordinates: Array<Array<import("ol/coordinate.js").Coordinate> | LineString> | Array<number>, layout?: import("ol/geom/Geometry.js").GeometryLayout | undefined, ends?: number[] | undefined);
     /**
      * @type {Array<number>}
      * @private
@@ -63,13 +63,13 @@ declare class MultiLineString extends SimpleGeometry {
      * @return {import("../coordinate.js").Coordinate|null} Coordinate.
      * @api
      */
-    getCoordinateAtM(m: number, extrapolate?: boolean | undefined, interpolate?: boolean | undefined): import("../coordinate.js").Coordinate | null;
+    getCoordinateAtM(m: number, extrapolate?: boolean | undefined, interpolate?: boolean | undefined): import("ol/coordinate.js").Coordinate | null;
     /**
      * Return the coordinates of the multilinestring.
      * @return {Array<Array<import("../coordinate.js").Coordinate>>} Coordinates.
      * @api
      */
-    getCoordinates(): Array<Array<import("../coordinate.js").Coordinate>>;
+    getCoordinates(): Array<Array<import("ol/coordinate.js").Coordinate>>;
     /**
      * @return {Array<number>} Ends.
      */
@@ -103,8 +103,8 @@ declare class MultiLineString extends SimpleGeometry {
      * @param {import("./Geometry.js").GeometryLayout} [layout] Layout.
      * @api
      */
-    setCoordinates(coordinates: Array<Array<import("../coordinate.js").Coordinate>>, layout?: import("./Geometry.js").GeometryLayout | undefined): void;
+    setCoordinates(coordinates: Array<Array<import("ol/coordinate.js").Coordinate>>, layout?: import("ol/geom/Geometry.js").GeometryLayout | undefined): void;
 }
-import SimpleGeometry from './SimpleGeometry.js';
-import LineString from './LineString.js';
+import SimpleGeometry from 'ol/geom/SimpleGeometry.js';
+import LineString from 'ol/geom/LineString.js';
 //# sourceMappingURL=MultiLineString.d.ts.map

@@ -32,13 +32,13 @@ declare class RenderFeature {
      * @param {Object<string, *>} properties Properties.
      * @param {number|string|undefined} id Feature id.
      */
-    constructor(type: import("../geom/Geometry.js").Type, flatCoordinates: Array<number>, ends: Array<number> | Array<Array<number>>, properties: {
+    constructor(type: import("ol/geom/Geometry.js").Type, flatCoordinates: Array<number>, ends: Array<number> | Array<Array<number>>, properties: {
         [x: string]: any;
     }, id: number | string | undefined);
     /**
      * @type {import("../style/Style.js").StyleFunction|undefined}
      */
-    styleFunction: import("../style/Style.js").StyleFunction | undefined;
+    styleFunction: import("ol/style/Style.js").StyleFunction | undefined;
     /**
      * @private
      * @type {import("../extent.js").Extent|undefined}
@@ -91,7 +91,7 @@ declare class RenderFeature {
      * @return {import("../extent.js").Extent} Extent.
      * @api
      */
-    getExtent(): import("../extent.js").Extent;
+    getExtent(): import("ol/extent.js").Extent;
     /**
      * @return {Array<number>} Flat interior points.
      */
@@ -138,7 +138,7 @@ declare class RenderFeature {
      * @param {import("../proj.js").TransformFunction} [transform] Optional transform function.
      * @return {RenderFeature} Simplified geometry.
      */
-    simplifyTransformed(squaredTolerance: number, transform?: import("../proj.js").TransformFunction | undefined): RenderFeature;
+    simplifyTransformed(squaredTolerance: number, transform?: import("ol/proj.js").TransformFunction | undefined): RenderFeature;
     /**
      * Get the feature properties.
      * @return {Object<string, *>} Feature properties.
@@ -162,19 +162,19 @@ declare class RenderFeature {
     /**
      * @return {import('../style/Style.js').StyleFunction|undefined} Style
      */
-    getStyleFunction(): import('../style/Style.js').StyleFunction | undefined;
+    getStyleFunction(): import('ol/style/Style.js').StyleFunction | undefined;
     /**
      * Get the type of this feature's geometry.
      * @return {import("../geom/Geometry.js").Type} Geometry type.
      * @api
      */
-    getType(): import("../geom/Geometry.js").Type;
+    getType(): import("ol/geom/Geometry.js").Type;
     /**
      * Transform geometry coordinates from tile pixel space to projected.
      *
      * @param {import("../proj.js").ProjectionLike} projection The data projection
      */
-    transform(projection: import("../proj.js").ProjectionLike): void;
+    transform(projection: import("ol/proj.js").ProjectionLike): void;
     /**
      * @return {Array<number>|Array<Array<number>>} Ends or endss.
      */
@@ -185,11 +185,11 @@ declare class RenderFeature {
      */
     getFlatCoordinates: () => Array<number>;
 }
-import { Point } from '../geom.js';
-import { MultiPoint } from '../geom.js';
-import { LineString } from '../geom.js';
-import { MultiLineString } from '../geom.js';
-import { Polygon } from '../geom.js';
-import { MultiPolygon } from '../geom.js';
-import Feature from '../Feature.js';
+import { Point } from 'ol/geom.js';
+import { MultiPoint } from 'ol/geom.js';
+import { LineString } from 'ol/geom.js';
+import { MultiLineString } from 'ol/geom.js';
+import { Polygon } from 'ol/geom.js';
+import { MultiPolygon } from 'ol/geom.js';
+import Feature from 'ol/Feature.js';
 //# sourceMappingURL=Feature.d.ts.map

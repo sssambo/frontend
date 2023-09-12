@@ -35,7 +35,7 @@
  * @param {boolean} [once] If true, add the listener as one-off listener.
  * @return {EventsKey} Unique key for the listener.
  */
-export function listen(target: import("./events/Target.js").EventTargetLike, type: string, listener: ListenerFunction, thisArg?: any, once?: boolean | undefined): EventsKey;
+export function listen(target: import("ol/events/Target.js").EventTargetLike, type: string, listener: ListenerFunction, thisArg?: any, once?: boolean | undefined): EventsKey;
 /**
  * Registers a one-off event listener on an event target. Inspired by
  * https://google.github.io/closure-library/api/source/closure/goog/events/events.js.src.html
@@ -56,7 +56,7 @@ export function listen(target: import("./events/Target.js").EventTargetLike, typ
  *     listener. Default is the `target`.
  * @return {EventsKey} Key for unlistenByKey.
  */
-export function listenOnce(target: import("./events/Target.js").EventTargetLike, type: string, listener: ListenerFunction, thisArg?: any): EventsKey;
+export function listenOnce(target: import("ol/events/Target.js").EventTargetLike, type: string, listener: ListenerFunction, thisArg?: any): EventsKey;
 /**
  * Unregisters event listeners on an event target. Inspired by
  * https://google.github.io/closure-library/api/source/closure/goog/events/events.js.src.html
@@ -78,7 +78,7 @@ export type EventsKey = {
     /**
      * Target.
      */
-    target: import("./events/Target.js").EventTargetLike;
+    target: import("ol/events/Target.js").EventTargetLike;
     /**
      * Type.
      */
@@ -88,7 +88,7 @@ export type EventsKey = {
  * Listener function. This function is called with an event object as argument.
  * When the function returns `false`, event propagation will stop.
  */
-export type ListenerFunction = (arg0: (Event | import("./events/Event.js").default)) => (void | boolean);
+export type ListenerFunction = (arg0: (Event | import("ol/events/Event.js").default)) => (void | boolean);
 export type ListenerObject = {
     /**
      * HandleEvent listener function.

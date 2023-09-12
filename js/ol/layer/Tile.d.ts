@@ -11,13 +11,13 @@ export default TileLayer;
  * @extends BaseTileLayer<TileSourceType, CanvasTileLayerRenderer>
  * @api
  */
-declare class TileLayer<TileSourceType extends import("../source/Tile.js").default> extends BaseTileLayer<TileSourceType, CanvasTileLayerRenderer<TileLayer<import("../source/Tile.js").default> | import("./VectorTile.js").default>> {
+declare class TileLayer<TileSourceType extends import("ol/source/Tile.js").default> extends BaseTileLayer<TileSourceType, CanvasTileLayerRenderer<TileLayer<import("ol/source/Tile.js").default> | import("ol/layer/VectorTile.js").default>> {
     /**
      * @param {import("./BaseTile.js").Options<TileSourceType>} [options] Tile layer options.
      */
-    constructor(options?: import("./BaseTile.js").Options<TileSourceType> | undefined);
+    constructor(options?: import("ol/layer/BaseTile.js").Options<TileSourceType> | undefined);
     createRenderer(): CanvasTileLayerRenderer<this>;
 }
-import CanvasTileLayerRenderer from '../renderer/canvas/TileLayer.js';
-import BaseTileLayer from './BaseTile.js';
+import CanvasTileLayerRenderer from 'ol/renderer/canvas/TileLayer.js';
+import BaseTileLayer from 'ol/layer/BaseTile.js';
 //# sourceMappingURL=Tile.d.ts.map

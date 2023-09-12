@@ -2,6 +2,7 @@ export function homefn (){
     // Get references to login and signup buttons
 const loginBtn = document.getElementById('login-btn');
 const signupBtn = document.getElementById('signup-btn');
+const homeContainer = document.getElementById('content');
 
 // // Get references to login and signup forms
 const loginForm = document.getElementById('login-form');
@@ -80,6 +81,12 @@ function sendDataToServer(data, endpoint) {
         if (endpoint == 'login') {
             localStorage.setItem('session', JSON.stringify(dataa));
             const sessionData = JSON.parse(localStorage.getItem('session')); // Parse the stored data
+            const logged = document.createElement('div');
+            logged.id='username';
+            logged.style.color = 'red';
+            logged.style.position= 'top';
+            logged.textContent =  `Welcome User Back, ${dataa.user.name}`;
+            homeContainer.appendChild(logged);
             console.log('session token:', sessionData.token); // Access the token property
         }
     })

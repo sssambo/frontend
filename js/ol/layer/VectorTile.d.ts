@@ -2,7 +2,7 @@ export default VectorTileLayer;
 /**
  * *
  */
-export type VectorTileLayerOnSignature<Return> = import("../Observable").OnSignature<import("../Observable").EventTypes, import("../events/Event.js").default, Return> & import("../Observable").OnSignature<import("./Base").BaseLayerObjectEventTypes | import("./Layer.js").LayerEventType | 'change:preload' | 'change:useInterimTilesOnError', import("../Object").ObjectEvent, Return> & import("../Observable").OnSignature<import("../render/EventType").LayerRenderEventTypes, import("../render/Event").default, Return> & import("../Observable").CombinedOnSignature<import("../Observable").EventTypes | import("./Base").BaseLayerObjectEventTypes | import("./Layer.js").LayerEventType | 'change:preload' | 'change:useInterimTilesOnError' | import("../render/EventType").LayerRenderEventTypes, Return>;
+export type VectorTileLayerOnSignature<Return> = import("ol/Observable").OnSignature<import("ol/Observable").EventTypes, import("ol/events/Event.js").default, Return> & import("ol/Observable").OnSignature<import("ol/layer/Base").BaseLayerObjectEventTypes | import("ol/layer/Layer.js").LayerEventType | 'change:preload' | 'change:useInterimTilesOnError', import("ol/Object").ObjectEvent, Return> & import("ol/Observable").OnSignature<import("ol/render/EventType").LayerRenderEventTypes, import("ol/render/Event").default, Return> & import("ol/Observable").CombinedOnSignature<import("ol/Observable").EventTypes | import("ol/layer/Base").BaseLayerObjectEventTypes | import("ol/layer/Layer.js").LayerEventType | 'change:preload' | 'change:useInterimTilesOnError' | import("ol/render/EventType").LayerRenderEventTypes, Return>;
 export type VectorTileRenderType = 'hybrid' | 'vector';
 export type Options = {
     /**
@@ -21,7 +21,7 @@ export type Options = {
      * The bounding extent for layer rendering.  The layer will not be
      * rendered outside of this extent.
      */
-    extent?: import("../extent.js").Extent | undefined;
+    extent?: import("ol/extent.js").Extent | undefined;
     /**
      * The z-index for layer rendering.  At rendering time, the layers
      * will be ordered, first by Z-index and then by position. When `undefined`, a `zIndex` of 0 is assumed
@@ -54,7 +54,7 @@ export type Options = {
      * features before rendering. By default features are drawn in the order that they are created. Use
      * `null` to avoid the sort, but get an undefined draw order.
      */
-    renderOrder?: import("../render.js").OrderFunction | undefined;
+    renderOrder?: import("ol/render.js").OrderFunction | undefined;
     /**
      * The buffer in pixels around the tile extent used by the
      * renderer when getting features from the vector tile for the rendering or hit-detection.
@@ -76,14 +76,14 @@ export type Options = {
     /**
      * Source.
      */
-    source?: import("../source/VectorTile.js").default | undefined;
+    source?: import("ol/source/VectorTile.js").default | undefined;
     /**
      * Sets the layer as overlay on a map. The map will not manage
      * this layer in its layers collection, and the layer will be rendered on top. This is useful for
      * temporary layers. The standard way to add a layer to a map and have it managed by the map is to
      * use [map.addLayer()]{@link import ("../Map.js").default#addLayer}.
      */
-    map?: import("../Map.js").default | undefined;
+    map?: import("ol/Map.js").default | undefined;
     /**
      * Declutter images and text. Decluttering is applied to all
      * image and text styles of all Vector and VectorTile layers that have set this to `true`. The priority
@@ -102,12 +102,12 @@ export type Options = {
      * features that have their own style will be rendered. See {@link module :ol/style/Style~Style} for the default style
      * which will be used if this is not set.
      */
-    style?: import("../style/Style.js").StyleLike | null | undefined;
+    style?: import("ol/style/Style.js").StyleLike | null | undefined;
     /**
      * Background color for the layer. If not specified, no
      * background will be rendered.
      */
-    background?: false | import("./Base").BackgroundColor | undefined;
+    background?: false | import("ol/layer/Base").BackgroundColor | undefined;
     /**
      * When set to `true`, feature batches will be
      * recreated during animations. This means that no vectors will be shown clipped, but the setting
@@ -224,7 +224,7 @@ export type Options = {
  * @extends {BaseVectorLayer<import("../source/VectorTile.js").default, CanvasVectorTileLayerRenderer>}
  * @api
  */
-declare class VectorTileLayer extends BaseVectorLayer<import("../source/VectorTile.js").default, CanvasVectorTileLayerRenderer> {
+declare class VectorTileLayer extends BaseVectorLayer<import("ol/source/VectorTile.js").default, CanvasVectorTileLayerRenderer> {
     /**
      * @param {Options} [options] Options.
      */
@@ -232,11 +232,11 @@ declare class VectorTileLayer extends BaseVectorLayer<import("../source/VectorTi
     /***
      * @type {VectorTileLayerOnSignature<import("../events").EventsKey>}
      */
-    on: VectorTileLayerOnSignature<import("../events").EventsKey>;
+    on: VectorTileLayerOnSignature<import("ol/events").EventsKey>;
     /***
      * @type {VectorTileLayerOnSignature<import("../events").EventsKey>}
      */
-    once: VectorTileLayerOnSignature<import("../events").EventsKey>;
+    once: VectorTileLayerOnSignature<import("ol/events").EventsKey>;
     /***
      * @type {VectorTileLayerOnSignature<void>}
      */
@@ -279,6 +279,6 @@ declare class VectorTileLayer extends BaseVectorLayer<import("../source/VectorTi
      */
     setUseInterimTilesOnError(useInterimTilesOnError: boolean): void;
 }
-import CanvasVectorTileLayerRenderer from '../renderer/canvas/VectorTileLayer.js';
-import BaseVectorLayer from './BaseVector.js';
+import CanvasVectorTileLayerRenderer from 'ol/renderer/canvas/VectorTileLayer.js';
+import BaseVectorLayer from 'ol/layer/BaseVector.js';
 //# sourceMappingURL=VectorTile.d.ts.map

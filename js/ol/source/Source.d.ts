@@ -7,7 +7,7 @@ export type State = 'undefined' | 'loading' | 'ready' | 'error';
  * A function that takes a {@link import ("../View.js").ViewStateLayerStateExtent} and returns a string or
  * an array of strings representing source attributions.
  */
-export type Attribution = (arg0: import("../View.js").ViewStateLayerStateExtent) => (string | Array<string>);
+export type Attribution = (arg0: import("ol/View.js").ViewStateLayerStateExtent) => (string | Array<string>);
 /**
  * A type that can be used to provide attribution information for data sources.
  *
@@ -29,7 +29,7 @@ export type Options = {
     /**
      * Projection. Default is the view projection.
      */
-    projection?: import("../proj.js").ProjectionLike;
+    projection?: import("ol/proj.js").ProjectionLike;
     /**
      * State.
      */
@@ -93,7 +93,7 @@ declare class Source extends BaseObject {
      * @protected
      * @type {import("../proj/Projection.js").default|null}
      */
-    protected projection: import("../proj/Projection.js").default | null;
+    protected projection: import("ol/proj/Projection.js").default | null;
     /**
      * @private
      * @type {?Attribution}
@@ -129,7 +129,7 @@ declare class Source extends BaseObject {
      * @protected
      * @type {function(import("../View.js").ViewOptions):void}
      */
-    protected viewResolver: (arg0: import("../View.js").ViewOptions) => void;
+    protected viewResolver: (arg0: import("ol/View.js").ViewOptions) => void;
     /**
      * @protected
      * @type {function(Error):void}
@@ -156,22 +156,22 @@ declare class Source extends BaseObject {
      * @return {import("../proj/Projection.js").default|null} Projection.
      * @api
      */
-    getProjection(): import("../proj/Projection.js").default | null;
+    getProjection(): import("ol/proj/Projection.js").default | null;
     /**
      * @param {import("../proj/Projection").default} [projection] Projection.
      * @return {Array<number>|null} Resolutions.
      */
-    getResolutions(projection?: import("../proj/Projection.js").default | undefined): Array<number> | null;
+    getResolutions(projection?: import("ol/proj/Projection.js").default | undefined): Array<number> | null;
     /**
      * @return {Promise<import("../View.js").ViewOptions>} A promise for view-related properties.
      */
-    getView(): Promise<import("../View.js").ViewOptions>;
+    getView(): Promise<import("ol/View.js").ViewOptions>;
     /**
      * Get the state of the source, see {@link import("./Source.js").State} for possible states.
      * @return {import("./Source.js").State} State.
      * @api
      */
-    getState(): import("./Source.js").State;
+    getState(): import("ol/source/Source.js").State;
     /**
      * @return {boolean|undefined} Wrap X.
      */
@@ -197,7 +197,7 @@ declare class Source extends BaseObject {
      * Set the state of the source.
      * @param {import("./Source.js").State} state State.
      */
-    setState(state: import("./Source.js").State): void;
+    setState(state: import("ol/source/Source.js").State): void;
 }
-import BaseObject from '../Object.js';
+import BaseObject from 'ol/Object.js';
 //# sourceMappingURL=Source.d.ts.map

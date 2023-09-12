@@ -43,7 +43,7 @@ declare class TileRange {
      * @param {import("./tilecoord.js").TileCoord} tileCoord Tile coordinate.
      * @return {boolean} Contains tile coordinate.
      */
-    contains(tileCoord: import("./tilecoord.js").TileCoord): boolean;
+    contains(tileCoord: import("ol/tilecoord.js").TileCoord): boolean;
     /**
      * @param {TileRange} tileRange Tile range.
      * @return {boolean} Contains.
@@ -71,7 +71,7 @@ declare class TileRange {
     /**
      * @return {import("./size.js").Size} Size.
      */
-    getSize(): import("./size.js").Size;
+    getSize(): import("ol/size.js").Size;
     /**
      * @return {number} Width.
      */

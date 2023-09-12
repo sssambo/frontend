@@ -27,8 +27,8 @@ export default BaseObject;
 /**
  * *
  */
-export type ObjectOnSignature<Return> = import("./Observable").OnSignature<import("./Observable").EventTypes, import("./events/Event.js").default, Return> & import("./Observable").OnSignature<import("./ObjectEventType").Types, ObjectEvent, Return> & import("./Observable").CombinedOnSignature<import("./Observable").EventTypes | import("./ObjectEventType").Types, Return>;
-import Event from './events/Event.js';
+export type ObjectOnSignature<Return> = import("ol/Observable").OnSignature<import("ol/Observable").EventTypes, import("ol/events/Event.js").default, Return> & import("ol/Observable").OnSignature<import("ol/ObjectEventType").Types, ObjectEvent, Return> & import("ol/Observable").CombinedOnSignature<import("ol/Observable").EventTypes | import("ol/ObjectEventType").Types, Return>;
+import Event from 'ol/events/Event.js';
 /***
  * @template Return
  * @typedef {import("./Observable").OnSignature<import("./Observable").EventTypes, import("./events/Event.js").default, Return> &
@@ -88,11 +88,11 @@ declare class BaseObject extends Observable {
     /***
      * @type {ObjectOnSignature<import("./events").EventsKey>}
      */
-    on: ObjectOnSignature<import("./events").EventsKey>;
+    on: ObjectOnSignature<import("ol/events").EventsKey>;
     /***
      * @type {ObjectOnSignature<import("./events").EventsKey>}
      */
-    once: ObjectOnSignature<import("./events").EventsKey>;
+    once: ObjectOnSignature<import("ol/events").EventsKey>;
     /***
      * @type {ObjectOnSignature<void>}
      */
@@ -143,12 +143,12 @@ declare class BaseObject extends Observable {
      * @param {string} key Key name.
      * @param {import("./events.js").Listener} listener Listener.
      */
-    addChangeListener(key: string, listener: import("./events.js").Listener): void;
+    addChangeListener(key: string, listener: import("ol/events.js").Listener): void;
     /**
      * @param {string} key Key name.
      * @param {import("./events.js").Listener} listener Listener.
      */
-    removeChangeListener(key: string, listener: import("./events.js").Listener): void;
+    removeChangeListener(key: string, listener: import("ol/events.js").Listener): void;
     /**
      * Sets a value.
      * @param {string} key Key name.
@@ -181,5 +181,5 @@ declare class BaseObject extends Observable {
      */
     unset(key: string, silent?: boolean | undefined): void;
 }
-import Observable from './Observable.js';
+import Observable from 'ol/Observable.js';
 //# sourceMappingURL=Object.d.ts.map

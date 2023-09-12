@@ -28,7 +28,7 @@ export default Collection;
 /**
  * *
  */
-export type CollectionOnSignature<T, Return> = import("./Observable").OnSignature<import("./Observable").EventTypes, import("./events/Event.js").default, Return> & import("./Observable").OnSignature<import("./ObjectEventType").Types | 'change:length', import("./Object").ObjectEvent, Return> & import("./Observable").OnSignature<'add' | 'remove', CollectionEvent<T>, Return> & import("./Observable").CombinedOnSignature<import("./Observable").EventTypes | import("./ObjectEventType").Types | 'change:length' | 'add' | 'remove', Return>;
+export type CollectionOnSignature<T, Return> = import("ol/Observable").OnSignature<import("ol/Observable").EventTypes, import("ol/events/Event.js").default, Return> & import("ol/Observable").OnSignature<import("ol/ObjectEventType").Types | 'change:length', import("ol/Object").ObjectEvent, Return> & import("ol/Observable").OnSignature<'add' | 'remove', CollectionEvent<T>, Return> & import("ol/Observable").CombinedOnSignature<import("ol/Observable").EventTypes | import("ol/ObjectEventType").Types | 'change:length' | 'add' | 'remove', Return>;
 export type Options = {
     /**
      * Disallow the same item from being added to
@@ -36,7 +36,7 @@ export type Options = {
      */
     unique?: boolean | undefined;
 };
-import Event from './events/Event.js';
+import Event from 'ol/events/Event.js';
 /***
  * @template T
  * @template Return
@@ -73,11 +73,11 @@ declare class Collection<T> extends BaseObject {
     /***
      * @type {CollectionOnSignature<T, import("./events").EventsKey>}
      */
-    on: CollectionOnSignature<T, import("./events").EventsKey>;
+    on: CollectionOnSignature<T, import("ol/events").EventsKey>;
     /***
      * @type {CollectionOnSignature<T, import("./events").EventsKey>}
      */
-    once: CollectionOnSignature<T, import("./events").EventsKey>;
+    once: CollectionOnSignature<T, import("ol/events").EventsKey>;
     /***
      * @type {CollectionOnSignature<T, void>}
      */
@@ -190,5 +190,5 @@ declare class Collection<T> extends BaseObject {
      */
     private assertUnique_;
 }
-import BaseObject from './Object.js';
+import BaseObject from 'ol/Object.js';
 //# sourceMappingURL=Collection.d.ts.map

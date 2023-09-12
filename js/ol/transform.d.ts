@@ -45,7 +45,7 @@ export function setFromArray(transform1: number[], transform2: number[]): number
  * @return {import("./coordinate.js").Coordinate|import("./pixel.js").Pixel} return coordinate so that operations can be
  *     chained together.
  */
-export function apply(transform: number[], coordinate: import("./coordinate.js").Coordinate | import("./pixel.js").Pixel): import("./coordinate.js").Coordinate | import("./pixel.js").Pixel;
+export function apply(transform: number[], coordinate: import("ol/coordinate.js").Coordinate | import("ol/pixel.js").Pixel): import("ol/coordinate.js").Coordinate | import("ol/pixel.js").Pixel;
 /**
  * Applies rotation to the given transform.
  * @param {!Transform} transform Transform.

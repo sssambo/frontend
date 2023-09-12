@@ -8,7 +8,7 @@ export default CanvasLayerRenderer;
  * @template {import("../../layer/Layer.js").default} LayerType
  * @extends {LayerRenderer<LayerType>}
  */
-declare class CanvasLayerRenderer<LayerType extends import("../../layer/Layer.js").default<import("../../source/Source.js").default, LayerRenderer<any>>> extends LayerRenderer<LayerType> {
+declare class CanvasLayerRenderer<LayerType extends import("ol/layer/Layer.js").default<import("ol/source/Source.js").default, LayerRenderer<any>>> extends LayerRenderer<LayerType> {
     /**
      * @protected
      * @type {HTMLElement}
@@ -25,21 +25,21 @@ declare class CanvasLayerRenderer<LayerType extends import("../../layer/Layer.js
      * @protected
      * @type {import("../../transform.js").Transform}
      */
-    protected tempTransform: import("../../transform.js").Transform;
+    protected tempTransform: import("ol/transform.js").Transform;
     /**
      * The transform for rendered pixels to viewport CSS pixels.  This transform must
      * be set when rendering a frame and may be used by other functions after rendering.
      * @protected
      * @type {import("../../transform.js").Transform}
      */
-    protected pixelTransform: import("../../transform.js").Transform;
+    protected pixelTransform: import("ol/transform.js").Transform;
     /**
      * The transform for viewport CSS pixels to rendered pixels.  This transform must
      * be set when rendering a frame and may be used by other functions after rendering.
      * @protected
      * @type {import("../../transform.js").Transform}
      */
-    protected inversePixelTransform: import("../../transform.js").Transform;
+    protected inversePixelTransform: import("ol/transform.js").Transform;
     /**
      * @type {CanvasRenderingContext2D}
      */
@@ -57,19 +57,19 @@ declare class CanvasLayerRenderer<LayerType extends import("../../layer/Layer.js
      * @protected
      * @type {import("../../Map.js").FrameState|null}
      */
-    protected frameState: import("../../Map.js").FrameState | null;
+    protected frameState: import("ol/Map.js").FrameState | null;
     /**
      * @param {import('../../DataTile.js').ImageLike} image Image.
      * @param {number} col The column index.
      * @param {number} row The row index.
      * @return {Uint8ClampedArray|null} The image data.
      */
-    getImageData(image: import('../../DataTile.js').ImageLike, col: number, row: number): Uint8ClampedArray | null;
+    getImageData(image: import('ol/DataTile.js').ImageLike, col: number, row: number): Uint8ClampedArray | null;
     /**
      * @param {import('../../Map.js').FrameState} frameState Frame state.
      * @return {string} Background color.
      */
-    getBackground(frameState: import('../../Map.js').FrameState): string;
+    getBackground(frameState: import('ol/Map.js').FrameState): string;
     /**
      * Get a rendering container from an existing target, if compatible.
      * @param {HTMLElement} target Potential render target.
@@ -83,7 +83,7 @@ declare class CanvasLayerRenderer<LayerType extends import("../../layer/Layer.js
      * @param {import("../../extent.js").Extent} extent Clip extent.
      * @protected
      */
-    protected clipUnrotated(context: CanvasRenderingContext2D, frameState: import("../../Map.js").FrameState, extent: import("../../extent.js").Extent): void;
+    protected clipUnrotated(context: CanvasRenderingContext2D, frameState: import("ol/Map.js").FrameState, extent: import("ol/extent.js").Extent): void;
     /**
      * @param {import("../../render/EventType.js").default} type Event type.
      * @param {CanvasRenderingContext2D} context Context.
@@ -96,13 +96,13 @@ declare class CanvasLayerRenderer<LayerType extends import("../../layer/Layer.js
      * @param {import("../../Map.js").FrameState} frameState Frame state.
      * @protected
      */
-    protected preRender(context: CanvasRenderingContext2D, frameState: import("../../Map.js").FrameState): void;
+    protected preRender(context: CanvasRenderingContext2D, frameState: import("ol/Map.js").FrameState): void;
     /**
      * @param {CanvasRenderingContext2D} context Context.
      * @param {import("../../Map.js").FrameState} frameState Frame state.
      * @protected
      */
-    protected postRender(context: CanvasRenderingContext2D, frameState: import("../../Map.js").FrameState): void;
+    protected postRender(context: CanvasRenderingContext2D, frameState: import("ol/Map.js").FrameState): void;
     /**
      * Creates a transform for rendering to an element that will be rotated after rendering.
      * @param {import("../../coordinate.js").Coordinate} center Center.
@@ -115,7 +115,7 @@ declare class CanvasLayerRenderer<LayerType extends import("../../layer/Layer.js
      * @protected
      * @return {!import("../../transform.js").Transform} Transform.
      */
-    protected getRenderTransform(center: import("../../coordinate.js").Coordinate, resolution: number, rotation: number, pixelRatio: number, width: number, height: number, offsetX: number): import("../../transform.js").Transform;
+    protected getRenderTransform(center: import("ol/coordinate.js").Coordinate, resolution: number, rotation: number, pixelRatio: number, width: number, height: number, offsetX: number): import("ol/transform.js").Transform;
 }
-import LayerRenderer from '../Layer.js';
+import LayerRenderer from 'ol/renderer/Layer.js';
 //# sourceMappingURL=Layer.d.ts.map

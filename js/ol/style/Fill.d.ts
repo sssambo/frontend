@@ -5,7 +5,7 @@ export type Options = {
      * See {@link module :ol/color~Color} and {@link module :ol/colorlike~ColorLike} for possible formats.
      * Default null; if null, the Canvas/renderer default black will be used.
      */
-    color?: import("../color.js").Color | import("../colorlike.js").ColorLike | null | undefined;
+    color?: import("ol/color.js").Color | import("ol/colorlike.js").ColorLike | null | undefined;
 };
 /**
  * @module ol/style/Fill
@@ -42,13 +42,13 @@ declare class Fill {
      * @return {import("../color.js").Color|import("../colorlike.js").ColorLike|null} Color.
      * @api
      */
-    getColor(): import("../color.js").Color | import("../colorlike.js").ColorLike | null;
+    getColor(): import("ol/color.js").Color | import("ol/colorlike.js").ColorLike | null;
     /**
      * Set the color.
      *
      * @param {import("../color.js").Color|import("../colorlike.js").ColorLike|null} color Color.
      * @api
      */
-    setColor(color: import("../color.js").Color | import("../colorlike.js").ColorLike | null): void;
+    setColor(color: import("ol/color.js").Color | import("ol/colorlike.js").ColorLike | null): void;
 }
 //# sourceMappingURL=Fill.d.ts.map

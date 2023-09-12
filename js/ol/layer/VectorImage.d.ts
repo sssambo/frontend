@@ -1,5 +1,5 @@
 export default VectorImageLayer;
-export type Options<VectorSourceType extends import("../source/Vector.js").default<import("../geom/Geometry.js").default>> = {
+export type Options<VectorSourceType extends import("ol/source/Vector.js").default<import("ol/geom/Geometry.js").default>> = {
     /**
      * A CSS class name to set to the layer element.
      */
@@ -16,7 +16,7 @@ export type Options<VectorSourceType extends import("../source/Vector.js").defau
      * The bounding extent for layer rendering.  The layer will not be
      * rendered outside of this extent.
      */
-    extent?: import("../extent.js").Extent | undefined;
+    extent?: import("ol/extent.js").Extent | undefined;
     /**
      * The z-index for layer rendering.  At rendering time, the layers
      * will be ordered, first by Z-index and then by position. When `undefined`, a `zIndex` of 0 is assumed
@@ -49,7 +49,7 @@ export type Options<VectorSourceType extends import("../source/Vector.js").defau
      * features before rendering. By default features are drawn in the order that they are created. Use
      * `null` to avoid the sort, but get an undefined draw order.
      */
-    renderOrder?: import("../render.js").OrderFunction | undefined;
+    renderOrder?: import("ol/render.js").OrderFunction | undefined;
     /**
      * The buffer in pixels around the viewport extent used by the
      * renderer when getting features from the vector source for the rendering or hit-detection.
@@ -66,7 +66,7 @@ export type Options<VectorSourceType extends import("../source/Vector.js").defau
      * temporary layers. The standard way to add a layer to a map and have it managed by the map is to
      * use [map.addLayer()]{@link import ("../Map.js").default#addLayer}.
      */
-    map?: import("../Map.js").default | undefined;
+    map?: import("ol/Map.js").default | undefined;
     /**
      * Declutter images and text on this layer. The priority is defined
      * by the `zIndex` of the style and the render order of features. Higher z-index means higher priority.
@@ -78,7 +78,7 @@ export type Options<VectorSourceType extends import("../source/Vector.js").defau
      * features that have their own style will be rendered. See {@link module :ol/style/Style~Style} for the default style
      * which will be used if this is not set.
      */
-    style?: import("../style/Style.js").StyleLike | null | undefined;
+    style?: import("ol/style/Style.js").StyleLike | null | undefined;
     /**
      * Ratio by which the rendered extent should be larger than the
      * viewport extent. A larger ratio avoids cut images during panning, but will cause a decrease in performance.
@@ -147,7 +147,7 @@ export type Options<VectorSourceType extends import("../source/Vector.js").defau
  * @extends {BaseVectorLayer<VectorSourceType, CanvasVectorImageLayerRenderer>}
  * @api
  */
-declare class VectorImageLayer<VectorSourceType extends import("../source/Vector.js").default<import("../geom/Geometry.js").default>> extends BaseVectorLayer<VectorSourceType, CanvasVectorImageLayerRenderer> {
+declare class VectorImageLayer<VectorSourceType extends import("ol/source/Vector.js").default<import("ol/geom/Geometry.js").default>> extends BaseVectorLayer<VectorSourceType, CanvasVectorImageLayerRenderer> {
     /**
      * @param {Options<VectorSourceType>} [options] Options.
      */
@@ -162,6 +162,6 @@ declare class VectorImageLayer<VectorSourceType extends import("../source/Vector
      */
     getImageRatio(): number;
 }
-import CanvasVectorImageLayerRenderer from '../renderer/canvas/VectorImageLayer.js';
-import BaseVectorLayer from './BaseVector.js';
+import CanvasVectorImageLayerRenderer from 'ol/renderer/canvas/VectorImageLayer.js';
+import BaseVectorLayer from 'ol/layer/BaseVector.js';
 //# sourceMappingURL=VectorImage.d.ts.map

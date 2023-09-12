@@ -13,7 +13,7 @@ declare class Circle extends SimpleGeometry {
      * @param {number} [radius] Radius in units of the projection.
      * @param {import("./Geometry.js").GeometryLayout} [layout] Layout.
      */
-    constructor(center: import("../coordinate.js").Coordinate, radius?: number | undefined, layout?: import("./Geometry.js").GeometryLayout | undefined);
+    constructor(center: import("ol/coordinate.js").Coordinate, radius?: number | undefined, layout?: import("ol/geom/Geometry.js").GeometryLayout | undefined);
     /**
      * Make a complete copy of the geometry.
      * @return {!Circle} Clone.
@@ -25,7 +25,7 @@ declare class Circle extends SimpleGeometry {
      * @return {import("../coordinate.js").Coordinate} Center.
      * @api
      */
-    getCenter(): import("../coordinate.js").Coordinate;
+    getCenter(): import("ol/coordinate.js").Coordinate;
     /**
      * Return the radius of the circle.
      * @return {number} Radius.
@@ -42,7 +42,7 @@ declare class Circle extends SimpleGeometry {
      * @param {import("../coordinate.js").Coordinate} center Center.
      * @api
      */
-    setCenter(center: import("../coordinate.js").Coordinate): void;
+    setCenter(center: import("ol/coordinate.js").Coordinate): void;
     /**
      * Set the center (as {@link module:ol/coordinate~Coordinate coordinate}) and the radius (as
      * number) of the circle.
@@ -51,7 +51,7 @@ declare class Circle extends SimpleGeometry {
      * @param {import("./Geometry.js").GeometryLayout} [layout] Layout.
      * @api
      */
-    setCenterAndRadius(center: import("../coordinate.js").Coordinate, radius: number, layout?: import("./Geometry.js").GeometryLayout | undefined): void;
+    setCenterAndRadius(center: import("ol/coordinate.js").Coordinate, radius: number, layout?: import("ol/geom/Geometry.js").GeometryLayout | undefined): void;
     getCoordinates(): null;
     setCoordinates(coordinates: any, layout: any): void;
     /**
@@ -61,5 +61,5 @@ declare class Circle extends SimpleGeometry {
      */
     setRadius(radius: number): void;
 }
-import SimpleGeometry from './SimpleGeometry.js';
+import SimpleGeometry from 'ol/geom/SimpleGeometry.js';
 //# sourceMappingURL=Circle.d.ts.map

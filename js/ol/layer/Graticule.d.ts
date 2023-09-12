@@ -26,7 +26,7 @@ export type Options = {
      * The bounding extent for layer rendering.  The layer will not be
      * rendered outside of this extent.
      */
-    extent?: import("../extent.js").Extent | undefined;
+    extent?: import("ol/extent.js").Extent | undefined;
     /**
      * The z-index for layer rendering.  At rendering time, the layers
      * will be ordered, first by Z-index and then by position. When `undefined`, a `zIndex` of 0 is assumed
@@ -277,7 +277,7 @@ export type Options = {
  * @extends {VectorLayer<import("../source/Vector.js").default>}
  * @api
  */
-declare class Graticule extends VectorLayer<VectorSource<import("../geom/Geometry.js").default>> {
+declare class Graticule extends VectorLayer<VectorSource<import("ol/geom/Geometry.js").default>> {
     /**
      * @param {Options} [options] Options.
      */
@@ -285,7 +285,7 @@ declare class Graticule extends VectorLayer<VectorSource<import("../geom/Geometr
     /**
      * @type {import("../proj/Projection.js").default}
      */
-    projection_: import("../proj/Projection.js").default;
+    projection_: import("ol/proj/Projection.js").default;
     /**
      * @type {number}
      * @private
@@ -480,14 +480,14 @@ declare class Graticule extends VectorLayer<VectorSource<import("../geom/Geometr
      * @param {number} resolution Resolution.
      * @return {Array<import("../extent.js").Extent>} Extents.
      */
-    strategyFunction(extent: import("../extent.js").Extent, resolution: number): Array<import("../extent.js").Extent>;
+    strategyFunction(extent: import("ol/extent.js").Extent, resolution: number): Array<import("ol/extent.js").Extent>;
     /**
      * Update geometries in the source based on current view
      * @param {import("../extent").Extent} extent Extent
      * @param {number} resolution Resolution
      * @param {import("../proj/Projection.js").default} projection Projection
      */
-    loaderFunction(extent: import("../extent").Extent, resolution: number, projection: import("../proj/Projection.js").default): void;
+    loaderFunction(extent: import("ol/extent").Extent, resolution: number, projection: import("ol/proj/Projection.js").default): void;
     /**
      * @param {number} lon Longitude.
      * @param {number} minLat Minimal latitude.
@@ -583,10 +583,10 @@ declare class Graticule extends VectorLayer<VectorSource<import("../geom/Geometr
      */
     private updateProjectionInfo_;
 }
-import Point from '../geom/Point.js';
-import Stroke from '../style/Stroke.js';
-import Text from '../style/Text.js';
-import VectorSource from '../source/Vector.js';
-import VectorLayer from './Vector.js';
-import LineString from '../geom/LineString.js';
+import Point from 'ol/geom/Point.js';
+import Stroke from 'ol/style/Stroke.js';
+import Text from 'ol/style/Text.js';
+import VectorSource from 'ol/source/Vector.js';
+import VectorLayer from 'ol/layer/Vector.js';
+import LineString from 'ol/geom/LineString.js';
 //# sourceMappingURL=Graticule.d.ts.map

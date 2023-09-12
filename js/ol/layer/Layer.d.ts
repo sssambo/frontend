@@ -5,15 +5,15 @@
  * @param {import("../View.js").State} viewState View state.
  * @return {boolean} The layer is visible at the given view state.
  */
-export function inView(layerState: State, viewState: import("../View.js").State): boolean;
+export function inView(layerState: State, viewState: import("ol/View.js").State): boolean;
 export default Layer;
-export type RenderFunction = (arg0: import("../Map.js").FrameState) => HTMLElement;
+export type RenderFunction = (arg0: import("ol/Map.js").FrameState) => HTMLElement;
 export type LayerEventType = 'sourceready' | 'change:source';
 /**
  * *
  */
-export type LayerOnSignature<Return> = import("../Observable").OnSignature<import("../Observable").EventTypes, import("../events/Event.js").default, Return> & import("../Observable").OnSignature<import("./Base").BaseLayerObjectEventTypes | LayerEventType, import("../Object").ObjectEvent, Return> & import("../Observable").OnSignature<import("../render/EventType").LayerRenderEventTypes, import("../render/Event").default, Return> & import("../Observable").CombinedOnSignature<import("../Observable").EventTypes | import("./Base").BaseLayerObjectEventTypes | LayerEventType | import("../render/EventType").LayerRenderEventTypes, Return>;
-export type Options<SourceType extends import("../source/Source.js").default = import("../source/Source.js").default> = {
+export type LayerOnSignature<Return> = import("ol/Observable").OnSignature<import("ol/Observable").EventTypes, import("ol/events/Event.js").default, Return> & import("ol/Observable").OnSignature<import("ol/layer/Base").BaseLayerObjectEventTypes | LayerEventType, import("ol/Object").ObjectEvent, Return> & import("ol/Observable").OnSignature<import("ol/render/EventType").LayerRenderEventTypes, import("ol/render/Event").default, Return> & import("ol/Observable").CombinedOnSignature<import("ol/Observable").EventTypes | import("ol/layer/Base").BaseLayerObjectEventTypes | LayerEventType | import("ol/render/EventType").LayerRenderEventTypes, Return>;
+export type Options<SourceType extends import("ol/source/Source.js").default = import("ol/source/Source.js").default> = {
     /**
      * A CSS class name to set to the layer element.
      */
@@ -30,7 +30,7 @@ export type Options<SourceType extends import("../source/Source.js").default = i
      * The bounding extent for layer rendering.  The layer will not be
      * rendered outside of this extent.
      */
-    extent?: import("../extent.js").Extent | undefined;
+    extent?: import("ol/extent.js").Extent | undefined;
     /**
      * The z-index for layer rendering.  At rendering time, the layers
      * will be ordered, first by Z-index and then by position. When `undefined`, a `zIndex` of 0 is assumed
@@ -67,7 +67,7 @@ export type Options<SourceType extends import("../source/Source.js").default = i
     /**
      * Map.
      */
-    map?: import("../Map.js").default | null | undefined;
+    map?: import("ol/Map.js").default | null | undefined;
     /**
      * Render function. Takes the frame state as input and is expected to return an
      * HTML element. Will overwrite the default rendering for the layer.
@@ -84,7 +84,7 @@ export type State = {
     /**
      * Layer.
      */
-    layer: import("./Layer.js").default;
+    layer: import("ol/layer/Layer.js").default;
     /**
      * Opacity, the value is rounded to two digits to appear after the decimal point.
      */
@@ -100,7 +100,7 @@ export type State = {
     /**
      * Extent.
      */
-    extent?: import("../extent.js").Extent | undefined;
+    extent?: import("ol/extent.js").Extent | undefined;
     /**
      * ZIndex.
      */
@@ -204,7 +204,7 @@ export type State = {
  * @template {import("../renderer/Layer.js").default} [RendererType=import("../renderer/Layer.js").default]
  * @api
  */
-declare class Layer<SourceType extends import("../source/Source.js").default = import("../source/Source.js").default, RendererType extends import("../renderer/Layer.js").default<any> = import("../renderer/Layer.js").default<any>> extends BaseLayer {
+declare class Layer<SourceType extends import("ol/source/Source.js").default = import("ol/source/Source.js").default, RendererType extends import("ol/renderer/Layer.js").default<any> = import("ol/renderer/Layer.js").default<any>> extends BaseLayer {
     /**
      * @param {Options<SourceType>} options Layer options.
      */
@@ -212,11 +212,11 @@ declare class Layer<SourceType extends import("../source/Source.js").default = i
     /***
      * @type {LayerOnSignature<import("../events").EventsKey>}
      */
-    on: LayerOnSignature<import("../events").EventsKey>;
+    on: LayerOnSignature<import("ol/events").EventsKey>;
     /***
      * @type {LayerOnSignature<import("../events").EventsKey>}
      */
-    once: LayerOnSignature<import("../events").EventsKey>;
+    once: LayerOnSignature<import("ol/events").EventsKey>;
     /***
      * @type {LayerOnSignature<void>}
      */
@@ -259,7 +259,7 @@ declare class Layer<SourceType extends import("../source/Source.js").default = i
      * for rendering its content.
      * @return {HTMLElement|null} The rendered element.
      */
-    render(frameState: import("../Map.js").FrameState | null, target: HTMLElement): HTMLElement | null;
+    render(frameState: import("ol/Map.js").FrameState | null, target: HTMLElement): HTMLElement | null;
     /**
      * Get the layer source.
      * @return {SourceType|null} The layer source (or `null` if not yet set).
@@ -284,12 +284,12 @@ declare class Layer<SourceType extends import("../source/Source.js").default = i
      * @return {Promise<Array<import("../Feature").FeatureLike>>} Promise that resolves with
      * an array of features.
      */
-    getFeatures(pixel: import("../pixel").Pixel): Promise<Array<import("../Feature").FeatureLike>>;
+    getFeatures(pixel: import("ol/pixel").Pixel): Promise<Array<import("ol/Feature").FeatureLike>>;
     /**
      * @param {import("../pixel").Pixel} pixel Pixel.
      * @return {Uint8ClampedArray|Uint8Array|Float32Array|DataView|null} Pixel data.
      */
-    getData(pixel: import("../pixel").Pixel): Uint8ClampedArray | Uint8Array | Float32Array | DataView | null;
+    getData(pixel: import("ol/pixel").Pixel): Uint8ClampedArray | Uint8Array | Float32Array | DataView | null;
     /**
      * The layer is visible on the map view, i.e. within its min/max resolution or zoom and
      * extent, not set to `visible: false`, and not inside a layer group that is set
@@ -299,7 +299,7 @@ declare class Layer<SourceType extends import("../source/Source.js").default = i
      * @return {boolean} The layer is visible in the map view.
      * @api
      */
-    isVisible(view?: View | import("../View.js").ViewStateLayerStateExtent | undefined): boolean;
+    isVisible(view?: View | import("ol/View.js").ViewStateLayerStateExtent | undefined): boolean;
     /**
      * Get the attributions of the source of this layer for the given view.
      * @param {View|import("../View.js").ViewStateLayerStateExtent} [view] View or {@link import("../Map.js").FrameState}.
@@ -307,7 +307,7 @@ declare class Layer<SourceType extends import("../source/Source.js").default = i
      * @return {Array<string>} Attributions for this layer at the given view.
      * @api
      */
-    getAttributions(view?: View | import("../View.js").ViewStateLayerStateExtent | undefined): Array<string>;
+    getAttributions(view?: View | import("ol/View.js").ViewStateLayerStateExtent | undefined): Array<string>;
     /**
      * Called when a layer is not visible during a map render.
      */
@@ -316,12 +316,12 @@ declare class Layer<SourceType extends import("../source/Source.js").default = i
      * For use inside the library only.
      * @param {import("../Map.js").default|null} map Map.
      */
-    setMapInternal(map: import("../Map.js").default | null): void;
+    setMapInternal(map: import("ol/Map.js").default | null): void;
     /**
      * For use inside the library only.
      * @return {import("../Map.js").default|null} Map.
      */
-    getMapInternal(): import("../Map.js").default | null;
+    getMapInternal(): import("ol/Map.js").default | null;
     /**
      * Sets the layer to be rendered on top of other layers on a map. The map will
      * not manage this layer in its layers collection. This
@@ -333,7 +333,7 @@ declare class Layer<SourceType extends import("../source/Source.js").default = i
      * @param {import("../Map.js").default|null} map Map.
      * @api
      */
-    setMap(map: import("../Map.js").default | null): void;
+    setMap(map: import("ol/Map.js").default | null): void;
     /**
      * Set the layer source.
      * @param {SourceType|null} source The layer source.
@@ -357,6 +357,6 @@ declare class Layer<SourceType extends import("../source/Source.js").default = i
      */
     protected createRenderer(): RendererType;
 }
-import BaseLayer from './Base.js';
-import View from '../View.js';
+import BaseLayer from 'ol/layer/Base.js';
+import View from 'ol/View.js';
 //# sourceMappingURL=Layer.d.ts.map
